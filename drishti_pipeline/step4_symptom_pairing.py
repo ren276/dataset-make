@@ -32,6 +32,32 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from drishti_pipeline import config
 
+SYNONYMS = {
+    "breathlessness": ["shortness of breath", "dyspnea", "trouble breathing", "gasping for air"],
+    "fatigue": ["tiredness", "exhaustion", "lethargy", "weakness"],
+    "chest tightness": ["chest pressure", "chest heaviness", "chest discomfort"],
+    "palpitations": ["racing heart", "fluttering chest", "heart pounding"],
+    "severe headache": ["splitting headache", "throbbing head", "pounding headache"],
+    "dizziness": ["lightheadedness", "faintness", "feeling woozy"],
+    "joint pain": ["arthralgia", "aching joints", "joint soreness"],
+    "abdominal pain": ["stomach ache", "belly pain", "tummy ache"],
+    "nausea": ["feeling sick", "queasiness", "stomach upset"],
+    "loss of appetite": ["poor appetite", "not hungry", "reduced eating"],
+    "sweating": ["perspiration", "diaphoresis", "sweats"],
+}
+
+# Pre-compute global pool for distractors
+GLOBAL_SYMPTOMS = []
+for entry in config.ICD_MAPPING + [config.FALLBACK_ENTRY]:
+    if "candidates" in entry:
+        for c in entry["candidates"]:
+            for s in c.get("symptom_pool", []):
+                if s not in GLOBAL_SYMPTOMS:
+                    GLOBAL_SYMPTOMS.append(s)
+    else:
+        for s in entry.get("symptom_pool", []):
+            if s not in GLOBAL_SYMPTOMS:
+                GLOBAL_SYMPTOMS.append(s)
 
 def sample_symptom(abnormal_params_str: str, patient_id: str, encounter_date: str,
                     seed_offset: int = 0) -> tuple:
@@ -43,10 +69,9 @@ def sample_symptom(abnormal_params_str: str, patient_id: str, encounter_date: st
     condition's pools.
     Returns (symptom_string, symptom_signal_strength, drug_name, drug_dosage).
     """
-    if not abnormal_params_str or abnormal_params_str == "normal":
-        return ("no symptoms", "nonspecific", "None", "None")
-
-    param_set = frozenset(p.strip() for p in abnormal_params_str.split(","))
+    param_set = frozenset()
+    if abnormal_params_str and abnormal_params_str != "normal":
+        param_set = frozenset(p.strip() for p in abnormal_params_str.split(","))
     resolved = config.resolve_condition(param_set, patient_id, encounter_date)
     pool = resolved.get("symptom_pool", [("no symptoms", "nonspecific")])
 
@@ -57,12 +82,26 @@ def sample_symptom(abnormal_params_str: str, patient_id: str, encounter_date: st
     # was already fixed above by resolve_condition, deterministically.
     r = random.Random(hash(abnormal_params_str) + seed_offset)
 
-    num_to_sample = min(3, len(pool))
+    num_to_sample = r.randint(2, min(4, len(pool)))
     # We want to sample without replacement, so use r.sample
     chosen_symptoms = r.sample(pool, num_to_sample)
-
-    symptom_strs = [c[0] for c in chosen_symptoms]
-    strengths = [c[1] for c in chosen_symptoms]
+    
+    # Inject a distractor phrase ~10% of the time
+    if r.random() < 0.10 and len(GLOBAL_SYMPTOMS) > 0:
+        distractor = r.choice(GLOBAL_SYMPTOMS)
+        if distractor not in chosen_symptoms:
+            chosen_symptoms.append(distractor)
+            r.shuffle(chosen_symptoms)
+            
+    symptom_strs = []
+    strengths = []
+    for c in chosen_symptoms:
+        s = c[0]
+        # Lexical noise (synonyms) ~20% of the time
+        if s in SYNONYMS and r.random() < 0.20:
+            s = r.choice(SYNONYMS[s])
+        symptom_strs.append(s)
+        strengths.append(c[1])
 
     # Determine highest strength
     if "strong" in strengths:

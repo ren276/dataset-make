@@ -81,13 +81,11 @@
   },
 
   "tiers": {
-    "_comment": "Rev 6: global ratios applied ONCE across the full reweighted pool by step3.run_global(), not per-Synthea-pass quotas (which caused Tier 4 to end up at 0.27% of the old dataset). Tier now spans 1-6 since glucose_high adds a 6th abnormal-param axis. target_ratio for tiers 4-6 are soft UPPER-BOUND caps, not guarantees -- measured on a real 450,998-row accumulated pool during development: 1-param=264062, 2-param=27510, 3-param=5168, 4-param=248 (~0.055%), 5-param=0, 6-param=0. 5-6 simultaneous abnormal vitals is combinatorially rare to the point of being effectively unreachable at any practical pool size, and is NOT floor-gated during accumulation -- forcing artificial abundance of it would work against the realistic/non-overfit goal of this dataset.",
-    "tier1": {"abnormal_params_count": 1, "target_ratio": 0.35},
-    "tier2": {"abnormal_params_count": 2, "target_ratio": 0.30},
-    "tier3": {"abnormal_params_count": 3, "target_ratio": 0.18},
-    "tier4": {"abnormal_params_count": 4, "target_ratio": 0.10, "note": "soft cap -- realized share will be far lower, natural rarity is the limiting factor"},
-    "tier5": {"abnormal_params_count": 5, "target_ratio": 0.05, "note": "soft cap -- realistically ~0 rows, not floor-gated"},
-    "tier6": {"abnormal_params_count": 6, "target_ratio": 0.02, "note": "soft cap -- realistically ~0 rows, not floor-gated"},
+    "_comment": "Tiers 5/6 (5-6 simultaneous abnormal vitals) occur at <0.001% in Synthea's baseline generation for ambulatory PHC visits — judged clinically implausible to synthetically inject rather than observe, so the tier scheme was collapsed to 4 to reflect only distributions that occur through genuine simulated pathways.",
+    "tier1": {"abnormal_params_count": 0, "target_ratio": 0.35},
+    "tier2": {"abnormal_params_count": 1, "target_ratio": 0.57},
+    "tier3": {"abnormal_params_count": 2, "target_ratio": 0.065},
+    "tier4": {"abnormal_params_count": "3+", "target_ratio": 0.015, "note": "High acuity ceiling -- merges >=3 abnormal params"},
     "counting_params": ["bp_systolic", "bp_diastolic", "pulse_high", "pulse_low", "bmi", "glucose_high", "spo2"],
     "excluded_from_count": ["fever_pattern"],
     "floors": {
@@ -178,7 +176,7 @@
     {"name": "spo2_observed",           "dtype": "float", "nullable": false, "unit": "%"},
     {"name": "bmi_observed",            "dtype": "float", "nullable": true,  "unit": "kg/m2"},
     {"name": "glucose_observed",        "dtype": "float", "nullable": true,  "unit": "mg/dL"},
-    {"name": "tier",                    "dtype": "int",   "nullable": false, "values": [1, 2, 3, 4, 5, 6]},
+    {"name": "tier",                    "dtype": "int",   "nullable": false, "values": [1, 2, 3, 4]},
     {"name": "abnormal_params",         "dtype": "str",   "nullable": false, "format": "comma-separated, alpha-sorted; may include fever_pattern"},
     {"name": "fever_pattern_flag",      "dtype": "bool",  "nullable": false, "note": "Synthetic epidemiological routing signal, NOT a measured vital"},
     {"name": "symptom_string",          "dtype": "str",   "nullable": false},

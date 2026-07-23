@@ -45,37 +45,20 @@ MAX_AGE = 80
 # Tier now spans 1-6 since glucose_high adds a 6th abnormal-param axis.
 # ---------------------------------------------------------------------------
 GLOBAL_TIER_TARGET_RATIOS = {
-    1: 0.35,   # exactly 1 abnormal param
-    2: 0.30,   # exactly 2
-    3: 0.18,   # exactly 3
-    4: 0.10,   # exactly 4 -- soft cap; natural pool is far smaller (~0.05%), so
-               #              build_tiers() takes ALL available rows here, not this ratio
-    5: 0.05,   # exactly 5 -- soft cap; realistically ~0 rows naturally occur, see below
-    6: 0.02,   # exactly 6 (all of bp_systolic, bp_diastolic, pulse_high|low, bmi, spo2,
-               # glucose_high) -- soft cap; realistically ~0 rows naturally occur
+    1: 0.35,    # 0 abnormal params (approx 35% of raw pool)
+    2: 0.57,    # 1 abnormal param (approx 57% of raw pool)
+    3: 0.065,   # 2 abnormal params (approx 6.5% of raw pool)
+    4: 0.015,   # 3+ abnormal params (High Acuity - approx 1.5% of raw pool)
 }
 # NOTE: these are upper-bound targets, not guarantees. build_tiers() takes
-# min(available, target) per tier, so tiers 4-6 will silently fall short of
-# their ratio and just contribute whatever naturally exists -- by design,
-# see the Tier 5/6 rarity note below. Do not "fix" a low realized tier 4-6
+# min(available, target) per tier, so tier 4 will silently fall short of
+# its ratio and just contribute whatever naturally exists -- by design,
+# to avoid fabricating unrealistic densities of severe multimorbidity. Do not "fix" a low realized tier 4
 # share by inflating GLOBAL_TIER_TARGET_RATIOS; the natural pool is the
 # limiting factor, not the target.
 MIN_GLUCOSE_HIGH_FLOOR = 500  # absolute row-count floor for glucose_high-containing rows
-
-# Tier 5/6 (5-6 simultaneous abnormal vitals) are NOT gated behind a floor.
-# Measured on a real 450,998-row accumulated pool during Rev 6 development:
-# 1-param=264062, 2-param=27510 (~9.6x rarer), 3-param=5168 (~5.3x rarer),
-# 4-param=248 (~20.8x rarer), 5-param=0, 6-param=0. The decay is steep enough
-# that a meaningful Tier 5/6 floor (the original design assumed ~800 combined)
-# would require tens of millions of accumulated rows -- hours of additional
-# Synthea generation chasing a combinatorially-rare-to-nonexistent population
-# state. This is also the clinically correct behavior to accept, not a bug to
-# work around: patients with 5-6 simultaneously deranged vitals at once are
-# genuinely rare, and fabricating artificial abundance of them would work
-# against the "realistic, not overfit" goal of this dataset. Take whatever
-# Tier 5/6 rows naturally occur (possibly zero) -- see GLOBAL_TIER_TARGET_RATIOS,
-# which already degrade gracefully to "all available" when a tier is
-# under-supplied relative to its target ratio.
+MIN_RARE_DISEASE_FLOOR = 300  # per-disease minimum row-count floor
+RARE_DISEASE_CODES = {"B54", "D50", "E05.9", "F41.0", "A92.0", "A15"}
 
 # ---------------------------------------------------------------------------
 # Demographic reweighting targets (Rev 6)
@@ -380,6 +363,11 @@ ICD_MAPPING = [
             ("multi-system distress", "strong"),
             ("chest tightness", "strong"),
             ("breathlessness", "strong"),
+            ("fatigue", "nonspecific"),
+            ("headache", "supportive"),
+            ("dizziness", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
         ],
         "prescription_pool": [("Amlodipine + Telmisartan", "10mg + 80mg"), ("Metoprolol + Amlodipine", "100mg + 10mg")],
     },
@@ -395,6 +383,10 @@ ICD_MAPPING = [
             ("breathlessness", "strong"),
             ("confusion", "supportive"),
             ("altered sensorium", "strong"),
+            ("headache", "supportive"),
+            ("dizziness", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
         ],
         "prescription_pool": [("Furosemide", "40mg"), ("Nitroglycerin", "0.4mg")],
     },
@@ -409,6 +401,10 @@ ICD_MAPPING = [
             ("fatigue", "nonspecific"),
             ("exertional dyspnoea", "supportive"),
             ("knee pain", "supportive"),
+            ("dizziness", "supportive"),
+            ("joint pain", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
         ],
         "prescription_pool": [("Telmisartan", "40mg"), ("Amlodipine", "5mg"), ("Metformin", "500mg")],
     },
@@ -423,6 +419,10 @@ ICD_MAPPING = [
             ("palpitations", "supportive"),
             ("dizziness", "supportive"),
             ("confusion", "supportive"),
+            ("headache", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Oxygen + Salbutamol", "2L/min + 100mcg"), ("Oxygen + Amlodipine", "2L/min + 5mg")],
     },
@@ -437,6 +437,10 @@ ICD_MAPPING = [
             ("snoring", "supportive"),
             ("morning headache", "supportive"),
             ("fatigue", "nonspecific"),
+            ("joint pain", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Oxygen", "2L/min"), ("CPAP", "Nightly"), ("Metformin", "500mg")],
     },
@@ -451,6 +455,9 @@ ICD_MAPPING = [
             ("severe headache", "strong"),
             ("neck stiffness", "supportive"),
             ("dizziness", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Amlodipine + Telmisartan", "10mg + 80mg"), ("Losartan", "100mg")],
     },
@@ -464,6 +471,11 @@ ICD_MAPPING = [
             ("severe breathlessness", "strong"),
             ("dizziness", "supportive"),
             ("chest tightness", "strong"),
+            ("headache", "supportive"),
+            ("palpitations", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Furosemide", "40mg"), ("Oxygen", "2L/min")],
     },
@@ -478,6 +490,10 @@ ICD_MAPPING = [
             ("fatigue", "nonspecific"),
             ("knee pain", "supportive"),
             ("exertional dyspnoea", "supportive"),
+            ("dizziness", "supportive"),
+            ("joint pain", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
         ],
         "prescription_pool": [("Amlodipine", "5mg"), ("Metformin", "500mg")],
     },
@@ -491,6 +507,11 @@ ICD_MAPPING = [
             ("severe headache", "strong"),
             ("palpitations", "strong"),
             ("chest tightness", "supportive"),
+            ("dizziness", "supportive"),
+            ("sweating", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Metoprolol", "50mg"), ("Atenolol", "25mg")],
     },
@@ -504,6 +525,11 @@ ICD_MAPPING = [
             ("breathlessness", "strong"),
             ("chest discomfort", "supportive"),
             ("fatigue", "nonspecific"),
+            ("headache", "supportive"),
+            ("dizziness", "supportive"),
+            ("palpitations", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
         ],
         "prescription_pool": [("Furosemide", "20mg"), ("Oxygen", "2L/min")],
     },
@@ -517,6 +543,11 @@ ICD_MAPPING = [
             ("headache", "supportive"),
             ("fatigue", "nonspecific"),
             ("exertional dyspnoea", "supportive"),
+            ("dizziness", "supportive"),
+            ("joint pain", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Telmisartan", "40mg"), ("Atorvastatin", "10mg")],
     },
@@ -531,6 +562,10 @@ ICD_MAPPING = [
             ("palpitations", "supportive"),
             ("high fever", "strong"),
             ("confusion", "supportive"),
+            ("fatigue", "nonspecific"),
+            ("headache", "supportive"),
+            ("abdominal pain", "supportive"),
+            ("nausea", "supportive"),
         ],
         "prescription_pool": [("Oxygen", "2L/min"), ("Paracetamol", "650mg"), ("Salbutamol", "100mcg")],
     },
@@ -544,6 +579,11 @@ ICD_MAPPING = [
             ("breathlessness", "strong"),
             ("snoring", "supportive"),
             ("morning headache", "supportive"),
+            ("fatigue", "nonspecific"),
+            ("joint pain", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Oxygen", "2L/min"), ("CPAP", "Nightly")],
     },
@@ -557,6 +597,9 @@ ICD_MAPPING = [
             ("fatigue", "nonspecific"),
             ("snoring", "supportive"),
             ("morning headache", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Metformin", "500mg"), ("Metoprolol", "25mg")],
     },
@@ -570,6 +613,9 @@ ICD_MAPPING = [
         "symptom_pool": [
             ("palpitations", "strong"),
             ("dizziness", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Amiodarone", "200mg"), ("None", "None")],
     },
@@ -591,7 +637,10 @@ ICD_MAPPING = [
                     ("blurred vision", "supportive"),
                     ("epistaxis", "supportive"),
                     ("no symptoms", "nonspecific"),
-                ],
+            ("nausea", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+        ],
                 "prescription_pool": [("Amlodipine", "5mg"), ("Telmisartan", "40mg"), ("Losartan", "50mg")],
             },
             {
@@ -599,7 +648,10 @@ ICD_MAPPING = [
                 "symptom_pool": [
                     ("no symptoms", "nonspecific"),
                     ("mild anxiety", "nonspecific"),
-                ],
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
+        ],
                 "prescription_pool": [("Lifestyle Modification", "Diet/Exercise")],
             },
             {
@@ -610,7 +662,11 @@ ICD_MAPPING = [
                     ("photophobia", "strong"),
                     ("nausea", "supportive"),
                     ("visual aura", "supportive"),
-                ],
+            ("dizziness", "supportive"),
+            ("sweating", "supportive"),
+            ("palpitations", "supportive"),
+            ("general weakness", "nonspecific"),
+        ],
                 "prescription_pool": [("Rizatriptan", "10mg"), ("Paracetamol", "650mg")],
             },
         ],
@@ -626,6 +682,10 @@ ICD_MAPPING = [
             ("fatigue", "nonspecific"),
             ("chest discomfort", "supportive"),
             ("no symptoms", "nonspecific"),
+            ("dizziness", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Telmisartan", "40mg"), ("Losartan", "50mg")],
     },
@@ -640,6 +700,9 @@ ICD_MAPPING = [
             ("cyanosis", "strong"),
             ("confusion", "supportive"),
             ("fatigue", "nonspecific"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Oxygen", "2L/min"), ("Salbutamol", "100mcg")],
     },
@@ -657,7 +720,10 @@ ICD_MAPPING = [
                     ("joint pain", "supportive"),
                     ("exertional dyspnoea", "supportive"),
                     ("no symptoms", "nonspecific"),
-                ],
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
+        ],
                 "prescription_pool": [("Metformin", "500mg"), ("Atorvastatin", "10mg"), ("Lifestyle Modification", "Diet/Exercise")],
             },
             {
@@ -668,7 +734,11 @@ ICD_MAPPING = [
                     ("morning stiffness under 30 minutes", "supportive"),
                     ("joint swelling", "supportive"),
                     ("reduced mobility", "supportive"),
-                ],
+            ("joint pain", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
+        ],
                 "prescription_pool": [("Paracetamol", "650mg"), ("Diclofenac Gel", "Topical"), ("Physiotherapy Referral", "N/A")],
             },
         ],
@@ -684,45 +754,32 @@ ICD_MAPPING = [
         "icd_block": "I47-I49",
         "candidates": [
             {
-                "weight": 0.45, "condition_tag": "sinus_tachycardia", "icd_candidate": None,
+                "weight": 0.95, "condition_tag": "sinus_tachycardia", "icd_candidate": None,
                 "symptom_pool": [
                     ("palpitations", "strong"),
                     ("fatigue", "nonspecific"),
                     ("no symptoms", "nonspecific"),
-                ],
+            ("loss of appetite", "nonspecific"),
+            ("muscle ache", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
+        ],
                 "prescription_pool": [("Propranolol", "10mg"), ("Metoprolol", "25mg")],
             },
             {
-                "weight": 0.20, "condition_tag": "anxiety_panic_disorder",
-                "icd_chapter": "Mental and behavioural disorders", "icd_block": "F40-F48", "icd_candidate": "F41.0",
-                "symptom_pool": [
-                    ("palpitations", "strong"),
-                    ("sense of impending doom", "strong"),
-                    ("sweating", "supportive"),
-                    ("chest tightness", "supportive"),
-                ],
-                "prescription_pool": [("Escitalopram", "5mg"), ("Propranolol", "10mg"), ("Counselling Referral", "N/A")],
-            },
-            {
-                "weight": 0.20, "condition_tag": "anemia",
-                "icd_chapter": "Diseases of the blood", "icd_block": "D50-D53", "icd_candidate": "D50",
-                "symptom_pool": [
-                    ("fatigue", "strong"),
-                    ("pallor", "strong"),
-                    ("breathlessness on exertion", "supportive"),
-                    ("dizziness", "supportive"),
-                ],
-                "prescription_pool": [("Ferrous Sulphate + Folic Acid", "200mg + 5mg"), ("Iron Sucrose IV", "200mg")],
-            },
-            {
-                "weight": 0.15, "condition_tag": "hyperthyroidism",
+                "weight": 0.05, "condition_tag": "hyperthyroidism",
                 "icd_chapter": "Endocrine/metabolic", "icd_block": "E05", "icd_candidate": "E05.9",
                 "symptom_pool": [
                     ("heat intolerance", "strong"),
                     ("palpitations", "strong"),
                     ("unexplained weight loss", "supportive"),
                     ("tremors", "supportive"),
-                ],
+            ("fatigue", "nonspecific"),
+            ("sweating", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+        ],
                 "prescription_pool": [("Carbimazole", "10mg"), ("Propranolol", "20mg")],
             },
         ],
@@ -738,6 +795,9 @@ ICD_MAPPING = [
             ("syncope", "strong"),
             ("fatigue", "nonspecific"),
             ("cold extremities", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Atropine", "0.5mg"), ("None", "None")],
     },
@@ -754,6 +814,9 @@ ICD_MAPPING = [
             ("fatigue", "nonspecific"),
             ("constipation", "supportive"),
             ("dry skin", "supportive"),
+            ("joint pain", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
         ],
         "prescription_pool": [("Levothyroxine", "50mcg"), ("Levothyroxine", "100mcg")],
     },
@@ -771,6 +834,8 @@ ICD_MAPPING = [
             ("fatigue", "nonspecific"),
             ("blurred vision", "supportive"),
             ("no symptoms", "nonspecific"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
         ],
         "prescription_pool": [("Metformin", "500mg"), ("Metformin", "1000mg"), ("Glimepiride + Metformin", "1mg + 500mg")],
     },
@@ -785,6 +850,9 @@ ICD_MAPPING = [
             ("excessive thirst", "strong"),
             ("joint pain", "supportive"),
             ("exertional dyspnoea", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Metformin", "500mg"), ("Metformin", "1000mg"), ("Lifestyle Modification", "Diet/Exercise")],
     },
@@ -798,6 +866,10 @@ ICD_MAPPING = [
             ("excessive thirst", "strong"),
             ("headache", "supportive"),
             ("fatigue", "nonspecific"),
+            ("dizziness", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
         ],
         "prescription_pool": [("Metformin + Telmisartan", "500mg + 40mg"), ("Metformin + Amlodipine", "500mg + 5mg")],
     },
@@ -813,16 +885,21 @@ ICD_MAPPING = [
         "icd_block": "A00-B99",
         "candidates": [
             {
-                "weight": 0.30, "condition_tag": "nonspecific_viral_fever", "icd_candidate": None,
+                "weight": 0.20, "condition_tag": "nonspecific_viral_fever", "monsoon_weight": 0.15, "icd_candidate": None,
                 "symptom_pool": [
                     ("mild fever", "supportive"),
                     ("body ache", "supportive"),
                     ("fatigue", "nonspecific"),
-                ],
+            ("abdominal pain", "supportive"),
+            ("nausea", "supportive"),
+            ("joint pain", "supportive"),
+            ("loss of appetite", "nonspecific"),
+            ("general weakness", "nonspecific"),
+        ],
                 "prescription_pool": [("Paracetamol", "650mg")],
             },
             {
-                "weight": 0.25, "condition_tag": "urinary_tract_infection",
+                "weight": 0.20, "condition_tag": "urinary_tract_infection", "monsoon_weight": 0.15,
                 "icd_chapter": "Diseases of the genitourinary system", "icd_block": "N30-N39", "icd_candidate": "N39.0",
                 "symptom_pool": [
                     ("burning micturition", "strong"),
@@ -830,42 +907,87 @@ ICD_MAPPING = [
                     ("lower abdominal pain", "supportive"),
                     ("fever", "supportive"),
                     ("no symptoms", "nonspecific"),
-                ],
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
+        ],
                 "prescription_pool": [("Nitrofurantoin", "100mg"), ("Fosfomycin", "3g single dose")],
             },
             {
-                "weight": 0.20, "condition_tag": "acute_gastroenteritis",
+                "weight": 0.20, "condition_tag": "acute_gastroenteritis", "monsoon_weight": 0.15,
                 "icd_block": "A00-A09", "icd_candidate": "A09",
                 "symptom_pool": [
                     ("loose stools", "strong"),
                     ("vomiting", "strong"),
                     ("abdominal cramps", "supportive"),
                     ("fever", "supportive"),
-                ],
+            ("abdominal pain", "supportive"),
+            ("nausea", "supportive"),
+            ("loss of appetite", "nonspecific"),
+            ("general weakness", "nonspecific"),
+        ],
                 "prescription_pool": [("ORS + Zinc", "1 sachet + 20mg"), ("Ofloxacin + Ornidazole", "200mg + 500mg")],
             },
             {
-                "weight": 0.15, "condition_tag": "typhoid", "monsoon_weight": 0.25,
+                "weight": 0.10, "condition_tag": "typhoid", "monsoon_weight": 0.15,
                 "icd_block": "A00-A09", "icd_candidate": "A01.0",
                 "symptom_pool": [
                     ("stepladder fever", "strong"),
                     ("abdominal pain", "supportive"),
                     ("constipation or diarrhoea", "supportive"),
                     ("rose spots", "supportive"),
-                ],
+            ("fatigue", "nonspecific"),
+            ("nausea", "supportive"),
+            ("loss of appetite", "nonspecific"),
+            ("general weakness", "nonspecific"),
+        ],
                 "prescription_pool": [("Ceftriaxone", "1g IV"), ("Azithromycin", "500mg")],
             },
             {
-                "weight": 0.10, "condition_tag": "dengue_fever", "monsoon_weight": 0.20,
+                "weight": 0.10, "condition_tag": "dengue_fever", "monsoon_weight": 0.15,
                 "icd_block": "A90-A99", "icd_candidate": "A90",
                 "symptom_pool": [
                     ("high fever", "strong"),
                     ("severe body ache", "strong"),
                     ("retro-orbital pain", "strong"),
                     ("skin rash", "supportive"),
-                ],
+            ("fatigue", "nonspecific"),
+            ("headache", "supportive"),
+            ("abdominal pain", "supportive"),
+            ("nausea", "supportive"),
+        ],
                 # NOTE: avoid NSAIDs in dengue -- symptomatic Paracetamol + fluids only.
                 "prescription_pool": [("Paracetamol", "650mg"), ("IV Fluids", "per protocol")],
+            },
+            {
+                "weight": 0.10, "condition_tag": "malaria", "monsoon_weight": 0.15,
+                "icd_block": "B50-B54", "icd_candidate": "B54",
+                "symptom_pool": [
+                    ("cyclical high fever with chills", "strong"),
+                    ("rigors", "strong"),
+                    ("body ache", "supportive"),
+                    ("vomiting", "supportive"),
+            ("fatigue", "nonspecific"),
+            ("headache", "supportive"),
+            ("abdominal pain", "supportive"),
+            ("nausea", "supportive"),
+        ],
+                "prescription_pool": [("Artemether-Lumefantrine", "20mg + 120mg"), ("Chloroquine", "250mg")],
+            },
+            {
+                "weight": 0.10, "condition_tag": "chikungunya", "monsoon_weight": 0.10,
+                "icd_block": "A92", "icd_candidate": "A92.0",
+                "symptom_pool": [
+                    ("severe joint pain", "strong"),
+                    ("high fever", "strong"),
+                    ("skin rash", "supportive"),
+            ("fatigue", "nonspecific"),
+            ("muscle ache", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
+        ],
+                "prescription_pool": [("Paracetamol", "650mg"), ("Physiotherapy", "N/A")],
             },
         ],
     },
@@ -882,7 +1004,11 @@ ICD_MAPPING = [
                     ("severe body ache", "strong"),
                     ("retro-orbital pain", "strong"),
                     ("bleeding gums", "strong"),
-                ],
+            ("fatigue", "nonspecific"),
+            ("headache", "supportive"),
+            ("abdominal pain", "supportive"),
+            ("nausea", "supportive"),
+        ],
                 "prescription_pool": [("Paracetamol", "650mg"), ("IV Fluids", "per protocol")],
             },
             {
@@ -893,7 +1019,11 @@ ICD_MAPPING = [
                     ("rigors", "strong"),
                     ("body ache", "supportive"),
                     ("vomiting", "supportive"),
-                ],
+            ("fatigue", "nonspecific"),
+            ("abdominal pain", "supportive"),
+            ("sweating", "supportive"),
+            ("general weakness", "nonspecific"),
+        ],
                 "prescription_pool": [("Artemether-Lumefantrine", "20mg + 120mg"), ("Chloroquine", "250mg")],
             },
             {
@@ -903,7 +1033,12 @@ ICD_MAPPING = [
                     ("stepladder fever", "strong"),
                     ("relative bradycardia", "supportive"),
                     ("abdominal pain", "supportive"),
-                ],
+            ("fatigue", "nonspecific"),
+            ("nausea", "supportive"),
+            ("loss of appetite", "nonspecific"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+        ],
                 "prescription_pool": [("Ceftriaxone", "1g IV"), ("Azithromycin", "500mg")],
             },
             {
@@ -913,7 +1048,12 @@ ICD_MAPPING = [
                     ("severe joint pain", "strong"),
                     ("high fever", "strong"),
                     ("skin rash", "supportive"),
-                ],
+            ("fatigue", "nonspecific"),
+            ("muscle ache", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
+        ],
                 "prescription_pool": [("Paracetamol", "650mg"), ("Physiotherapy", "N/A")],
             },
             {
@@ -923,7 +1063,12 @@ ICD_MAPPING = [
                     ("loose stools", "strong"),
                     ("dehydration signs", "strong"),
                     ("fever", "supportive"),
-                ],
+            ("abdominal pain", "supportive"),
+            ("nausea", "supportive"),
+            ("loss of appetite", "nonspecific"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+        ],
                 "prescription_pool": [("ORS + Zinc", "1 sachet + 20mg")],
             },
         ],
@@ -941,11 +1086,15 @@ ICD_MAPPING = [
                     ("fever", "supportive"),
                     ("breathlessness", "strong"),
                     ("chest pain on breathing", "supportive"),
-                ],
+            ("fatigue", "nonspecific"),
+            ("loss of appetite", "nonspecific"),
+            ("muscle ache", "supportive"),
+            ("general weakness", "nonspecific"),
+        ],
                 "prescription_pool": [("Amoxicillin-Clavulanate", "625mg"), ("Azithromycin", "500mg")],
             },
             {
-                "weight": 0.30, "condition_tag": "pulmonary_tuberculosis",
+                "weight": 0.10, "condition_tag": "pulmonary_tuberculosis",
                 "icd_chapter": "Certain infectious and parasitic diseases", "icd_block": "A15-A19", "icd_candidate": "A15",
                 "symptom_pool": [
                     ("chronic cough over 2 weeks", "strong"),
@@ -953,17 +1102,25 @@ ICD_MAPPING = [
                     ("night sweats", "supportive"),
                     ("weight loss", "supportive"),
                     ("hemoptysis", "strong"),
-                ],
+            ("loss of appetite", "nonspecific"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+        ],
                 "prescription_pool": [("HRZE (RNTCP Cat-I ATT)", "Weight-band per RNTCP"), ("Referral to DOTS center", "N/A")],
             },
             {
-                "weight": 0.25, "condition_tag": "dengue_fever_with_warning_signs",
+                "weight": 0.45, "condition_tag": "dengue_fever_with_warning_signs",
                 "icd_chapter": "Certain infectious and parasitic diseases", "icd_block": "A90-A99", "icd_candidate": "A91",
                 "symptom_pool": [
                     ("high fever", "strong"),
                     ("bleeding gums", "strong"),
                     ("breathlessness", "strong"),
-                ],
+            ("fatigue", "nonspecific"),
+            ("headache", "supportive"),
+            ("abdominal pain", "supportive"),
+            ("nausea", "supportive"),
+            ("loss of appetite", "nonspecific"),
+        ],
                 "prescription_pool": [("IV Fluids", "per protocol"), ("Referral - Inpatient", "N/A")],
             },
         ],
@@ -979,7 +1136,12 @@ ICD_MAPPING = [
                     ("severe breathlessness", "strong"),
                     ("confusion", "strong"),
                     ("high fever", "strong"),
-                ],
+            ("fatigue", "nonspecific"),
+            ("loss of appetite", "nonspecific"),
+            ("muscle ache", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+        ],
                 "prescription_pool": [("Oxygen", "2L/min"), ("Ceftriaxone", "1g IV"), ("Referral - Emergency", "N/A")],
             },
             {
@@ -989,7 +1151,12 @@ ICD_MAPPING = [
                     ("bleeding gums", "strong"),
                     ("severe breathlessness", "strong"),
                     ("high fever", "strong"),
-                ],
+            ("fatigue", "nonspecific"),
+            ("headache", "supportive"),
+            ("abdominal pain", "supportive"),
+            ("nausea", "supportive"),
+            ("loss of appetite", "nonspecific"),
+        ],
                 "prescription_pool": [("IV Fluids", "per protocol"), ("Referral - Emergency", "N/A")],
             },
             {
@@ -998,7 +1165,13 @@ ICD_MAPPING = [
                 "symptom_pool": [
                     ("cyclical high fever with chills", "strong"),
                     ("confusion", "supportive"),
-                ],
+            ("fatigue", "nonspecific"),
+            ("abdominal pain", "supportive"),
+            ("sweating", "supportive"),
+            ("muscle ache", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+        ],
                 "prescription_pool": [("IV Artesunate", "2.4mg/kg"), ("Referral - Emergency", "N/A")],
             },
         ],
@@ -1008,13 +1181,80 @@ ICD_MAPPING = [
 # Fallback for combinations not explicitly in the table above.
 # Routes to general/observation category — correct by design (LLM layer handles these).
 FALLBACK_ENTRY = {
-    "icd_chapter": "General/nonspecific",
-    "icd_block": "Z00-Z13",
-    "icd_candidate": None,
-    "differential_candidates": ["observation_NOS"],
-    "symptom_pool": [
-        ("no specific symptom", "nonspecific"),
-    ],
+    "params": frozenset(),
+    "candidates": [
+        {
+            "weight": 0.84, "condition_tag": "observation_NOS",
+            "icd_chapter": "General/nonspecific", "icd_block": "Z00-Z13", "icd_candidate": None,
+            "symptom_pool": [
+                ("no specific symptom", "nonspecific"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
+        ],
+            "prescription_pool": [("None", "None")],
+        },
+        {
+            "weight": 0.04, "condition_tag": "anemia",
+            "icd_chapter": "Diseases of the blood", "icd_block": "D50-D53", "icd_candidate": "D50",
+            "symptom_pool": [
+                ("fatigue", "strong"),
+                ("pallor", "strong"),
+                ("dizziness on standing", "strong"),
+                ("breathlessness on exertion", "supportive"),
+            ("loss of appetite", "nonspecific"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+            ("mild discomfort", "nonspecific"),
+        ],
+            "prescription_pool": [("Ferrous Sulphate + Folic Acid", "200mg + 5mg"), ("Iron Sucrose IV", "200mg")],
+        },
+        {
+            "weight": 0.04, "condition_tag": "anxiety_panic_disorder",
+            "icd_chapter": "Mental and behavioural disorders", "icd_block": "F40-F48", "icd_candidate": "F41.0",
+            "symptom_pool": [
+                ("palpitations", "strong"),
+                ("restlessness", "strong"),
+                ("sense of dread", "strong"),
+                ("sweating", "supportive"),
+            ("headache", "supportive"),
+            ("dizziness", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+        ],
+            "prescription_pool": [("Escitalopram", "5mg"), ("Propranolol", "10mg"), ("Counselling Referral", "N/A")],
+        },
+        {
+            "weight": 0.04, "condition_tag": "hyperthyroidism",
+            "icd_chapter": "Endocrine/metabolic", "icd_block": "E05", "icd_candidate": "E05.9",
+            "symptom_pool": [
+                ("unexplained weight loss", "strong"),
+                ("heat intolerance", "strong"),
+                ("tremors", "strong"),
+                ("palpitations", "supportive"),
+            ("fatigue", "nonspecific"),
+            ("sweating", "supportive"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+        ],
+            "prescription_pool": [("Carbimazole", "10mg"), ("Propranolol", "20mg")],
+        },
+        {
+            "weight": 0.04, "condition_tag": "pulmonary_tuberculosis",
+            "icd_chapter": "Certain infectious and parasitic diseases", "icd_block": "A15-A19", "icd_candidate": "A15",
+            "symptom_pool": [
+                ("chronic cough over 2 weeks", "strong"),
+                ("evening fever", "strong"),
+                ("night sweats", "supportive"),
+                ("weight loss", "supportive"),
+                ("hemoptysis", "strong"),
+            ("loss of appetite", "nonspecific"),
+            ("general weakness", "nonspecific"),
+            ("poor sleep", "nonspecific"),
+        ],
+            "prescription_pool": [("HRZE (RNTCP Cat-I ATT)", "Weight-band per RNTCP"), ("Referral to DOTS center", "N/A")],
+        },
+    ]
 }
 
 
@@ -1094,3 +1334,15 @@ def resolve_condition(abnormal_params_set: frozenset, patient_id: str, encounter
         siblings = [c["condition_tag"] for c in candidates if c is not selected]
         result["differential_candidates"] = siblings[:4] if len(siblings) >= 2 else siblings + ["observation_NOS"]
     return result
+
+# ---------------------------------------------------------------------------
+# Module-load assertion: ensure all candidate lists sum to 1.0
+# ---------------------------------------------------------------------------
+for entry in ICD_MAPPING + [FALLBACK_ENTRY]:
+    if "candidates" in entry:
+        base_sum = sum(c["weight"] for c in entry["candidates"])
+        monsoon_sum = sum(c.get("monsoon_weight", c["weight"]) for c in entry["candidates"])
+        key_str = ",".join(sorted(entry["params"])) if entry.get("params") else "normal"
+        assert abs(base_sum - 1.0) < 1e-5, f"Base weights for {key_str} sum to {base_sum}, not 1.0"
+        assert abs(monsoon_sum - 1.0) < 1e-5, f"Monsoon weights for {key_str} sum to {monsoon_sum}, not 1.0"
+

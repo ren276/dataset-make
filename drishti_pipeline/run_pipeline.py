@@ -50,20 +50,9 @@ import pandas as pd
 def accumulate_raw_pool(target_rows: int, pop_per_run: int, start_seed: int) -> int:
     """
     Phase 1: loop Step 1 + Step 2 until the accumulated scratch/vitals_raw_*
-    pool reaches target_rows * config.RAW_POOL_MULTIPLIER AND the
-    MIN_GLUCOSE_HIGH_FLOOR rare-class floor is met. Peeks at the pool's
-    abnormal-param breakdown each iteration via step3.assess_dataframe
-    (cheap: no sampling/labeling, just the abnormality assessment).
-
-    Tier 5/6 (5-6 simultaneous abnormal vitals) is intentionally NOT gated on
-    a floor -- see the comment above config.MIN_GLUCOSE_HIGH_FLOOR in
-    config.py. It decays far too steeply (measured: 4-param already only
-    ~0.055% of pool, 5/6-param ~0%) for any floor in the hundreds to be
-    reachable without hours of extra Synthea generation chasing a
-    combinatorially-rare-to-nonexistent state. Its count is only logged here
-    for visibility.
-
-    Returns the next unused seed (for logging/reproducibility only).
+    pool reaches target_rows * config.RAW_POOL_MULTIPLIER AND all rare-class
+    floors are met (glucose_high, Tier 5/6, and rare diseases). Peeks at the pool's
+    abnormal-param breakdown each iteration via step3.assess_dataframe.
     """
     seed = start_seed
     pass_num = 0
@@ -98,25 +87,40 @@ def accumulate_raw_pool(target_rows: int, pop_per_run: int, start_seed: int) -> 
         pool = step2b.load_accumulated_pool()
         total_rows = len(pool)
         assessed = step3.assess_dataframe(pool)
-        tier56 = int((assessed["_param_count"] >= 5).sum())
         glucose_high = int(assessed["abnormal_params"].fillna("").str.contains("glucose_high").sum())
 
+        # Evaluate ICD candidate realization for rare diseases
+        icd_candidates = []
+        for _, row in assessed.iterrows():
+            abn_list = row.get("_abnormal_list", [])
+            abn_set = frozenset(abn_list) if abn_list else frozenset()
+            resolved = config.resolve_condition(
+                abn_set, str(row.get("patient_id", "")), str(row.get("encounter_date", ""))
+            )
+            icd_candidates.append(resolved.get("icd_candidate"))
+        
+        realized_counts = pd.Series(icd_candidates).value_counts().to_dict()
+        rare_disease_counts = {code: realized_counts.get(code, 0) for code in config.RARE_DISEASE_CODES}
+        rare_floors_met = all(count >= config.MIN_RARE_DISEASE_FLOOR for count in rare_disease_counts.values())
+
         print(f"  [accumulate] pool={total_rows}/{raw_target} rows, "
-              f"tier5+6={tier56} (no floor -- logged for visibility only), "
               f"glucose_high={glucose_high}/{config.MIN_GLUCOSE_HIGH_FLOOR}")
+        print(f"  [accumulate] rare diseases: {rare_disease_counts}")
 
         seed += 1
-        floors_met = glucose_high >= config.MIN_GLUCOSE_HIGH_FLOOR
+        floors_met = (
+            glucose_high >= config.MIN_GLUCOSE_HIGH_FLOOR and 
+            rare_floors_met
+        )
 
         if total_rows >= raw_target and floors_met:
-            print(f"\n  [ok] Phase 1 complete: {total_rows} rows, floors met, after {pass_num} passes "
-                  f"(tier5+6 naturally at {tier56} rows)")
+            print(f"\n  [ok] Phase 1 complete: {total_rows} rows, all floors met, after {pass_num} passes")
             break
 
         if pass_num > safety_cap:
             print(f"\n  [!]  WARNING: Exceeded {safety_cap} passes without meeting all "
                   f"targets/floors. Proceeding with what was accumulated "
-                  f"({total_rows} rows, tier5+6={tier56}, glucose_high={glucose_high}).")
+                  f"({total_rows} rows, glucose_high={glucose_high}, rare_diseases={rare_disease_counts}).")
             break
 
     return seed
@@ -271,8 +275,6 @@ def run_spot_checks():
     if "tier" in df.columns:
         tier_dist = df["tier"].value_counts(normalize=True).sort_index()
         print(f"\n  [check] Tier distribution:\n{tier_dist}")
-        tier56_share = tier_dist.reindex([5, 6]).fillna(0).sum()
-        print(f"  [check] Tier 5+6 combined = {tier56_share:.1%} (informational -- naturally rare, no target)")
 
     # Check 8 (Rev 6): glucose sparsity/realization sanity check
     if "glucose" in df.columns:
@@ -333,8 +335,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="DRISHTI Vitals Pipeline — master orchestration loop"
     )
-    parser.add_argument("--target-rows", type=int, default=20000,
-                        help="Target row count for canonical dataset (default: 20000)")
+    parser.add_argument("--target-rows", type=int, default=27000,
+                        help="Target row count for canonical dataset (default: 27000)")
     parser.add_argument("--start-seed",  type=int, default=42,
                         help="Starting random seed (default: 42, increments each run)")
     parser.add_argument("--pop-per-run", type=int, default=500,

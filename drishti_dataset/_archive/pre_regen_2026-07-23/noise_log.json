@@ -1,7 +1,7 @@
 {
   "noise_seed": 999,
-  "applied_at": "2026-07-22T11:23:45.781480Z",
-  "row_count": 20124,
+  "applied_at": "2026-07-22T20:07:37.831972Z",
+  "row_count": 16062,
   "note": "Noise applied AFTER tiering/labeling. Labels (abnormal_params, icd_*, symptom_signal_strength) are based on pre-noise values and not recalculated. Observed noised values are written to _observed columns.",
   "params": {
     "bp_systolic": {
@@ -29,6 +29,11 @@
       "clip": 5.0,
       "floor": 70.0,
       "ceil": 100.0
+    },
+    "glucose": {
+      "sigma": 10.0,
+      "clip": 30.0,
+      "floor": 40.0
     }
   }
 }
