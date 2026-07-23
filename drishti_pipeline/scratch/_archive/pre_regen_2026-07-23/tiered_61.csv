@@ -1,0 +1,501 @@
+patient_id,encounter_date,age_at_encounter,sex,bp_systolic,bp_diastolic,pulse,spo2,bmi,abnormal_params,tier,icd_chapter,icd_block,icd_candidate,differential_candidates
+6a581112-b72f-f391-ea62-c6d8f1453936,2024-06-01,73,M,118.0,68.0,88.0,98.4,23.7,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+5076fc2c-fd94-78bb-23f6-eaa85b0ae3d7,2016-10-13,55,M,125.0,78.0,67.0,97.9,29.6,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+e0bc4392-0f70-9615-6b46-4b2073209e75,2021-12-29,50,M,108.0,69.0,99.0,96.4,30.2,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+f07b5cfa-6a2b-be34-6ec6-986f12cde74b,2020-07-21,48,M,105.0,74.0,67.0,99.9,27.8,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+ae376f47-8c95-2234-ac8e-94350856ae31,2019-11-10,48,M,124.0,59.0,79.0,98.5,30.0,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+b586a805-d881-2cd1-8f95-fd5454f772bf,2019-07-08,24,F,119.0,60.0,81.0,98.5,24.0,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+371c5c70-ef03-62a0-95c2-d887032e9979,2020-03-10,64,M,98.0,59.0,90.0,95.7,37.1,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+9149b9e5-4bd5-3fb2-689e-b0f1b93f8bc2,2020-09-09,48,F,135.0,82.0,85.0,95.4,32.8,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+69f0b25c-d338-51bf-4af0-4faf67ce2ae4,2019-04-07,66,F,114.0,48.0,60.0,99.3,41.8,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+d995e51a-bedb-b0bb-d1d0-d84b257fb9d8,2018-07-13,47,F,119.0,78.0,81.0,97.0,27.8,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+7a8c4fc0-af2d-3434-6ab5-c1f4adad465c,2019-08-02,68,M,132.0,87.0,96.0,96.4,28.6,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+e301a2d4-f077-973a-4915-3fbfb78794c2,2008-03-02,56,M,117.0,77.0,85.0,99.6,27.9,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+5307b1db-b1e8-1d65-9062-f180bb777f8d,2021-03-25,34,F,113.0,82.0,66.0,97.1,25.1,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+edffe233-da84-38c7-8e2d-982b35f97c0f,2025-04-19,28,M,132.0,68.0,83.0,96.9,25.8,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+6235951b-828a-e911-4ea1-37ef1ff8a920,2024-10-10,54,M,124.0,76.0,82.0,97.3,30.1,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+b7207f77-6f59-1aed-21de-53aa7732a6e0,2025-10-12,48,F,130.0,66.0,80.0,98.5,27.7,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+36bbb3aa-95d7-33aa-0d22-0f2fe69bd990,2018-06-15,69,M,101.0,59.0,86.0,99.0,27.4,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+034c4fab-104b-5ce3-d0be-24fc8f353ea0,2022-09-11,51,F,111.0,83.0,72.0,97.1,30.2,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+b50c7643-4415-831b-4f76-5509a4e5d7df,2023-04-10,58,M,127.0,74.0,69.0,96.8,30.0,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+bf07d1cb-c70c-31bb-aca9-4f58b7173419,2025-11-20,63,M,137.0,81.0,68.0,98.7,27.6,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+5076fc2c-fd94-78bb-23f6-eaa85b0ae3d7,2019-08-29,58,M,115.0,82.0,85.0,98.6,29.6,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+69f0b25c-d338-51bf-4af0-4faf67ce2ae4,2019-02-10,66,F,108.0,45.0,75.0,96.7,41.8,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+58c91e2e-27d9-6947-7690-8ca4e85642a5,2012-02-02,33,F,115.0,77.0,69.0,96.6,27.6,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+f1ef21a5-4cc6-f7bb-168b-9284acd0693e,2023-08-29,69,M,126.0,66.0,86.0,97.9,30.2,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+0ea52789-3945-40f9-4096-fd7ca2be8913,2025-09-16,58,M,119.0,83.0,79.0,98.2,27.7,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+af315aa1-1203-b87c-ac53-b66541298bd9,2022-07-04,24,M,118.0,72.0,61.0,95.7,26.7,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+3a2757be-10de-e2b4-df37-064568872cde,2021-02-11,69,F,102.0,67.0,81.0,99.8,30.5,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+5e1643bd-f474-33c1-5dc1-b6942ea83c5f,2018-11-30,56,M,113.0,71.0,70.0,96.0,32.7,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+0e2920aa-4dd6-f308-9215-e75e8df8af7a,2021-05-22,63,M,112.0,74.0,62.0,96.8,27.9,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+5bd25da2-6406-e67e-c428-d35b03909ce4,2005-12-03,52,F,125.0,71.0,97.0,98.1,33.2,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+64d6cd7d-c7ee-1f0f-eb0c-dc40660abb84,2022-08-14,50,F,119.0,80.0,87.0,98.0,27.9,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+cc5f58f2-3b08-3911-9709-73e9ed908366,1999-07-30,46,F,126.0,64.0,81.0,99.5,30.1,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+d995e51a-bedb-b0bb-d1d0-d84b257fb9d8,2022-07-01,51,F,116.0,82.0,93.0,96.4,27.8,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+034c4fab-104b-5ce3-d0be-24fc8f353ea0,2025-09-28,54,F,109.0,81.0,87.0,97.3,30.3,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+0b3363c1-f57b-eef5-4a7a-33fcf851ba06,2024-12-10,44,M,129.0,77.0,90.0,95.1,27.5,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+5076fc2c-fd94-78bb-23f6-eaa85b0ae3d7,2021-06-17,60,M,123.0,86.0,72.0,97.1,29.3,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+6a581112-b72f-f391-ea62-c6d8f1453936,2019-01-26,67,M,122.0,67.0,70.0,96.7,25.4,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+0a469ba4-5f08-0288-1103-e6932cf38ac4,2024-03-14,58,F,112.0,66.0,83.0,98.0,28.1,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+cd153b84-32e1-b760-e4a8-3e65fe091d21,2023-07-09,34,M,108.0,72.0,66.0,98.0,27.1,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+1fc98cca-024f-5721-e3cf-750c34c52de5,2019-10-13,71,F,123.0,60.0,70.0,95.8,29.1,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+888056e7-db06-0db4-af57-9153b3189af2,2023-03-28,60,M,68.0,42.0,77.0,98.9,28.2,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+44bca4f4-867c-406a-0a3f-836a5e30de00,2025-01-17,21,M,115.0,67.0,72.0,98.3,23.1,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+d2b8c728-53fc-ce5c-f7c9-049ca2542d5a,2025-09-24,59,F,116.0,53.0,97.0,99.3,30.1,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+56091378-d0ac-beeb-2fc5-9f17646c3970,2024-08-28,34,M,107.0,74.0,61.0,95.4,32.0,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+2644adf6-7a9c-703f-318e-4b874b884f82,2021-02-01,65,M,112.0,57.0,96.0,95.1,27.7,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+506af6a4-b190-43dd-53de-e7fb030de5dd,2024-09-13,64,M,108.0,86.0,82.0,100.0,30.3,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+5a96aa2b-2975-5864-3b61-69710aa962af,2024-11-09,76,F,123.0,88.0,99.0,97.9,27.9,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+a7b39b87-9ca5-6b29-6a7c-5f7fbf07c39e,2023-10-25,56,F,114.0,79.0,74.0,99.6,27.4,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+985e538a-c810-2f4a-a2d2-7f7ccbf0dc3d,1995-12-08,34,F,115.0,61.0,81.0,95.5,29.7,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+0d959987-3cd4-5eb3-f3bb-c252c8cbed82,2026-03-15,52,F,111.0,59.0,95.0,97.6,28.2,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+c3c6fd34-7a72-ee64-6ef1-5d18fbe02ca1,2020-12-18,37,M,114.0,60.0,87.2,75.4,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2ec17d67-7ff2-2fbd-610a-a1c23d3b0a40,2021-02-21,38,M,121.0,84.0,85.1,84.8,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2ec17d67-7ff2-2fbd-610a-a1c23d3b0a40,2021-02-25,38,M,123.0,83.0,95.5,84.9,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2bebc6dc-ba27-7d68-07ba-750a10d043e7,2020-11-21,9,M,118.0,71.0,61.3,88.3,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+3d932bd7-da77-5c38-727a-2edbc7604dae,2020-09-17,58,M,114.0,60.0,70.2,75.3,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+552cea68-da40-a5ae-2cab-07b551cee092,2021-01-02,56,M,99.0,51.0,61.9,85.2,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+3d932bd7-da77-5c38-727a-2edbc7604dae,2020-09-10,58,M,123.0,57.0,70.8,87.5,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+0b3363c1-f57b-eef5-4a7a-33fcf851ba06,2021-01-07,40,M,134.0,76.0,88.9,83.6,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+7786936f-07b7-d6cd-ea33-9ad49cf2ded9,2021-01-10,39,M,122.0,81.0,84.2,76.4,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+502b5dff-e6a4-7e44-f5e4-c7340a958c61,2020-06-09,54,F,110.0,68.0,93.5,84.7,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+465b0b8e-5d7f-890e-79f6-b133f95d8943,2021-01-25,60,M,128.0,84.0,82.9,79.5,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+371c5c70-ef03-62a0-95c2-d887032e9979,2020-05-08,64,M,101.0,55.0,94.1,88.1,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2ec17d67-7ff2-2fbd-610a-a1c23d3b0a40,2021-02-24,38,M,121.0,79.0,86.8,79.2,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+371c5c70-ef03-62a0-95c2-d887032e9979,2020-05-10,64,M,97.0,61.0,70.1,77.3,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2ec17d67-7ff2-2fbd-610a-a1c23d3b0a40,2021-02-23,38,M,125.0,82.0,96.3,75.1,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+60984881-c302-bc6f-d4b6-5e22c9770e13,2021-01-02,39,F,137.0,73.0,90.5,78.5,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+7102ced7-2802-287a-d839-2729ea28f212,2020-10-20,20,M,108.0,62.0,66.7,88.2,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2bebc6dc-ba27-7d68-07ba-750a10d043e7,2020-11-22,9,M,124.0,70.0,70.0,82.9,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+bcf7ec87-2f33-42cc-c9c6-78405e70c6ac,2020-12-12,60,F,105.0,66.0,81.0,81.0,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+502b5dff-e6a4-7e44-f5e4-c7340a958c61,2020-06-08,54,F,117.0,71.0,98.8,78.2,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+e22acdd9-de7b-6872-5823-1e77e688a926,2020-10-21,20,F,128.0,67.0,88.8,77.6,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+bb7178b5-4155-2d07-1dcf-2b265420c0e8,2020-04-15,73,F,133.0,64.0,85.6,85.0,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+371c5c70-ef03-62a0-95c2-d887032e9979,2020-05-11,64,M,99.0,50.0,63.0,86.7,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+0b3363c1-f57b-eef5-4a7a-33fcf851ba06,2021-01-09,40,M,136.0,75.0,83.2,75.7,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2bebc6dc-ba27-7d68-07ba-750a10d043e7,2020-11-26,9,M,108.0,69.0,74.2,79.9,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+3d932bd7-da77-5c38-727a-2edbc7604dae,2020-09-09,58,M,115.0,73.0,85.0,86.4,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+3d932bd7-da77-5c38-727a-2edbc7604dae,2020-09-11,58,M,112.0,60.0,93.1,82.9,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+bb7178b5-4155-2d07-1dcf-2b265420c0e8,2020-04-08,73,F,121.0,65.0,79.2,77.9,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+371c5c70-ef03-62a0-95c2-d887032e9979,2020-05-07,64,M,106.0,54.0,67.2,77.8,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+371c5c70-ef03-62a0-95c2-d887032e9979,2020-05-05,64,M,107.0,59.0,96.3,82.0,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+bcf7ec87-2f33-42cc-c9c6-78405e70c6ac,2020-12-06,60,F,108.0,67.0,68.3,81.2,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2ec17d67-7ff2-2fbd-610a-a1c23d3b0a40,2021-02-17,38,M,119.0,84.0,70.5,88.6,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+e22acdd9-de7b-6872-5823-1e77e688a926,2020-10-26,20,F,127.0,71.0,84.4,88.8,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+0156373c-11fd-e698-970c-3f6ce557ca83,2021-04-06,64,M,105.0,67.0,74.5,79.7,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+bb7178b5-4155-2d07-1dcf-2b265420c0e8,2020-04-19,73,F,110.0,61.0,96.3,85.4,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+34d04f46-a1c1-afe0-c1ee-ee3628fa9c28,2020-11-26,50,M,115.0,69.0,75.4,80.3,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+6a447bdc-ecb6-61c5-509b-6aace626282f,2020-12-14,36,M,109.0,88.0,67.7,86.4,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+bb7178b5-4155-2d07-1dcf-2b265420c0e8,2020-04-18,73,F,110.0,58.0,70.2,76.6,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+7102ced7-2802-287a-d839-2729ea28f212,2020-10-23,20,M,117.0,61.0,81.0,78.3,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+0b3363c1-f57b-eef5-4a7a-33fcf851ba06,2021-01-08,40,M,135.0,76.0,94.2,85.7,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+7102ced7-2802-287a-d839-2729ea28f212,2020-10-17,20,M,118.0,56.0,65.6,85.7,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+9983a8be-dc51-5c3e-cf5b-0cb4d2ac21be,2020-11-17,47,F,101.0,71.0,98.7,83.4,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+7102ced7-2802-287a-d839-2729ea28f212,2020-10-22,20,M,109.0,61.0,61.8,84.6,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+bb7178b5-4155-2d07-1dcf-2b265420c0e8,2020-04-12,73,F,120.0,66.0,95.8,88.7,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+a788f675-8400-fbba-fcd8-d7f40262585b,2020-10-25,38,M,126.0,78.0,74.8,83.8,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+a788f675-8400-fbba-fcd8-d7f40262585b,2020-10-24,38,M,117.0,75.0,66.0,86.3,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+e22acdd9-de7b-6872-5823-1e77e688a926,2020-10-19,20,F,132.0,70.0,79.2,83.5,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+60984881-c302-bc6f-d4b6-5e22c9770e13,2021-01-07,39,F,124.0,70.0,97.1,86.9,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2ec17d67-7ff2-2fbd-610a-a1c23d3b0a40,2021-02-26,38,M,132.0,81.0,60.8,86.1,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+371c5c70-ef03-62a0-95c2-d887032e9979,2020-05-13,64,M,107.0,60.0,88.6,77.3,,spo2,1,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2f4a8c80-c045-22b0-4d90-fb6b4713c0ad,2019-11-19,46,F,143.0,72.0,100.0,96.3,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+b0b1f632-cefb-72f3-c881-8d485e5fd9b6,2016-10-10,13,M,131.0,74.0,80.0,96.6,17.6,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+859e8550-9f7b-685e-4e6d-cde6c1c27e96,2019-09-10,72,M,150.0,88.0,72.4,97.4,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+46b77aba-fa49-30bd-0049-19a72330c9a9,2021-02-27,10,F,128.0,62.0,64.0,99.8,19.7,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+b18ad024-86d4-4d7d-7bd6-179142706338,2020-06-11,56,F,143.0,86.0,96.8,96.4,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+3ba14f6d-89fa-4289-5732-42de8e808d11,2023-06-05,5,M,123.0,79.0,69.0,97.8,15.5,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+859e8550-9f7b-685e-4e6d-cde6c1c27e96,2019-11-09,72,M,146.0,87.0,89.7,99.5,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+5fcfdaa9-1d4a-4791-1b60-3dada04aef84,2021-06-18,5,M,122.0,65.0,99.0,99.8,14.6,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+b0dd46b5-cac9-8a73-4339-fe8dd5000374,2018-07-18,38,M,148.6,62.2,83.9,99.3,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+50fddfc8-26ad-9a50-630f-ff9f509dc8b5,2005-09-22,44,M,140.0,81.0,87.1,96.4,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+ef3e001c-8c9b-2d8f-38ee-16d8fb2fb1e8,2017-01-16,9,M,139.0,85.0,82.0,98.9,15.6,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+61e9935d-6172-f689-7aa7-555e31b236bd,2025-08-14,50,F,143.0,89.0,64.3,99.6,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+d1c08ff0-be22-a504-103a-740962485f1b,2018-06-07,14,F,135.0,84.0,67.0,99.0,25.8,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+2b2c7b58-0606-1193-2ed0-c7557872c7ea,2022-05-05,35,F,145.0,87.0,81.3,95.3,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+745cf63f-2c7d-3704-55c1-29cbaddf38e9,2024-11-02,14,M,135.0,87.0,73.0,96.8,16.7,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+a4857fa9-b7d9-8b16-14d4-83c3c7e1f0f8,2023-01-06,28,M,147.9,77.0,97.5,99.1,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+88e07679-7139-c1f0-b955-f73361816436,2023-12-16,7,F,124.0,68.0,90.0,98.3,15.6,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+f5115ae8-cfb4-5260-ba98-170009fe28ff,2023-02-12,7,F,128.0,64.0,73.0,97.3,16.4,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+dc11828e-88e6-ece5-1319-342bbec3381d,2019-05-09,6,M,130.0,69.0,80.0,97.0,16.6,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+6d99ef82-2162-27e9-5bab-0be41f7aa651,2025-12-13,73,F,140.0,83.0,75.0,95.6,22.9,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+8c0850c5-267b-2bc8-77e1-39ff17778a1f,2018-07-14,29,M,140.0,78.0,66.7,100.0,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+3ea0a048-592f-bdb2-0d85-0325b3ae21b4,2022-04-22,6,M,130.0,67.0,84.0,95.4,14.7,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+f5115ae8-cfb4-5260-ba98-170009fe28ff,2024-02-18,9,F,128.0,67.0,82.0,98.8,17.1,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+3e00d36f-1447-90c5-0596-5e659ec259dd,2019-09-01,6,M,133.0,83.0,95.0,95.2,16.8,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+3e00d36f-1447-90c5-0596-5e659ec259dd,2023-09-24,11,M,138.0,78.0,75.0,95.0,19.9,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+3e00d36f-1447-90c5-0596-5e659ec259dd,2021-09-12,9,M,142.0,85.0,82.0,97.3,19.2,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+de0becb4-b0f8-4549-4639-d5d9d259f043,2022-04-20,11,M,130.0,80.0,82.0,98.6,19.6,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+3e00d36f-1447-90c5-0596-5e659ec259dd,2024-09-29,12,M,134.0,79.0,82.0,98.7,20.4,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+d33180cc-a4c7-b057-dda0-f9b59852aeed,2024-02-26,10,F,130.0,76.0,63.0,96.1,17.6,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+d1c08ff0-be22-a504-103a-740962485f1b,2017-06-01,13,F,132.0,77.0,67.0,98.8,24.2,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+01ca1b56-7b26-acbe-0f90-43a3beb9288e,2025-07-25,9,F,126.0,58.0,81.0,97.5,18.2,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+2909aaa3-c16d-ad6a-0efd-48ef0c2a901f,2025-10-24,5,F,123.0,74.0,78.0,97.9,13.9,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+b0dd46b5-cac9-8a73-4339-fe8dd5000374,2018-07-15,38,M,154.6,60.5,68.5,99.6,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+ea36448f-ff45-6e38-ace2-91c6024e24b2,2022-12-08,25,F,143.0,83.0,84.0,96.3,20.1,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+de0becb4-b0f8-4549-4639-d5d9d259f043,2018-03-28,6,M,128.0,80.0,69.0,95.6,16.1,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+ef3e001c-8c9b-2d8f-38ee-16d8fb2fb1e8,2018-01-22,10,M,139.0,82.0,89.0,98.7,15.9,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+d33180cc-a4c7-b057-dda0-f9b59852aeed,2023-02-20,9,F,138.0,77.0,90.0,97.8,17.4,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+3e00d36f-1447-90c5-0596-5e659ec259dd,2022-09-18,10,M,141.0,77.0,66.0,95.3,19.2,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+33eb2383-c5f0-eb39-9210-a7f0fbbecf75,2019-02-15,55,F,141.0,79.0,65.2,98.4,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+35bc0682-14cd-18a0-f804-1ba65a216e43,2024-09-21,5,F,123.0,67.0,62.0,98.1,23.5,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+1e540207-b2bf-761a-b617-64f4d0afcd4a,2021-10-25,25,M,147.3,73.9,78.9,97.4,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+01ca1b56-7b26-acbe-0f90-43a3beb9288e,2022-02-04,5,F,127.0,55.0,97.0,97.1,17.2,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+83b7707d-6cd4-7e41-1be9-9b0dd1328bfb,2022-06-23,42,F,140.0,81.0,66.8,95.5,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+de0becb4-b0f8-4549-4639-d5d9d259f043,2020-04-08,9,M,125.0,81.0,74.0,99.2,16.9,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+f49f4f12-8b0e-83cb-0738-0d0c64f9791f,2020-02-21,22,M,141.0,81.0,94.7,97.5,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+b18ad024-86d4-4d7d-7bd6-179142706338,2019-02-23,55,F,157.0,87.0,60.1,97.7,,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+75c44795-07c1-17df-c998-901371623efe,2021-12-27,15,M,135.0,87.0,65.0,98.7,20.8,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+f0ce7de8-590b-c580-3b45-27d2418a0e29,2020-03-18,7,M,130.0,74.0,90.0,98.0,14.2,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+ef3e001c-8c9b-2d8f-38ee-16d8fb2fb1e8,2025-03-03,17,M,139.0,85.0,87.0,95.8,19.4,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+d33180cc-a4c7-b057-dda0-f9b59852aeed,2026-03-09,12,F,147.0,76.0,72.0,95.8,18.6,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+218b54e4-c031-2c8b-6cb7-bed45c095981,2020-11-26,11,M,117.0,87.0,80.7,96.7,30.2,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+218b54e4-c031-2c8b-6cb7-bed45c095981,2020-10-06,11,M,116.0,88.0,76.2,97.7,30.1,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+3ef80cc0-0601-ce5e-7758-f26fd5aeb318,2020-09-04,15,F,112.0,92.0,62.0,98.6,19.2,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+117f81fa-570e-32e9-afeb-a87f834c97d8,2026-05-05,6,M,112.0,88.0,97.0,100.0,13.9,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+eca33839-4518-0320-36ea-10f2c6c75ee9,2017-06-28,5,M,115.0,86.0,60.0,96.5,14.7,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+36bbb3aa-95d7-33aa-0d22-0f2fe69bd990,2017-10-28,69,M,118.3,91.7,90.2,99.3,,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+9c69a3c9-c6fa-3963-c515-391e92c6968e,2023-12-14,33,F,117.2,92.0,76.4,100.0,,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+3ef80cc0-0601-ce5e-7758-f26fd5aeb318,2025-10-03,20,F,119.0,91.0,99.0,99.5,18.9,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+ea36448f-ff45-6e38-ace2-91c6024e24b2,2019-12-21,22,F,135.0,91.0,75.1,99.3,,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+218b54e4-c031-2c8b-6cb7-bed45c095981,2020-09-23,11,M,123.0,91.0,79.8,99.7,30.1,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+6d99ef82-2162-27e9-5bab-0be41f7aa651,2017-10-28,64,F,139.0,90.0,70.0,99.7,22.9,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+1fd487eb-9c0a-724d-f26f-7911e61d175f,2017-12-11,22,F,129.8,95.2,83.5,99.1,,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+218b54e4-c031-2c8b-6cb7-bed45c095981,2020-09-20,11,M,116.0,87.0,79.9,96.0,30.1,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+d45415ba-38a9-b64b-1b8e-8b42ff7cc696,2026-02-03,5,M,116.0,84.0,82.0,96.1,14.9,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+3ef80cc0-0601-ce5e-7758-f26fd5aeb318,2017-08-18,12,F,130.0,97.0,80.0,97.6,16.8,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+218b54e4-c031-2c8b-6cb7-bed45c095981,2021-01-06,11,M,120.0,87.0,87.8,96.7,30.3,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+218b54e4-c031-2c8b-6cb7-bed45c095981,2020-09-30,11,M,121.0,88.0,61.3,96.5,30.1,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+de0becb4-b0f8-4549-4639-d5d9d259f043,2021-12-22,10,M,123.0,86.0,78.0,99.7,18.7,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+56fbbabf-fa24-49fc-ac19-0a95e7fdc2aa,2026-01-27,61,M,119.1,98.7,67.6,99.2,,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+735e7381-d1f0-6f6a-3c86-796ef8d91f36,2023-06-13,22,M,130.0,90.0,89.0,97.9,22.7,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+1e540207-b2bf-761a-b617-64f4d0afcd4a,2024-06-27,28,M,116.0,90.0,89.0,98.9,22.6,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+218b54e4-c031-2c8b-6cb7-bed45c095981,2020-11-13,11,M,121.0,92.0,90.4,100.0,30.1,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+a3c6903c-b79b-4f1f-b3f3-ceaab833f466,2017-12-26,69,M,133.9,102.1,84.9,98.7,,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+932ce3e3-edfa-1d14-4fef-400ac0277813,2022-12-02,46,M,115.5,93.4,86.1,100.0,,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+218b54e4-c031-2c8b-6cb7-bed45c095981,2020-12-03,11,M,118.0,93.0,95.4,96.4,30.2,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+6d99ef82-2162-27e9-5bab-0be41f7aa651,2018-11-03,65,F,132.0,90.0,84.0,100.0,22.9,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+f1d023b3-e95e-9477-4c95-902201c7d56f,2021-05-09,36,F,41.7,116.4,84.9,96.5,,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+47adb41d-0c5a-2f29-77d5-f02cd6374946,2025-05-14,9,M,123.0,86.0,94.0,96.0,20.6,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+3ef80cc0-0601-ce5e-7758-f26fd5aeb318,2018-08-24,13,F,115.0,91.0,97.0,99.0,17.7,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+218b54e4-c031-2c8b-6cb7-bed45c095981,2020-12-31,11,M,117.0,88.0,90.7,97.4,30.3,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+35e793ef-fb55-be50-613f-ec92e94bff66,2018-02-25,31,M,138.9,90.8,64.6,99.4,,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+218b54e4-c031-2c8b-6cb7-bed45c095981,2020-11-20,11,M,117.0,87.0,94.0,95.8,30.2,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+218b54e4-c031-2c8b-6cb7-bed45c095981,2020-11-23,11,M,116.0,87.0,82.0,98.5,30.2,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+1dc38e8f-d94e-bdf9-8b72-0f0eb52b52be,2021-08-26,15,M,125.0,94.0,98.0,98.4,24.3,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+367b1db0-5c71-5684-1e11-50999edb54c6,2016-08-11,9,F,117.0,94.0,76.0,95.7,13.6,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+eca33839-4518-0320-36ea-10f2c6c75ee9,2021-07-21,10,M,124.0,88.0,87.0,95.4,15.9,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+3ba14f6d-89fa-4289-5732-42de8e808d11,2024-06-10,6,M,118.0,86.0,95.0,96.5,15.2,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+eca33839-4518-0320-36ea-10f2c6c75ee9,2019-07-10,7,M,121.0,86.0,98.0,96.5,14.8,bp_diastolic,1,Circulatory system,I10-I15,,essential_hypertension|isolated_diastolic_htn
+7136b596-cb1d-32e0-13a8-e8fa161c90b7,2020-03-16,52,F,118.0,68.0,67.0,96.0,30.3,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+538a6832-935c-e9fb-64e8-1a455dd8ae0f,2025-08-06,56,F,111.0,66.0,89.0,96.8,28.0,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+5bd25da2-6406-e67e-c428-d35b03909ce4,2002-12-07,49,F,129.0,76.0,98.0,97.7,34.4,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+94544ad3-1d05-c67e-12fb-22cfe7af9fb9,2020-09-22,25,F,96.0,75.0,80.0,97.3,24.7,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+07cf980f-d608-2145-876b-b7b157f1703d,2023-01-04,53,F,117.0,75.0,100.0,99.8,29.9,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+1fc98cca-024f-5721-e3cf-750c34c52de5,2025-07-20,76,F,123.0,66.0,79.0,96.5,27.4,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+2c125eba-c804-ebe2-a9e5-724339ddb699,2019-08-23,64,M,126.0,76.0,61.0,96.8,27.4,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+de0becb4-b0f8-4549-4639-d5d9d259f043,2017-03-22,5,M,138.0,81.0,74.0,98.5,16.4,bp_systolic,1,Circulatory system,I10-I15,I10,essential_hypertension_stage1|white_coat_htn
+6a581112-b72f-f391-ea62-c6d8f1453936,2018-05-12,67,M,117.0,65.0,93.0,99.8,25.4,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+b0f48eb1-1632-263f-a2f0-c896e762fab8,2018-11-27,65,F,100.0,63.0,61.0,96.4,30.3,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+d8e78d3c-5a03-91db-2967-33dac84e8ccc,2021-03-10,57,F,114.0,52.0,77.0,99.8,27.6,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+86f1e2eb-d12e-be01-59b6-227d14d96d8d,2019-06-09,56,M,114.0,57.0,66.0,98.7,27.1,bmi,1,Nutritional/metabolic,E65-E68,E66,obesity|type_2_diabetes_risk|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2018-09-02,61,F,145.0,86.0,81.0,98.5,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2023-05-07,66,F,145.0,86.0,95.0,98.2,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+43ec4ae7-d191-5d0d-41ae-459d49a8a631,2021-06-10,31,M,144.0,81.0,96.0,96.8,25.2,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+75736d2f-0eea-57e0-415f-acd672407a45,2024-12-16,55,M,144.0,80.0,81.0,98.9,27.8,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2020-02-23,63,F,152.0,83.0,97.0,99.5,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2023-12-03,66,F,140.0,85.0,74.0,95.7,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+50b287fd-51ea-aeb6-99ed-e8c9415bdd30,2015-08-13,54,M,146.0,87.0,95.0,95.1,26.9,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+9e773ff3-bbc1-6221-a1aa-0c01666373b6,2019-06-12,46,F,142.0,82.0,69.0,96.2,28.7,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2025-03-30,68,F,149.0,83.0,94.0,100.0,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+859e8550-9f7b-685e-4e6d-cde6c1c27e96,2021-12-29,74,M,142.0,89.0,97.0,96.6,27.8,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+43ec4ae7-d191-5d0d-41ae-459d49a8a631,2017-05-18,27,M,146.0,81.0,99.0,98.2,24.3,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+659f5f8f-58ce-67f9-c8d8-7cfef963f825,2023-10-31,71,M,142.0,87.0,91.0,95.5,27.8,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+7a8c4fc0-af2d-3434-6ab5-c1f4adad465c,2021-06-18,70,M,145.0,87.0,86.0,95.9,29.8,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+f2d755c3-5ae5-079b-c562-73ce4e96152e,2022-01-14,61,F,144.0,77.0,85.0,98.0,33.0,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+9e773ff3-bbc1-6221-a1aa-0c01666373b6,2022-02-02,48,F,143.0,82.0,80.0,99.2,30.2,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+25339dd5-aa3f-62fa-04d3-8541c6ebcb21,2019-07-17,71,F,145.0,88.0,82.0,98.0,39.0,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+43ec4ae7-d191-5d0d-41ae-459d49a8a631,2026-07-09,36,M,142.0,81.0,87.0,95.3,26.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+2c125eba-c804-ebe2-a9e5-724339ddb699,2016-08-05,61,M,145.0,86.0,70.0,99.8,28.9,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+0b3363c1-f57b-eef5-4a7a-33fcf851ba06,2022-12-06,42,M,143.0,81.0,94.0,96.0,29.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2026-06-21,69,F,142.0,85.0,92.0,97.2,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+50b287fd-51ea-aeb6-99ed-e8c9415bdd30,2015-10-22,54,M,146.0,81.0,73.0,98.8,26.9,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+61e9935d-6172-f689-7aa7-555e31b236bd,2026-03-23,51,F,143.0,88.0,82.0,99.4,28.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5bd25da2-6406-e67e-c428-d35b03909ce4,2005-07-02,52,F,141.0,73.0,69.0,99.6,33.1,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2024-12-29,67,F,142.0,87.0,66.0,96.2,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+50b287fd-51ea-aeb6-99ed-e8c9415bdd30,2013-08-01,52,M,143.0,83.0,64.0,97.0,26.9,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5076fc2c-fd94-78bb-23f6-eaa85b0ae3d7,2017-08-10,56,M,140.0,77.0,62.0,96.1,29.6,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+a65ac69c-ab40-852e-9d55-c91d030b7f30,2023-11-27,71,F,142.0,78.0,61.0,98.0,27.3,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2018-02-25,61,F,143.0,89.0,70.0,99.0,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2022-12-11,65,F,159.0,87.0,93.0,99.7,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+75736d2f-0eea-57e0-415f-acd672407a45,2024-06-17,54,M,145.0,80.0,96.0,95.7,27.8,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2023-06-04,66,F,147.0,86.0,84.0,96.2,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+25339dd5-aa3f-62fa-04d3-8541c6ebcb21,2016-09-21,68,F,148.0,88.0,91.0,99.6,39.0,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+3365c0dd-7582-281a-408f-faf3f67d93e1,2023-05-31,66,M,140.0,79.0,64.0,98.5,26.4,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2019-03-03,62,F,155.0,83.0,71.0,97.1,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+75736d2f-0eea-57e0-415f-acd672407a45,2024-10-07,55,M,146.0,80.0,89.0,98.4,27.8,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+c253371a-6e67-94b1-7232-2034bb02e206,2025-11-06,41,M,140.0,70.0,90.0,95.9,30.2,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2024-02-04,67,F,144.0,82.0,82.0,99.0,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2019-10-27,62,F,140.0,81.0,82.0,95.9,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+50b287fd-51ea-aeb6-99ed-e8c9415bdd30,2017-06-29,56,M,141.0,84.0,77.0,98.0,26.9,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2017-04-09,60,F,148.0,84.0,64.0,97.9,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+3987668a-a699-2e89-90dd-cd4dd4cb1d87,2022-02-15,50,M,109.0,92.0,93.0,97.7,27.6,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+659f5f8f-58ce-67f9-c8d8-7cfef963f825,2020-12-15,68,M,135.0,91.0,79.0,95.5,27.8,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+c3b4f69c-f1b1-5b93-1989-9093f176e4c2,2020-02-14,42,M,107.0,91.0,74.0,96.5,27.3,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+56fbbabf-fa24-49fc-ac19-0a95e7fdc2aa,2023-04-11,58,M,116.0,91.0,93.0,97.7,27.4,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+659f5f8f-58ce-67f9-c8d8-7cfef963f825,2019-10-08,67,M,135.0,91.0,100.0,96.5,27.8,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+3492da0e-ed38-306e-bcca-ef4b4544dc2a,2016-05-06,65,M,126.0,92.0,94.0,98.1,30.3,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+7a8c4fc0-af2d-3434-6ab5-c1f4adad465c,2022-08-19,71,M,132.0,92.0,96.0,96.6,30.5,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+3492da0e-ed38-306e-bcca-ef4b4544dc2a,2017-05-12,66,M,131.0,90.0,63.0,95.3,30.0,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+659f5f8f-58ce-67f9-c8d8-7cfef963f825,2019-08-20,67,M,136.0,97.0,62.0,96.8,27.8,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+56fbbabf-fa24-49fc-ac19-0a95e7fdc2aa,2020-03-24,55,M,116.0,96.0,64.0,97.6,27.4,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+3987668a-a699-2e89-90dd-cd4dd4cb1d87,2023-02-21,51,M,109.0,90.0,81.0,96.0,27.6,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+7a8c4fc0-af2d-3434-6ab5-c1f4adad465c,2020-02-07,69,M,133.0,91.0,73.0,97.8,28.9,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+57efbf62-cfa2-e31c-f945-8c4769b726f5,2023-02-01,64,F,132.0,90.0,73.0,97.3,28.5,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+25339dd5-aa3f-62fa-04d3-8541c6ebcb21,2020-01-08,71,F,132.0,90.0,82.0,98.3,39.0,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+659f5f8f-58ce-67f9-c8d8-7cfef963f825,2016-09-20,64,M,135.0,94.0,95.0,99.9,27.8,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2023-04-02,66,F,137.0,90.0,75.0,99.8,27.5,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+57efbf62-cfa2-e31c-f945-8c4769b726f5,2025-03-19,66,F,125.0,92.0,93.0,95.4,28.5,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+d7f883aa-2ef7-5195-21de-c0afe60182ea,2017-06-15,33,M,131.0,90.0,61.0,96.8,23.8,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+659f5f8f-58ce-67f9-c8d8-7cfef963f825,2017-03-07,64,M,135.0,99.0,76.0,97.1,27.8,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2017-05-07,60,F,138.0,90.0,62.0,98.3,27.5,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+271832d6-fe8f-33dc-1568-db9686fb5156,2025-06-21,35,F,123.0,91.0,97.0,97.3,29.7,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+a7b39b87-9ca5-6b29-6a7c-5f7fbf07c39e,2018-09-26,51,F,133.0,91.0,62.0,99.4,27.4,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+8a4de49a-599d-9d1c-915b-0350eb14639f,2019-06-27,50,F,117.0,96.0,78.0,95.8,29.2,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+5076fc2c-fd94-78bb-23f6-eaa85b0ae3d7,2026-01-22,65,M,115.0,90.0,62.0,95.3,27.4,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+506af6a4-b190-43dd-53de-e7fb030de5dd,2018-08-10,58,M,106.0,92.0,79.0,99.3,30.3,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+b210dde7-9845-e4b6-4f5b-6dacb494ea76,2022-05-26,42,M,139.0,90.0,70.0,95.2,28.6,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+271832d6-fe8f-33dc-1568-db9686fb5156,2026-06-27,36,F,122.0,92.0,70.0,98.3,30.3,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+e78366a8-ceaa-2267-f0d8-a540939e38e6,2020-03-21,31,M,138.0,92.0,68.0,99.1,30.1,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+659f5f8f-58ce-67f9-c8d8-7cfef963f825,2017-01-03,64,M,135.0,92.0,96.0,95.6,27.8,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+50b287fd-51ea-aeb6-99ed-e8c9415bdd30,2011-12-08,51,M,137.0,91.0,94.0,96.5,26.9,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+0de8bb8c-6157-07b7-eca7-99b19b4efc0a,2022-03-19,39,F,124.0,91.0,70.0,98.3,29.3,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+0070903c-3fd9-c175-3533-391385aca212,2017-01-25,66,M,129.0,90.0,97.0,98.6,27.3,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+c76dc1d5-b088-a070-82ea-5a4eeb57d263,2025-11-19,62,F,136.0,91.0,85.0,98.7,28.6,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+506af6a4-b190-43dd-53de-e7fb030de5dd,2020-08-21,60,M,105.0,93.0,82.0,100.0,30.3,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+69cafcd8-c928-09ea-a74f-c4a04b2f06ba,2022-10-07,40,M,117.0,93.0,76.0,98.0,28.4,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+97885a90-b0ad-9c1d-7160-e5e1925a2066,2025-08-14,58,F,121.0,92.0,84.0,95.3,30.1,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+7a8c4fc0-af2d-3434-6ab5-c1f4adad465c,2018-10-19,67,M,136.0,94.0,94.0,97.7,28.1,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+151b311a-2327-39d3-9491-cb403d774543,2025-07-20,19,M,121.0,91.0,94.0,95.4,27.7,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+7a8c4fc0-af2d-3434-6ab5-c1f4adad465c,2023-04-21,72,M,133.0,90.0,71.0,99.9,30.5,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+a7b39b87-9ca5-6b29-6a7c-5f7fbf07c39e,2019-10-02,52,F,128.0,93.0,79.0,95.8,27.4,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+9983a8be-dc51-5c3e-cf5b-0cb4d2ac21be,2020-11-15,47,F,96.0,72.0,131.7,81.6,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+e01c6073-adee-92c1-3354-baa01fccb1c6,2021-08-16,27,F,106.0,66.0,144.1,81.1,,"pulse_high,spo2",2,Certain infectious and parasitic diseases,A00-B99,malaria,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+e01c6073-adee-92c1-3354-baa01fccb1c6,2021-08-17,27,F,104.0,68.0,152.2,80.0,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+a788f675-8400-fbba-fcd8-d7f40262585b,2020-10-16,38,M,121.0,75.0,139.1,88.4,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+bb7178b5-4155-2d07-1dcf-2b265420c0e8,2020-04-05,73,F,110.0,62.0,114.7,75.9,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+bcf7ec87-2f33-42cc-c9c6-78405e70c6ac,2020-12-15,60,F,105.0,69.0,165.9,81.7,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+bcf7ec87-2f33-42cc-c9c6-78405e70c6ac,2020-12-06,60,F,120.0,76.0,161.4,87.4,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+371c5c70-ef03-62a0-95c2-d887032e9979,2020-05-03,64,M,100.0,55.0,176.2,79.9,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+60984881-c302-bc6f-d4b6-5e22c9770e13,2020-12-30,39,F,123.0,72.0,195.2,86.5,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+556a4e69-ba7d-a3cc-cef1-a7bfd763457b,2021-01-19,14,M,114.0,64.0,123.5,81.8,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+34d04f46-a1c1-afe0-c1ee-ee3628fa9c28,2020-11-27,50,M,115.0,75.0,191.3,77.5,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+e22acdd9-de7b-6872-5823-1e77e688a926,2020-10-23,20,F,136.0,69.0,148.6,80.7,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+c03f4bfb-d05c-37ee-67c1-02db27b6809d,2021-08-11,35,F,108.0,63.0,161.9,86.2,,"pulse_high,spo2",2,Certain infectious and parasitic diseases,A00-B99,typhoid,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+9983a8be-dc51-5c3e-cf5b-0cb4d2ac21be,2020-11-09,47,F,106.0,71.0,146.7,85.5,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+9983a8be-dc51-5c3e-cf5b-0cb4d2ac21be,2020-11-13,47,F,101.0,67.0,126.4,82.6,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+34d04f46-a1c1-afe0-c1ee-ee3628fa9c28,2020-11-28,50,M,116.0,75.0,189.3,88.5,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+f53b6195-63b2-bccd-404e-f25e05574594,2020-12-23,12,F,111.0,77.0,119.7,77.9,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+8e6805ea-d77e-5343-502d-f5da4519443c,2020-12-05,34,M,115.0,78.0,140.2,86.9,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+502b5dff-e6a4-7e44-f5e4-c7340a958c61,2020-06-11,54,F,113.0,67.0,156.5,86.4,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+502b5dff-e6a4-7e44-f5e4-c7340a958c61,2020-06-15,54,F,114.0,64.0,194.5,76.9,,"pulse_high,spo2",2,Certain infectious and parasitic diseases,A00-B99,typhoid,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+7102ced7-2802-287a-d839-2729ea28f212,2020-10-15,20,M,112.0,58.0,193.7,75.1,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+34d04f46-a1c1-afe0-c1ee-ee3628fa9c28,2020-11-20,50,M,118.0,70.0,126.5,84.3,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+371c5c70-ef03-62a0-95c2-d887032e9979,2020-05-11,64,M,104.0,59.0,167.0,83.3,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+2bebc6dc-ba27-7d68-07ba-750a10d043e7,2020-11-27,9,M,112.0,66.0,196.5,82.6,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+721175aa-7fec-01ac-740a-77358bbf0193,2020-10-17,33,F,112.0,82.0,165.2,84.9,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+60984881-c302-bc6f-d4b6-5e22c9770e13,2020-12-27,39,F,129.0,72.0,193.6,88.2,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+2ec17d67-7ff2-2fbd-610a-a1c23d3b0a40,2021-02-18,38,M,122.0,79.0,159.8,80.9,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+bb7178b5-4155-2d07-1dcf-2b265420c0e8,2020-04-13,73,F,128.0,65.0,137.8,76.3,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+502b5dff-e6a4-7e44-f5e4-c7340a958c61,2020-06-14,54,F,116.0,74.0,124.3,85.1,,"pulse_high,spo2",2,Certain infectious and parasitic diseases,A00-B99,chikungunya,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+0b3363c1-f57b-eef5-4a7a-33fcf851ba06,2021-01-10,40,M,132.0,82.0,141.0,80.7,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+e01c6073-adee-92c1-3354-baa01fccb1c6,2021-08-14,27,F,102.0,62.0,159.9,76.7,,"pulse_high,spo2",2,Certain infectious and parasitic diseases,A00-B99,malaria,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+e22acdd9-de7b-6872-5823-1e77e688a926,2020-10-17,20,F,123.0,73.0,156.4,80.4,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+371c5c70-ef03-62a0-95c2-d887032e9979,2020-05-16,64,M,92.0,61.0,176.9,87.4,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+502b5dff-e6a4-7e44-f5e4-c7340a958c61,2020-06-20,54,F,105.0,68.0,170.8,88.2,,"pulse_high,spo2",2,Certain infectious and parasitic diseases,A00-B99,dengue_fever,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+6eb90dc5-1e2c-cda9-8353-877a165d051a,2021-02-02,32,F,105.0,74.0,188.8,76.9,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+f49f4f12-8b0e-83cb-0738-0d0c64f9791f,2020-12-26,23,M,108.0,57.0,128.5,77.2,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+502b5dff-e6a4-7e44-f5e4-c7340a958c61,2020-06-18,54,F,120.0,67.0,158.5,85.5,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+bb7178b5-4155-2d07-1dcf-2b265420c0e8,2020-04-14,73,F,122.0,70.0,166.2,78.6,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+bb7178b5-4155-2d07-1dcf-2b265420c0e8,2020-04-17,73,F,116.0,54.0,177.0,79.0,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+3d932bd7-da77-5c38-727a-2edbc7604dae,2020-09-13,58,M,114.0,57.0,125.5,75.3,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+47adb41d-0c5a-2f29-77d5-f02cd6374946,2024-05-08,7,M,132.0,84.0,82.0,98.7,19.4,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+61e9935d-6172-f689-7aa7-555e31b236bd,2025-06-15,50,F,143.0,93.0,61.2,99.1,,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+f0ce7de8-590b-c580-3b45-27d2418a0e29,2019-03-13,6,M,134.0,84.0,63.0,99.7,13.9,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+75c44795-07c1-17df-c998-901371623efe,2016-11-28,10,M,141.0,92.0,82.0,97.1,16.3,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+b18ad024-86d4-4d7d-7bd6-179142706338,2018-10-26,55,F,140.0,93.0,60.7,96.3,,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+b18ad024-86d4-4d7d-7bd6-179142706338,2018-12-25,55,F,153.0,91.0,80.7,99.7,,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+932ce3e3-edfa-1d14-4fef-400ac0277813,2020-05-30,44,M,146.0,95.0,70.6,96.5,,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+3abd6d09-8449-98af-77b3-d75ef5f984fd,2024-08-13,7,M,138.0,85.0,71.0,97.1,21.9,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+3abd6d09-8449-98af-77b3-d75ef5f984fd,2023-08-08,6,M,139.0,89.0,80.0,96.3,18.9,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+de0becb4-b0f8-4549-4639-d5d9d259f043,2019-04-03,7,M,131.0,84.0,68.0,98.1,16.7,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+47adb41d-0c5a-2f29-77d5-f02cd6374946,2022-04-27,5,M,131.0,89.0,99.0,96.6,18.7,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+117f81fa-570e-32e9-afeb-a87f834c97d8,2025-04-29,5,M,121.0,88.0,85.0,95.6,13.8,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+47adb41d-0c5a-2f29-77d5-f02cd6374946,2023-05-03,6,M,129.0,90.0,78.0,96.0,18.8,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+f0ff2e7d-a4d1-83ff-083d-66d2efcefa19,2020-03-12,15,F,154.9,99.1,79.1,99.2,,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+745cf63f-2c7d-3704-55c1-29cbaddf38e9,2019-05-11,9,M,138.0,87.0,79.0,96.9,14.0,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+d33180cc-a4c7-b057-dda0-f9b59852aeed,2020-02-03,5,F,140.0,92.0,80.0,95.3,16.0,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+75c44795-07c1-17df-c998-901371623efe,2018-12-10,12,M,143.0,90.0,81.0,98.4,17.3,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+3abd6d09-8449-98af-77b3-d75ef5f984fd,2025-08-19,9,M,125.0,88.0,63.0,98.5,25.3,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+188c2303-077b-6a99-ed90-86a7929687cb,2022-12-14,5,M,125.0,88.0,93.0,95.4,23.0,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+56fbbabf-fa24-49fc-ac19-0a95e7fdc2aa,2024-05-16,59,M,146.0,92.0,92.4,95.7,,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+ea36448f-ff45-6e38-ace2-91c6024e24b2,2019-11-21,22,F,148.0,101.0,79.0,98.1,19.1,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+75c44795-07c1-17df-c998-901371623efe,2019-12-16,13,M,141.0,90.0,91.0,96.4,18.0,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+859e8550-9f7b-685e-4e6d-cde6c1c27e96,2019-07-12,72,M,153.0,99.0,60.4,95.7,,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+188c2303-077b-6a99-ed90-86a7929687cb,2023-12-20,6,M,126.0,85.0,72.0,99.0,23.5,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+9f62eae5-16bb-c0ac-be9f-8392c6c36446,2024-09-04,67,M,167.8,92.4,76.7,99.1,,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+188c2303-077b-6a99-ed90-86a7929687cb,2024-12-25,7,M,123.0,85.0,69.0,97.8,18.8,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+7102ced7-2802-287a-d839-2729ea28f212,2020-10-14,20,M,121.0,64.0,50.9,78.0,,"pulse_low,spo2",2,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+371c5c70-ef03-62a0-95c2-d887032e9979,2020-05-04,64,M,102.0,59.0,58.5,81.0,,"pulse_low,spo2",2,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+a788f675-8400-fbba-fcd8-d7f40262585b,2020-10-23,38,M,124.0,71.0,59.2,81.2,,"pulse_low,spo2",2,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+9983a8be-dc51-5c3e-cf5b-0cb4d2ac21be,2020-11-14,47,F,109.0,65.0,52.9,87.8,,"pulse_low,spo2",2,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+371c5c70-ef03-62a0-95c2-d887032e9979,2020-05-19,64,M,104.0,60.0,55.1,84.0,,"pulse_low,spo2",2,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2c841f55-2339-69b5-16d4-555b9f5c5be2,2021-03-30,60,M,128.0,68.0,59.5,83.5,,"pulse_low,spo2",2,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+a788f675-8400-fbba-fcd8-d7f40262585b,2020-10-18,38,M,128.0,69.0,51.6,83.5,,"pulse_low,spo2",2,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+e22acdd9-de7b-6872-5823-1e77e688a926,2020-10-29,20,F,130.0,67.0,55.5,80.8,,"pulse_low,spo2",2,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+e01c6073-adee-92c1-3354-baa01fccb1c6,2021-08-12,27,F,105.0,67.0,53.6,75.7,,"pulse_low,spo2",2,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2bebc6dc-ba27-7d68-07ba-750a10d043e7,2020-11-17,9,M,107.0,67.0,58.9,81.7,,"pulse_low,spo2",2,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+e22acdd9-de7b-6872-5823-1e77e688a926,2020-10-25,20,F,124.0,67.0,50.2,77.4,,"pulse_low,spo2",2,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2ec17d67-7ff2-2fbd-610a-a1c23d3b0a40,2021-02-20,38,M,118.0,89.0,54.9,87.6,,"pulse_low,spo2",2,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+2ec17d67-7ff2-2fbd-610a-a1c23d3b0a40,2021-02-17,38,M,118.0,79.0,55.6,77.8,,"pulse_low,spo2",2,Respiratory,J96-J99,,hypoxia_NOS|upper_respiratory_tract_infection|pneumonia
+e22acdd9-de7b-6872-5823-1e77e688a926,2020-10-27,20,F,124.0,71.0,170.6,78.6,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+60984881-c302-bc6f-d4b6-5e22c9770e13,2021-01-06,39,F,124.0,72.0,116.0,78.3,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+3b60842d-e811-ed92-8f8b-4686658e11d9,2024-10-08,37,F,141.0,65.0,92.0,97.7,29.7,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+502b5dff-e6a4-7e44-f5e4-c7340a958c61,2020-06-17,54,F,115.0,73.0,160.1,86.8,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+744c3e59-b251-7b6a-439a-85627ff24b4b,2020-12-27,18,F,109.0,66.0,187.6,84.4,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+a788f675-8400-fbba-fcd8-d7f40262585b,2020-10-26,38,M,129.0,75.0,131.5,80.6,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+b50c7643-4415-831b-4f76-5509a4e5d7df,2017-03-06,52,M,136.0,90.0,96.0,97.8,28.2,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+75736d2f-0eea-57e0-415f-acd672407a45,2024-10-07,55,M,146.0,80.0,89.0,98.4,27.8,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+9d6620d9-db71-05e8-078c-1aef49d7c30f,2018-10-15,67,F,140.0,75.0,74.0,96.4,28.8,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+859e8550-9f7b-685e-4e6d-cde6c1c27e96,2022-05-25,75,M,148.0,87.0,97.0,95.6,27.8,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+f53b6195-63b2-bccd-404e-f25e05574594,2020-12-23,12,F,111.0,77.0,119.7,77.9,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+7a8c4fc0-af2d-3434-6ab5-c1f4adad465c,2022-08-19,71,M,132.0,92.0,96.0,96.6,30.5,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+6eb90dc5-1e2c-cda9-8353-877a165d051a,2021-02-02,32,F,105.0,74.0,188.8,76.9,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2025-05-04,68,F,142.0,82.0,91.0,98.0,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+8a4de49a-599d-9d1c-915b-0350eb14639f,2019-06-27,50,F,117.0,96.0,78.0,95.8,29.2,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+b18ad024-86d4-4d7d-7bd6-179142706338,2018-10-26,55,F,140.0,93.0,60.7,96.3,,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+0b3363c1-f57b-eef5-4a7a-33fcf851ba06,2022-12-06,42,M,143.0,81.0,94.0,96.0,29.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+497dfe6c-bbcf-e07f-cfc7-db35671d9e75,2024-03-22,44,F,141.0,75.0,94.0,99.9,28.1,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+3abd6d09-8449-98af-77b3-d75ef5f984fd,2024-08-13,7,M,138.0,85.0,71.0,97.1,21.9,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+de0becb4-b0f8-4549-4639-d5d9d259f043,2019-04-03,7,M,131.0,84.0,68.0,98.1,16.7,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+46058c04-b072-e2ac-fc53-18cf4d2d5c36,2021-02-03,48,M,140.0,76.0,99.0,95.0,30.1,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2024-12-29,67,F,142.0,87.0,66.0,96.2,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5c81c618-733c-c157-5594-d115fd2c3349,2021-12-09,57,F,152.0,89.0,91.0,97.1,27.6,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+e117ac0c-6b0e-3c27-97f6-194a4eeb9bda,2020-12-07,69,F,130.0,86.0,113.4,88.2,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+a65ac69c-ab40-852e-9d55-c91d030b7f30,2021-11-15,69,F,141.0,79.0,69.0,98.4,27.3,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+25339dd5-aa3f-62fa-04d3-8541c6ebcb21,2020-01-08,71,F,132.0,90.0,82.0,98.3,39.0,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+371c5c70-ef03-62a0-95c2-d887032e9979,2020-05-17,64,M,100.0,56.0,112.4,80.3,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2018-02-25,61,F,143.0,89.0,70.0,99.0,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+502b5dff-e6a4-7e44-f5e4-c7340a958c61,2020-06-13,54,F,108.0,71.0,117.5,77.6,,"pulse_high,spo2",2,Certain infectious and parasitic diseases,A00-B99,chikungunya,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2017-04-09,60,F,148.0,84.0,64.0,97.9,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5076fc2c-fd94-78bb-23f6-eaa85b0ae3d7,2026-01-22,65,M,115.0,90.0,62.0,95.3,27.4,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+b210dde7-9845-e4b6-4f5b-6dacb494ea76,2022-05-26,42,M,139.0,90.0,70.0,95.2,28.6,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+745cf63f-2c7d-3704-55c1-29cbaddf38e9,2019-05-11,9,M,138.0,87.0,79.0,96.9,14.0,"bp_diastolic,bp_systolic",2,Circulatory system,I10-I15,I10,essential_hypertension_stage2|hypertensive_urgency
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2021-06-20,64,F,145.0,84.0,77.0,99.7,27.5,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+97885a90-b0ad-9c1d-7160-e5e1925a2066,2025-08-14,58,F,121.0,92.0,84.0,95.3,30.1,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+e22acdd9-de7b-6872-5823-1e77e688a926,2020-10-17,20,F,123.0,73.0,156.4,80.4,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+9983a8be-dc51-5c3e-cf5b-0cb4d2ac21be,2020-11-09,47,F,108.0,73.0,171.2,76.6,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+9e773ff3-bbc1-6221-a1aa-0c01666373b6,2023-06-28,50,F,140.0,87.0,85.0,99.2,30.2,"bmi,bp_systolic",2,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+e01c6073-adee-92c1-3354-baa01fccb1c6,2021-08-15,27,F,101.0,68.0,183.2,77.2,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+659f5f8f-58ce-67f9-c8d8-7cfef963f825,2019-10-08,67,M,135.0,91.0,100.0,96.5,27.8,"bmi,bp_diastolic",2,Circulatory system,I10-I15,,obesity_related_diastolic_htn|metabolic_syndrome
+bb7178b5-4155-2d07-1dcf-2b265420c0e8,2020-04-13,73,F,128.0,65.0,137.8,76.3,,"pulse_high,spo2",2,Respiratory,J96-J99,,pneumonia|dengue_fever|malaria|typhoid|chikungunya|lower_respiratory_tract_infection
+5c81c618-733c-c157-5594-d115fd2c3349,2020-10-22,56,F,148.0,94.0,95.0,97.8,30.1,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+10761782-c7c3-2066-c026-29e2d19be758,2019-12-18,46,F,143.0,95.0,64.0,95.7,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+7a8c4fc0-af2d-3434-6ab5-c1f4adad465c,2016-11-25,65,M,155.0,102.0,67.0,96.4,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+859e8550-9f7b-685e-4e6d-cde6c1c27e96,2022-01-12,74,M,150.0,94.0,97.0,97.5,27.8,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5c81c618-733c-c157-5594-d115fd2c3349,2019-10-17,55,F,151.0,95.0,82.0,99.4,30.4,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5c81c618-733c-c157-5594-d115fd2c3349,2022-11-03,58,F,162.0,94.0,68.0,97.5,28.3,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+cdeb88e8-728a-6a89-5c3a-23d76a918ddd,2022-10-28,53,M,171.0,111.0,98.0,97.2,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+2b2c7b58-0606-1193-2ed0-c7557872c7ea,2026-04-28,39,F,142.0,92.0,94.0,98.2,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2019-11-24,62,F,154.0,91.0,90.0,97.2,27.5,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+75736d2f-0eea-57e0-415f-acd672407a45,2023-10-02,54,M,158.0,92.0,74.0,99.0,28.5,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+659f5f8f-58ce-67f9-c8d8-7cfef963f825,2017-01-31,64,M,146.0,91.0,80.0,96.0,27.8,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+b210dde7-9845-e4b6-4f5b-6dacb494ea76,2026-06-04,46,M,148.0,91.0,68.0,96.9,27.1,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+10761782-c7c3-2066-c026-29e2d19be758,2016-11-30,43,F,163.0,99.0,67.0,96.9,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+7a8c4fc0-af2d-3434-6ab5-c1f4adad465c,2017-10-20,66,M,155.0,105.0,88.0,95.1,29.4,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+7a8c4fc0-af2d-3434-6ab5-c1f4adad465c,2016-10-28,65,M,154.0,110.0,93.0,98.0,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+859e8550-9f7b-685e-4e6d-cde6c1c27e96,2021-11-10,74,M,142.0,93.0,65.0,95.7,27.8,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+659f5f8f-58ce-67f9-c8d8-7cfef963f825,2019-06-25,67,M,146.0,90.0,98.0,95.5,27.8,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5c81c618-733c-c157-5594-d115fd2c3349,2015-09-24,51,F,144.0,91.0,83.0,97.2,30.4,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+25339dd5-aa3f-62fa-04d3-8541c6ebcb21,2017-12-20,69,F,144.0,93.0,63.0,99.4,39.0,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+25339dd5-aa3f-62fa-04d3-8541c6ebcb21,2018-04-18,70,F,148.0,90.0,68.0,97.5,39.0,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+45c604c2-0597-d4d4-8bfc-220d112c3625,2025-12-09,55,M,147.0,92.0,85.0,96.9,27.1,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+20c18720-4c4d-93a4-ea85-2d1f06b58675,2025-11-30,28,M,165.0,93.0,91.0,98.9,29.1,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+75736d2f-0eea-57e0-415f-acd672407a45,2018-08-27,49,M,148.0,92.0,66.0,95.2,30.1,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2017-06-04,60,F,152.0,90.0,65.0,99.1,27.5,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5c81c618-733c-c157-5594-d115fd2c3349,2017-10-05,53,F,148.0,90.0,96.0,96.1,30.4,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+502b5dff-e6a4-7e44-f5e4-c7340a958c61,2018-02-24,52,F,144.0,91.0,66.0,97.9,28.7,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+10761782-c7c3-2066-c026-29e2d19be758,2017-12-06,44,F,157.0,96.0,98.0,97.3,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+57efbf62-cfa2-e31c-f945-8c4769b726f5,2020-01-15,61,F,152.0,100.0,81.0,95.8,28.5,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+25339dd5-aa3f-62fa-04d3-8541c6ebcb21,2016-10-05,68,F,143.0,96.0,61.0,96.9,39.0,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+10761782-c7c3-2066-c026-29e2d19be758,2020-12-23,47,F,142.0,93.0,71.0,97.7,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+98ada170-7957-e6dc-0881-1ec9a28773f5,2025-09-12,42,F,152.0,98.0,68.0,95.5,38.3,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+85483883-27ab-5403-f5a1-4ed100ee99a5,2021-08-17,56,M,150.0,91.0,97.0,95.1,30.4,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+75736d2f-0eea-57e0-415f-acd672407a45,2019-09-02,50,M,149.0,90.0,100.0,98.5,30.1,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+75736d2f-0eea-57e0-415f-acd672407a45,2016-08-15,46,M,152.0,96.0,94.0,96.0,29.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+859e8550-9f7b-685e-4e6d-cde6c1c27e96,2021-11-24,74,M,141.0,92.0,74.0,98.4,27.8,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+8e8c656f-d833-ccc8-0944-019ecf619958,2017-10-01,69,F,147.0,97.0,66.0,99.4,27.8,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+859e8550-9f7b-685e-4e6d-cde6c1c27e96,2021-10-27,74,M,147.0,90.0,99.0,97.1,27.8,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+25339dd5-aa3f-62fa-04d3-8541c6ebcb21,2018-07-11,70,F,142.0,92.0,96.0,97.2,39.0,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+b18ad024-86d4-4d7d-7bd6-179142706338,2018-09-26,55,F,157.0,102.0,89.0,97.7,27.3,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+56fbbabf-fa24-49fc-ac19-0a95e7fdc2aa,2024-04-16,59,M,152.0,98.0,92.0,97.1,27.4,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5c81c618-733c-c157-5594-d115fd2c3349,2023-11-09,59,F,157.0,90.0,85.0,97.4,29.0,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+57efbf62-cfa2-e31c-f945-8c4769b726f5,2019-01-09,60,F,142.0,94.0,75.0,95.7,28.5,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+3365c0dd-7582-281a-408f-faf3f67d93e1,2026-06-17,69,M,149.0,99.0,92.0,98.4,25.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2022-05-15,65,F,144.0,92.0,84.0,96.7,27.5,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5c81c618-733c-c157-5594-d115fd2c3349,2016-09-29,52,F,144.0,90.0,72.0,95.6,30.4,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+61e9935d-6172-f689-7aa7-555e31b236bd,2025-03-17,50,F,158.0,98.0,64.0,97.7,27.8,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+af547f2f-5658-7ba2-97c7-e0bf863241f5,2017-05-20,31,M,150.0,95.0,62.0,98.1,27.6,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+3365c0dd-7582-281a-408f-faf3f67d93e1,2025-06-11,68,M,152.0,97.0,93.0,99.0,25.6,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+7a8c4fc0-af2d-3434-6ab5-c1f4adad465c,2018-01-19,66,M,148.0,108.0,78.0,95.8,28.7,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+9959ebf0-dd43-1a13-cec1-18398a370748,2017-03-03,42,F,141.0,93.0,85.0,99.2,28.7,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+3ed5b883-5fae-ebca-35c3-1776c9c77727,2021-03-10,7,F,127.0,77.0,145.2,88.2,,"bp_systolic,pulse_high,spo2",3,Respiratory,J96-J99,,respiratory_failure|severe_pneumonia|sepsis_with_hypertension
+2bebc6dc-ba27-7d68-07ba-750a10d043e7,2020-11-15,9,M,130.0,67.0,119.3,85.8,,"bp_systolic,pulse_high,spo2",3,Respiratory,J96-J99,,respiratory_failure|severe_pneumonia|sepsis_with_hypertension
+d33180cc-a4c7-b057-dda0-f9b59852aeed,2020-12-14,6,F,124.0,77.0,113.5,87.5,,"bp_systolic,pulse_high,spo2",3,Respiratory,J96-J99,,respiratory_failure|severe_pneumonia|sepsis_with_hypertension
+75c44795-07c1-17df-c998-901371623efe,2021-01-13,14,M,133.0,87.0,180.5,83.8,,"bp_systolic,pulse_high,spo2",3,Respiratory,J96-J99,,respiratory_failure|severe_pneumonia|sepsis_with_hypertension
+bac59781-e147-3223-d734-9943ca6ad755,2021-09-13,48,M,143.0,82.0,194.4,85.5,,"bp_systolic,pulse_high,spo2",3,Respiratory,J96-J99,,respiratory_failure|severe_pneumonia|sepsis_with_hypertension
+76aaece6-efe3-bf82-40c6-0b61ffd45b2d,2019-03-10,34,M,161.0,99.0,68.0,97.9,29.7,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+859e8550-9f7b-685e-4e6d-cde6c1c27e96,2022-01-12,74,M,150.0,94.0,97.0,97.5,27.8,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+10761782-c7c3-2066-c026-29e2d19be758,2019-12-18,46,F,143.0,95.0,64.0,95.7,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+f49f4f12-8b0e-83cb-0738-0d0c64f9791f,2020-01-22,22,M,151.0,90.0,93.0,98.9,24.5,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+3365c0dd-7582-281a-408f-faf3f67d93e1,2026-06-17,69,M,149.0,99.0,92.0,98.4,25.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+10761782-c7c3-2066-c026-29e2d19be758,2020-12-23,47,F,142.0,93.0,71.0,97.7,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+57efbf62-cfa2-e31c-f945-8c4769b726f5,2019-01-09,60,F,142.0,94.0,75.0,95.7,28.5,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2019-11-24,62,F,154.0,91.0,90.0,97.2,27.5,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+7a8c4fc0-af2d-3434-6ab5-c1f4adad465c,2018-01-19,66,M,148.0,108.0,78.0,95.8,28.7,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+2b2c7b58-0606-1193-2ed0-c7557872c7ea,2026-04-28,39,F,142.0,92.0,94.0,98.2,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5c81c618-733c-c157-5594-d115fd2c3349,2022-11-03,58,F,162.0,94.0,68.0,97.5,28.3,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+75736d2f-0eea-57e0-415f-acd672407a45,2022-09-26,53,M,146.0,91.0,94.0,97.2,30.1,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+bac59781-e147-3223-d734-9943ca6ad755,2021-09-13,48,M,143.0,82.0,194.4,85.5,,"bp_systolic,pulse_high,spo2",3,Respiratory,J96-J99,,respiratory_failure|severe_pneumonia|sepsis_with_hypertension
+56fbbabf-fa24-49fc-ac19-0a95e7fdc2aa,2024-04-16,59,M,152.0,98.0,92.0,97.1,27.4,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+cdeb88e8-728a-6a89-5c3a-23d76a918ddd,2022-10-28,53,M,171.0,111.0,98.0,97.2,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+10761782-c7c3-2066-c026-29e2d19be758,2016-11-30,43,F,163.0,99.0,67.0,96.9,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+75c44795-07c1-17df-c998-901371623efe,2021-01-13,14,M,133.0,87.0,180.5,83.8,,"bp_systolic,pulse_high,spo2",3,Respiratory,J96-J99,,respiratory_failure|severe_pneumonia|sepsis_with_hypertension
+7a8c4fc0-af2d-3434-6ab5-c1f4adad465c,2017-10-20,66,M,155.0,105.0,88.0,95.1,29.4,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+83b7707d-6cd4-7e41-1be9-9b0dd1328bfb,2022-05-24,42,F,148.0,97.0,71.0,95.2,30.4,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5c81c618-733c-c157-5594-d115fd2c3349,2016-09-29,52,F,144.0,90.0,72.0,95.6,30.4,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+75736d2f-0eea-57e0-415f-acd672407a45,2018-08-27,49,M,148.0,92.0,66.0,95.2,30.1,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+25339dd5-aa3f-62fa-04d3-8541c6ebcb21,2017-12-20,69,F,144.0,93.0,63.0,99.4,39.0,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+25339dd5-aa3f-62fa-04d3-8541c6ebcb21,2018-04-18,70,F,148.0,90.0,68.0,97.5,39.0,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+75736d2f-0eea-57e0-415f-acd672407a45,2023-04-24,53,M,151.0,91.0,70.0,95.2,29.5,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+20c18720-4c4d-93a4-ea85-2d1f06b58675,2025-11-30,28,M,165.0,93.0,91.0,98.9,29.1,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+8e8c656f-d833-ccc8-0944-019ecf619958,2016-09-25,68,F,149.0,97.0,88.0,98.9,29.5,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+227caa66-dcbe-cd94-38f6-32357bf9d5cf,2017-06-04,60,F,152.0,90.0,65.0,99.1,27.5,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+9c69a3c9-c6fa-3963-c515-391e92c6968e,2024-07-05,34,F,151.0,91.0,88.0,97.5,24.7,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+3ed5b883-5fae-ebca-35c3-1776c9c77727,2021-03-10,7,F,127.0,77.0,145.2,88.2,,"bp_systolic,pulse_high,spo2",3,Respiratory,J96-J99,,respiratory_failure|severe_pneumonia|sepsis_with_hypertension
+10761782-c7c3-2066-c026-29e2d19be758,2017-12-06,44,F,157.0,96.0,98.0,97.3,30.2,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5c81c618-733c-c157-5594-d115fd2c3349,2019-10-17,55,F,151.0,95.0,82.0,99.4,30.4,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+25339dd5-aa3f-62fa-04d3-8541c6ebcb21,2016-10-05,68,F,143.0,96.0,61.0,96.9,39.0,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+5c81c618-733c-c157-5594-d115fd2c3349,2023-11-09,59,F,157.0,90.0,85.0,97.4,29.0,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+75736d2f-0eea-57e0-415f-acd672407a45,2022-08-29,53,M,157.0,93.0,71.0,99.9,30.1,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+b18ad024-86d4-4d7d-7bd6-179142706338,2017-09-20,54,F,152.0,101.0,84.0,96.3,27.3,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+659f5f8f-58ce-67f9-c8d8-7cfef963f825,2023-04-04,70,M,149.0,93.0,87.0,98.4,27.8,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+659f5f8f-58ce-67f9-c8d8-7cfef963f825,2021-10-19,69,M,142.0,93.0,64.0,95.6,27.8,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+75736d2f-0eea-57e0-415f-acd672407a45,2017-08-21,48,M,153.0,97.0,96.0,96.7,29.9,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+b18ad024-86d4-4d7d-7bd6-179142706338,2018-09-26,55,F,157.0,102.0,89.0,97.7,27.3,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+859e8550-9f7b-685e-4e6d-cde6c1c27e96,2021-10-27,74,M,147.0,90.0,99.0,97.1,27.8,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+25339dd5-aa3f-62fa-04d3-8541c6ebcb21,2018-07-11,70,F,142.0,92.0,96.0,97.2,39.0,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+859e8550-9f7b-685e-4e6d-cde6c1c27e96,2021-11-24,74,M,141.0,92.0,74.0,98.4,27.8,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+45c604c2-0597-d4d4-8bfc-220d112c3625,2025-12-09,55,M,147.0,92.0,85.0,96.9,27.1,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+57efbf62-cfa2-e31c-f945-8c4769b726f5,2020-01-15,61,F,152.0,100.0,81.0,95.8,28.5,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome
+502b5dff-e6a4-7e44-f5e4-c7340a958c61,2018-02-24,52,F,144.0,91.0,66.0,97.9,28.7,"bmi,bp_diastolic,bp_systolic",3,Circulatory system,I10-I15,,obesity_related_htn|metabolic_syndrome

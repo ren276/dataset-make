@@ -1,0 +1,87 @@
+# India-calibrated biometrics override for Synthea
+# Source: IHCI (ihci.in), ICMR-INDIAB, WHO Asian BMI cutoffs
+# Replaces synthea/src/main/resources/biometrics.yml at runtime via step1_generate.py
+# DO NOT edit synthea/src/main/resources/biometrics.yml directly —
+# the pipeline manages backup/restore of that file.
+
+lifecycle:
+  prevalence_of_twins: 0.012          # India: slightly lower twin rate than US
+  adult_weight_gain: [0.5, 1.5]       # kg/year — conservative for Indian population
+  adult_max_weight_age: 49
+  geriatric_weight_loss_age: 60
+  geriatric_weight_loss: [0.5, 1.5]
+  sexual_orientation: [96.0, 2.5, 1.5]
+
+metabolic:
+  blood_pressure:
+    normal:
+      systolic: [100, 129]     # mmHg — IHCI: <130 = normal/elevated range
+      diastolic: [60, 84]      # mmHg — IHCI: <85 = normal
+    hypertensive:
+      systolic: [140, 160, 200]  # mmHg — IHCI Stage 1: 140-159, Stage 2: ≥160
+      diastolic: [90, 100]       # mmHg — IHCI Stage 1: 90-99, Stage 2: ≥100
+  lipid_panel:
+    # India-relevant: higher triglycerides, lower HDL common in South Asian phenotype
+    cholesterol: [150, 200, 239, 259, 279, 300]
+    triglycerides: [100, 150, 199, 499, 550, 600]
+    hdl: [60, 45, 35, 25, 15, 5]    # lower HDL floor for South Asian phenotype
+  basic_panel:
+    normal:
+      urea_nitrogen: [7, 20]
+      carbon_dioxide: [20, 29]
+      creatinine: [0.8, 1.2]
+      chloride: [101, 111]
+      potassium: [3.7, 5.2]
+      sodium: [136, 144]
+      calcium: [8.5, 10.2]
+    glucose: [70, 100, 145, 220]   # Random/non-fasting glucose bands (Rev 6, drishti_pipeline
+                                     # regeneration, 2026-07-23). index0=normoglycemic;
+                                     # index1=prediabetic-tagged patients, upper bound raised to
+                                     # 145 so random/post-prandial readings can legitimately
+                                     # exceed the 140 mg/dL random-glucose screening cutoff
+                                     # even though fasting stays <126; index2=diabetic-tagged
+                                     # patients, 145-220 mg/dL, consistent with ICMR-INDIAB/
+                                     # RSSDI random-glucose diagnostic range. Re-labeled from the
+                                     # original fasting-style [70,100,126,200] bins, which caused
+                                     # only ~1.1% of draws to land >=126 and 0% >=200 -- i.e.
+                                     # the abnormal glucose_high bucket almost never realized in
+                                     # generated data. This widening doesn't fully fix prevalence
+                                     # (Synthea's own diabetes_severity tagging module, which
+                                     # decides WHICH patients draw from index1/2, is out of scope
+                                     # to edit) -- paired with an accumulation-floor mechanism in
+                                     # drishti_pipeline/run_pipeline.py (MIN_GLUCOSE_HIGH_FLOOR).
+    microalbumin_creatinine_ratio:
+      normal: [0, 17]
+      microalbuminuria_controlled: [17, 30]
+      microalbuminuria_uncontrolled: [30, 300]
+      proteinuria: [300, 600]
+    creatinine_clearance:
+      normal:
+        male: [77, 160]
+        female: [56, 161]
+      mild_kidney_damage: [60, 90]
+      moderate_kidney_damage: [30, 59]
+      severe_kidney_damage: [15, 29]
+      esrd: [1, 15]
+
+cardiovascular:
+  oxygen_saturation:
+    normal: [95, 99]      # SpO2 ≥95% = normal (tightened from Synthea default 90)
+    hypoxemia: [75, 94]   # SpO2 75-94% = hypoxemia requiring attention
+  heart_rate:
+    normal: [60, 100]     # bpm — universal
+
+respiratory:
+  respiration_rate:
+    normal: [12, 20]      # breaths/min
+
+weightloss:
+  adherence: 0.605
+  min_management_loss: 0.07
+  max_management_loss: 0.1
+  maintenance: 0.2
+  max_ped_percentile_change: 0.1
+  min_age: 5
+  start_bmi: 23          # WHO Asian overweight threshold (was 30 in US default)
+  start_percentile: 0.85 # Lower starting percentile for South Asian population
+  start_prob: 0.493
