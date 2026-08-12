@@ -144,7 +144,7 @@ def drop_sparse_rows(df: pd.DataFrame, min_vitals: int = MIN_VITALS_PER_ROW) -> 
     return df
 
 
-def impute_missing_vitals(df: pd.DataFrame) -> pd.DataFrame:
+def impute_missing_vitals(df: pd.DataFrame, seed: int = 42) -> pd.DataFrame:
     """Impute missing SpO2 and Pulse with normal baseline values.
 
     Deliberately does NOT impute bmi or glucose -- both are opportunistic
@@ -154,16 +154,18 @@ def impute_missing_vitals(df: pd.DataFrame) -> pd.DataFrame:
     near-universal PHC vitals; glucose is not). This asymmetry is
     intentional -- do not "fix" it into consistency.
     """
+    rng = np.random.RandomState(seed)
+    
     if "spo2" in df.columns:
         null_mask = df["spo2"].isna()
         if null_mask.sum() > 0:
-            df.loc[null_mask, "spo2"] = np.random.uniform(95.0, 100.0, size=null_mask.sum())
+            df.loc[null_mask, "spo2"] = rng.uniform(95.0, 100.0, size=null_mask.sum())
             df["spo2"] = df["spo2"].round(1)
             
     if "pulse" in df.columns:
         null_mask = df["pulse"].isna()
         if null_mask.sum() > 0:
-            df.loc[null_mask, "pulse"] = np.random.uniform(60.0, 100.0, size=null_mask.sum())
+            df.loc[null_mask, "pulse"] = rng.uniform(60.0, 100.0, size=null_mask.sum())
             df["pulse"] = df["pulse"].round(1)
             
     return df
@@ -198,7 +200,7 @@ def run(seed: int) -> Path:
     merged = merged[[c for c in ordered if c in merged.columns]]
 
     merged = filter_age(merged)
-    merged = impute_missing_vitals(merged)
+    merged = impute_missing_vitals(merged, seed=seed)
     merged = drop_sparse_rows(merged)
 
     if merged.empty:

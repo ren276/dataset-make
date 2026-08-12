@@ -1,0 +1,24 @@
+# Regional Indian names for synthetic data generation
+# These are common, neutral names without strong caste or religious signals,
+# ensuring the synthetic data does not encode unintended biases.
+
+male_first_names:
+  MP: ["Amit", "Rahul", "Sandeep", "Vikas", "Anil", "Prakash", "Manish", "Rajesh"]
+  UP: ["Surya", "Ravi", "Sanjay", "Rakesh", "Dinesh", "Suresh", "Manoj", "Ajay"]
+  RJ: ["Kailash", "Bhagwan", "Gopal", "Ramesh", "Kamal", "Ashok", "Pramod", "Naveen"]
+  BR: ["Vinod", "Awadhesh", "Sunil", "Pankaj", "Niraj", "Vijay", "Anand", "Rajiv"]
+  MH: ["Sachin", "Pravin", "Santosh", "Vishal", "Ganesh", "Mahesh", "Sagar", "Amol"]
+
+female_first_names:
+  MP: ["Pooja", "Neha", "Arti", "Sunita", "Anita", "Geeta", "Rekha", "Kiran"]
+  UP: ["Suman", "Vandana", "Shikha", "Renu", "Priyanka", "Anju", "Kavita", "Mamta"]
+  RJ: ["Sita", "Bimla", "Kamla", "Sushila", "Lila", "Radha", "Meena", "Saroj"]
+  BR: ["Rani", "Punam", "Rupa", "Kiran", "Usha", "Asha", "Rita", "Malti"]
+  MH: ["Sneha", "Swati", "Priyanka", "Sonali", "Jyoti", "Pallavi", "Rupali", "Madhuri"]
+
+surnames:
+  MP: ["Sharma", "Verma", "Jain", "Gupta", "Mishra", "Chouhan", "Tiwari"]
+  UP: ["Singh", "Kumar", "Yadav", "Singh", "Pandey", "Shukla", "Pal"]
+  RJ: ["Sharma", "Jain", "Singh", "Meena", "Kumar", "Choudhary", "Gurjar"]
+  BR: ["Kumar", "Singh", "Prasad", "Yadav", "Paswan", "Mahto", "Chaudhary"]
+  MH: ["Patil", "Deshmukh", "Jadhav", "Kadam", "Pawar", "Shinde", "Raut"]

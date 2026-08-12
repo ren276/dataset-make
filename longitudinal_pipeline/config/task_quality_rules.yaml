@@ -1,0 +1,58 @@
+task_quality_rules:
+  version: "v0.1.2"
+  rules:
+    TF01_HISTORICAL_EHR_RETRIEVAL:
+      allowed_semantic_roles:
+        - DIAGNOSIS
+        - CLINICAL_FINDING
+        - VITAL_SIGN
+        - LAB_RESULT
+        - MEDICATION_EVENT
+        - PROCEDURE
+        - IMMUNIZATION
+        - CAREPLAN
+      prohibited_concepts:
+        - address
+        - provider_address
+        - ssn
+        - passport
+        - NOT_RECORDED
+    TF02_CONSULTATION_SUMMARIZATION:
+      min_facts: 2
+      prohibited_phrases:
+        - "improved"
+        - "worsened"
+        - "responded well"
+        - "treatment succeeded"
+    TF03_REFERRAL_DISCHARGE_SUMMARY:
+      min_facts: 2
+      prohibited_phrases:
+        - "improved"
+        - "worsened"
+    TF04_PRESCRIPTION_EXPLANATION:
+      allowed_layers:
+        - PHYSICIAN_PRESCRIPTION
+        - MEDICATION_EVENT
+      medication_event_wording_must_not_contain:
+        - "Your prescription says"
+        - "The supplied prescription is"
+    TF05_MEDICATION_INTERPRETATION:
+      authoritative_knowledge_required: true
+      on_unavailable: "EXPLICIT_UNAVAILABLE_TARGET"
+    TF06_PATIENT_EDUCATION:
+      authoritative_knowledge_required: true
+      meta_targets_prohibited: true
+    TF07_CLINICAL_OUTPUT_EXPLANATION:
+      requires_evidence: true
+    TF08_HISTORICAL_PATIENT_EXPLANATION:
+      requires_evidence: true
+    TF09_CLINICAL_NORMALIZATION:
+      requires_canonical_mapping: true
+    TF10_CONTRADICTION_DETECTION:
+      requires_authoritative_interaction_knowledge: true
+      on_unavailable: "NOT_AVAILABLE"
+    TF11_MISSING_INFORMATION:
+      prohibited_symptoms:
+        - NOT_RECORDED
+    TF12_SAFE_ABSTENTION:
+      prohibited_prescriptions: true

@@ -1,0 +1,33 @@
+rules:
+  SC-001:
+    name: condition_presenting_problem
+    category: SCENARIO_FACT
+    purpose: "Constructs a synthetic presenting problem scenario from a source condition."
+    inputs:
+      - conditions.csv
+    output: derived_presenting_problem
+    version: "1.0"
+  SC-002:
+    name: patient_question_generation
+    category: SCENARIO_FACT
+    purpose: "Constructs a synthetic patient question for LLM tasks."
+    inputs:
+      - derived_presenting_problem
+    output: scenario_question
+    version: "1.0"
+  SC-004:
+    name: missing_information_scenario
+    category: SCENARIO_FACT
+    purpose: "Deliberately withholds a vital to test LLM abstention."
+    inputs:
+      - observations.csv
+    output: missing_vital_scenario
+    version: "1.0"
+  SC-005:
+    name: contradiction_scenario
+    category: SCENARIO_FACT
+    purpose: "Constructs a contradiction (e.g. patient reports fever, vitals normal)."
+    inputs:
+      - observations.csv
+    output: contradiction_scenario
+    version: "1.0"

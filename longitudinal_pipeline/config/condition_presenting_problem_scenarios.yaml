@@ -1,0 +1,43 @@
+scenarios:
+  "Hypertension":
+    scenario_text:
+      en: "High blood pressure check"
+      hi: "BP check ke liye aaye hain"
+      hinglish: "BP check karwane aaye hain"
+    fact_category: "SCENARIO_FACT"
+    source_condition_required: true
+  "Type 2 diabetes mellitus":
+    scenario_text:
+      en: "Diabetes checkup"
+      hi: "Sugar check ke liye"
+      hinglish: "Diabetes checkup ke liye"
+    fact_category: "SCENARIO_FACT"
+    source_condition_required: true
+  "Acute viral pharyngitis (disorder)":
+    scenario_text:
+      en: "Sore throat"
+      hi: "Gale mein dard"
+      hinglish: "Sore throat ho raha hai"
+    fact_category: "SCENARIO_FACT"
+    source_condition_required: true
+  "Viral sinusitis (disorder)":
+    scenario_text:
+      en: "Cold and blocked nose"
+      hi: "Zukham aur band naak"
+      hinglish: "Cold aur blocked nose"
+    fact_category: "SCENARIO_FACT"
+    source_condition_required: true
+  "Acute bronchitis (disorder)":
+    scenario_text:
+      en: "Cough and chest congestion"
+      hi: "Khasi aur chhati mein jakdan"
+      hinglish: "Cough aur chest mein congestion"
+    fact_category: "SCENARIO_FACT"
+    source_condition_required: true
+  "Normal pregnancy":
+    scenario_text:
+      en: "Routine pregnancy checkup"
+      hi: "Pregnancy ka routine checkup"
+      hinglish: "Pregnancy checkup ke liye"
+    fact_category: "SCENARIO_FACT"
+    source_condition_required: true

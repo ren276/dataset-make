@@ -1,0 +1,24 @@
+{
+  "project": "PHC SaMD Dataset v0.1.3-QA.1.1",
+  "changelog_version": "v0.1.3-QA.1.1",
+  "changes": [
+    {
+      "file_changed": "longitudinal_pipeline/steps/step19_build_v013_qa1_release.py",
+      "reason": "Fix P0-001 (ASR clinical token casing corruption) and P0-002 (deterministic example_id hash collisions)",
+      "requirement_addressed": "v0.1.3-QA.1.1 Targeted P0 Correction",
+      "old_behavior": "431 ASR_NOISY tasks lowercased clinical unit tokens (mg, ml, spo2); 416 example_id hash collisions existed in sft_metadata.jsonl across ASR task pairs due to un-varied hash inputs",
+      "new_behavior": "Protected clinical token registry (MG, ML, MCG, IU, MEQ, G, SpO2, BP, mmHg, BPM, dates, numbers) preserves exact canonical casing during ASR noise perturbations; canonical serialization hashing includes ASR transformed model-facing input ensuring 100% unique example_ids",
+      "validation_gate": "ASR_CLINICAL_TOKEN_INTEGRITY_CHECK, TASK_IDENTITY_CHECK, TASK_ID_COLLISION_CHECK, SFT_METADATA_IDENTITY_CHECK",
+      "affected_artifacts": ["v0.1.3-QA.1.1/*"]
+    },
+    {
+      "file_changed": "longitudinal_pipeline/steps/step20_build_v013_qa11_release.py",
+      "reason": "Build derived corrective release v0.1.3-QA.1.1 with correction_manifest.json, zero-diff reproducibility, and full requalification audit",
+      "requirement_addressed": "v0.1.3-QA.1.1 Derived Release & Pre-SFT Requalification",
+      "old_behavior": "v0.1.3-QA.1 baseline release had 2 P0 preflight audit findings",
+      "new_behavior": "Generates longitudinal_data/v0.1.3-QA.1.1/ with 0 P0 blockers, 100% clean ASR clinical tokens, 100% unique example_ids, 0 split leakage, and 100% target reconstruction pass rate",
+      "validation_gate": "All 20 Hard Validator Gates + Requalification Suite",
+      "affected_artifacts": ["v0.1.3-QA.1.1/*", "v0.1.3-QA.1.1/reports/*"]
+    }
+  ]
+}

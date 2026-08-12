@@ -1,0 +1,65 @@
+rules:
+  DR-001:
+    name: age_at_encounter_derivation
+    category: DERIVED_FACT
+    inputs:
+      - PATIENT.BIRTHDATE
+      - ENCOUNTER.DATE
+    output: age_at_encounter
+    description: "Computes patient age at encounter by diffing Synthea PATIENT.BIRTHDATE and ENCOUNTER.DATE in whole years."
+    version: "1.0"
+    
+  DR-002:
+    name: biological_sex_mapping
+    category: DERIVED_FACT
+    inputs:
+      - PATIENT.GENDER
+    output: biological_sex
+    description: "Maps Synthea PATIENT.GENDER to PHC canonical 'M' or 'F'."
+    version: "1.0"
+
+  DR-004:
+    name: condition_duration_bucket_derivation
+    category: DERIVED_FACT
+    inputs:
+      - conditions.START
+      - ENCOUNTER.DATE
+    output: condition_duration_bucket
+    description: "Maps days since condition onset to PHC bucket (today, few_days, week_plus, chronic)."
+    version: "1.0"
+
+  DR-005A:
+    name: vital_abnormality_derivation
+    category: DERIVED_FACT
+    inputs:
+      - observations.csv (vitals)
+    output: vital_abnormality
+    description: "Classifies measurement against a versioned threshold (e.g. SpO2 < 90 -> severe abnormality)."
+    version: "1.0"
+
+  DR-010:
+    name: medication_frequency_extraction
+    category: DERIVED_FACT
+    inputs:
+      - medications.csv
+    output: prescription_frequency
+    description: "Extracted only if source explicit. If not, UNKNOWN. No guessing."
+    version: "1.0"
+    
+  DR-011:
+    name: medication_dosage_extraction
+    category: DERIVED_FACT
+    inputs:
+      - medications.csv
+    output: dose
+    description: "Extracted only if source explicit. If not, dose=null, status=UNKNOWN. No 'As prescribed' fallback."
+    version: "1.0"
+
+  DR-012:
+    name: encounter_type_mapping
+    category: DERIVED_FACT
+    inputs:
+      - encounters.csv
+    output: canonical_encounter_type
+    description: "Defensible mapping only. If chronology/follow-up can't be reliably established, output is UNKNOWN."
+    version: "1.0"

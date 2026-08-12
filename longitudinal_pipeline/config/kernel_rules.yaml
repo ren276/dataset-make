@@ -1,0 +1,17 @@
+rules:
+  KERNEL-001:
+    name: vitals_safety_gate_output
+    category: KERNEL_OUTPUT
+    purpose: "Deterministic safety gate evaluation based on vitals."
+    inputs:
+      - vitals
+    output: vitals_safety_result
+    version: "1.0"
+  KERNEL-002:
+    name: nlem_treatment_candidate
+    category: KERNEL_OUTPUT
+    purpose: "Clinical kernel's suggested treatment based on condition."
+    inputs:
+      - condition
+    output: nlem_recommendation
+    version: "1.0"

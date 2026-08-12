@@ -1,0 +1,46 @@
+states:
+  - name: "Madhya Pradesh"
+    code: "MP"
+    districts:
+      - name: "Bhopal"
+        blocks: ["Phanda", "Berasia"]
+      - name: "Indore"
+        blocks: ["Sanwer", "Mhow", "Depalpur"]
+      - name: "Gwalior"
+        blocks: ["Morar", "Bhitarwar", "Dabra"]
+  - name: "Uttar Pradesh"
+    code: "UP"
+    districts:
+      - name: "Lucknow"
+        blocks: ["Malihabad", "Bakshi Ka Talab", "Gosainganj"]
+      - name: "Varanasi"
+        blocks: ["Cholapur", "Chiraigaon", "Harahua"]
+      - name: "Agra"
+        blocks: ["Fatehabad", "Barauli Ahir", "Khandauli"]
+  - name: "Rajasthan"
+    code: "RJ"
+    districts:
+      - name: "Jaipur"
+        blocks: ["Amer", "Bassi", "Govindgarh"]
+      - name: "Jodhpur"
+        blocks: ["Mandor", "Luni", "Osian"]
+      - name: "Udaipur"
+        blocks: ["Girwa", "Badgaon", "Bhindar"]
+  - name: "Bihar"
+    code: "BR"
+    districts:
+      - name: "Patna"
+        blocks: ["Patna Sadar", "Phulwari", "Danapur"]
+      - name: "Gaya"
+        blocks: ["Gaya Town", "Bodh Gaya", "Manpur"]
+      - name: "Muzaffarpur"
+        blocks: ["Mushahari", "Kanti", "Minapur"]
+  - name: "Maharashtra"
+    code: "MH"
+    districts:
+      - name: "Pune"
+        blocks: ["Haveli", "Khed", "Shirur"]
+      - name: "Nagpur"
+        blocks: ["Nagpur Rural", "Hingna", "Kamptee"]
+      - name: "Nashik"
+        blocks: ["Nashik", "Malegaon", "Niphad"]
