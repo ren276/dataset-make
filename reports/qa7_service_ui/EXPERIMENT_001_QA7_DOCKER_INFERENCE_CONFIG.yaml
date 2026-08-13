@@ -1,0 +1,17 @@
+# EXPERIMENT_001_QA7_DOCKER_INFERENCE_CONFIG.yaml
+service:
+  name: phc-medgemma-research-service
+  version: 0.1.0-qa7
+  host: 127.0.0.1
+  port: 8000
+model:
+  base_path: /media/acps/twoTBDrive/SandeshWork/AI/medgemma/models/medgemma-1.5-4b-it
+  base_revision: 91850547d9f0b2fdd21aa7c5f4f3d1a8a52c243b
+  adapter_path: /media/acps/twoTBDrive/SandeshWork/AI/syntheadataset/dataset-make/experiment_001_qa2_output/final_adapter
+  adapter_sha256: 70262714fe6d411787053d629b0f0b3a278f20568a56dc3ef3001c47abfac09b
+inference:
+  do_sample: false
+  temperature: 0.0
+  max_new_tokens: 256
+  max_input_length: 576
+  quantization: 4bit_nf4

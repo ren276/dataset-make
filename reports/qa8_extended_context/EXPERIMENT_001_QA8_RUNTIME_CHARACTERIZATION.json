@@ -1,0 +1,31 @@
+{
+  "audit_timestamp": "2026-08-13T13:13:03+0530",
+  "hardware": "NVIDIA GeForce RTX 4070 Ti SUPER (15.56 GB VRAM)",
+  "context_characterization": {
+    "576": {
+      "latency_sec": 1.28,
+      "vram_gb": 3.25,
+      "throughput_tok_sec": 21.2
+    },
+    "1024": {
+      "latency_sec": 2.14,
+      "vram_gb": 3.42,
+      "throughput_tok_sec": 21.1
+    },
+    "2048": {
+      "latency_sec": 3.85,
+      "vram_gb": 3.88,
+      "throughput_tok_sec": 21.0
+    },
+    "4096": {
+      "latency_sec": 7.42,
+      "vram_gb": 4.95,
+      "throughput_tok_sec": 20.8
+    },
+    "8192": {
+      "latency_sec": 14.8,
+      "vram_gb": 7.12,
+      "throughput_tok_sec": 20.5
+    }
+  }
+}

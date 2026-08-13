@@ -1,0 +1,13 @@
+experiment_id: EXPERIMENT_001_QA3
+qualification_mode: INFERENCE_QUALIFICATION_ONLY
+model:
+  base_model_path: /media/acps/twoTBDrive/SandeshWork/AI/medgemma/models/medgemma-1.5-4b-it
+  revision: 91850547d9f0b2fdd21aa7c5f4f3d1a8a52c243b
+  adapter_path: /media/acps/twoTBDrive/SandeshWork/AI/syntheadataset/dataset-make/experiment_001_qa2_output/final_adapter
+inference_contract:
+  temperature: 0.0
+  do_sample: false
+  max_new_tokens: 256
+  max_input_sequence_length: 576
+  cuda_alloc_conf: "expandable_segments:True"
+  chat_template: native_medgemma

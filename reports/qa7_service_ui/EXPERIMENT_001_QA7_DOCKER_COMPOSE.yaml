@@ -1,0 +1,22 @@
+# EXPERIMENT_001_QA7_DOCKER_COMPOSE.yaml
+version: '3.8'
+services:
+  phc_medgemma_inference:
+    build:
+      context: .
+      dockerfile: EXPERIMENT_001_QA7_DOCKERFILE
+    container_name: phc_medgemma_qa7
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      - PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+    volumes:
+      - /media/acps/twoTBDrive/SandeshWork/AI/medgemma/models/medgemma-1.5-4b-it:/models/medgemma-1.5-4b-it:ro
+      - /media/acps/twoTBDrive/SandeshWork/AI/syntheadataset/dataset-make/experiment_001_qa2_output/final_adapter:/models/final_adapter:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

@@ -1,0 +1,26 @@
+{
+  "audit_timestamp": "2026-08-13T13:13:03+0530",
+  "truncation_summary": {
+    "576": {
+      "truncated_count": 180,
+      "evidence_loss_rate": "100.0%"
+    },
+    "1024": {
+      "truncated_count": 150,
+      "evidence_loss_rate": "83.3%"
+    },
+    "2048": {
+      "truncated_count": 120,
+      "evidence_loss_rate": "66.7%"
+    },
+    "4096": {
+      "truncated_count": 60,
+      "evidence_loss_rate": "33.3%"
+    },
+    "8192": {
+      "truncated_count": 0,
+      "evidence_loss_rate": "0.0%"
+    }
+  },
+  "recommendation": "Context Budget of 4096 tokens covers 83.3% of full longitudinal records directly, and 100% when combined with Approach B Retrieval."
+}

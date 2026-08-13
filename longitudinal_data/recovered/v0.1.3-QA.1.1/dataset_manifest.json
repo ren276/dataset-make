@@ -1,0 +1,41 @@
+{
+  "source_dataset_version": "v0.1.3",
+  "baseline_version": "v0.1.3-QA.1",
+  "training_release_version": "v0.1.3-QA.1.1",
+  "generator_version": "v0.1.3-QA.1.1",
+  "template_version": "v2.1",
+  "population_size": 1140,
+  "train_patient_count": 392,
+  "validation_patient_count": 56,
+  "test_patient_count": 56,
+  "safety_test_patient_count": 57,
+  "train_task_count": 1371,
+  "validation_task_count": 189,
+  "test_task_count": 192,
+  "safety_test_task_count": 196,
+  "total_primary_tasks": 1948,
+  "tf12_sft_subset_count": 0,
+  "tf12_safety_eval_count": 0,
+  "total_knowledge_gap_tasks": 2271,
+  "task_family_counts": {
+    "TF01": 1942,
+    "TF03": 6
+  },
+  "evidence_mode_counts": {
+    "RECORD_GROUNDED": 1942,
+    "IPHS_GROUNDED": 6
+  },
+  "language_counts": {
+    "EN": 1948
+  },
+  "input_mode_counts": {
+    "TEXT": 1780,
+    "ASR_NOISY": 168
+  },
+  "difficulty_counts": {
+    "MEDIUM": 227,
+    "EASY": 669,
+    "HARD": 1052
+  },
+  "reproducibility_status": "PASS_ZERO_DIFF"
+}

@@ -1,0 +1,20 @@
+experiment_id: EXPERIMENT_001_QA2_EVALUATION
+mode: EVALUATION_ONLY
+conditions:
+  condition_a:
+    name: BASE_MEDGEMMA
+    model_path: /media/acps/twoTBDrive/SandeshWork/AI/medgemma/models/medgemma-1.5-4b-it
+    revision: 91850547d9f0b2fdd21aa7c5f4f3d1a8a52c243b
+  condition_b:
+    name: SFT_MEDGEMMA
+    adapter_path: /media/acps/twoTBDrive/SandeshWork/AI/syntheadataset/dataset-make/experiment_001_qa2_output/final_adapter
+inference:
+  temperature: 0.0
+  do_sample: false
+  max_new_tokens: 256
+  cuda_alloc_conf: "expandable_segments:True"
+pools:
+  test: 2185
+  safety_test: 2224
+  tf12_safety_eval: 2051
+  knowledge_gap: 2271

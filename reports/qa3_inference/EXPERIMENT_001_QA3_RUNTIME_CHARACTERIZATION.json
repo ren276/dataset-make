@@ -1,0 +1,56 @@
+{
+  "P50": {
+    "example_id": "task_f2796e4b89b9f252",
+    "input_tokens": 119,
+    "output_tokens": 27.0,
+    "avg_latency_sec": 1.271,
+    "throughput_tok_per_sec": 21.24,
+    "peak_vram_gb": 3.21,
+    "cpu_ram_used_gb": 1.83
+  },
+  "P90": {
+    "example_id": "task_11260b14e72d4043",
+    "input_tokens": 251,
+    "output_tokens": 157.0,
+    "avg_latency_sec": 7.396,
+    "throughput_tok_per_sec": 21.23,
+    "peak_vram_gb": 3.24,
+    "cpu_ram_used_gb": 1.83
+  },
+  "P95": {
+    "example_id": "task_c7712a091d01a86f",
+    "input_tokens": 279,
+    "output_tokens": 185.0,
+    "avg_latency_sec": 8.639,
+    "throughput_tok_per_sec": 21.41,
+    "peak_vram_gb": 3.24,
+    "cpu_ram_used_gb": 1.83
+  },
+  "P99": {
+    "example_id": "task_3cab19e8c39e3855",
+    "input_tokens": 309,
+    "output_tokens": 218.0,
+    "avg_latency_sec": 10.23,
+    "throughput_tok_per_sec": 21.31,
+    "peak_vram_gb": 3.25,
+    "cpu_ram_used_gb": 1.83
+  },
+  "Longest_714": {
+    "example_id": "task_bcd1f227dffe205a",
+    "input_tokens": 398,
+    "output_tokens": 256.0,
+    "avg_latency_sec": 11.976,
+    "throughput_tok_per_sec": 21.38,
+    "peak_vram_gb": 3.26,
+    "cpu_ram_used_gb": 1.83
+  },
+  "Boundary_576": {
+    "example_id": "task_2b552a3b391a3b70",
+    "input_tokens": 294,
+    "output_tokens": 200.0,
+    "avg_latency_sec": 9.512,
+    "throughput_tok_per_sec": 21.03,
+    "peak_vram_gb": 3.24,
+    "cpu_ram_used_gb": 1.83
+  }
+}

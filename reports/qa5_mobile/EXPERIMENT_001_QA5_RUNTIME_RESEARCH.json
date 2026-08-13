@@ -1,0 +1,31 @@
+{
+  "audit_timestamp": "2026-08-12T23:41:00+05:30",
+  "evaluated_runtimes": {
+    "google_litert_mediapipe": {
+      "runtime_name": "Google AI Edge / LiteRT (MediaPipe GenAI)",
+      "supported_models": [
+        "Gemma 2B",
+        "Gemma 7B",
+        "Gemma 2 2B"
+      ],
+      "medgemma_1.5_4b_support": "EXPERIMENTAL / REQUIRES SPM TOKENIZER & BFLOAT16 COMPATIBLE EXPORTER",
+      "android_npu_gpu_acceleration": "EXCELLENT (OpenCL / Vulkan / NPU Delegate)",
+      "custom_chat_template_support": "SUPPORTED VIA FORMATTING DELEGATE",
+      "conversion_tool": "google-ai-edge-torch / mediapipe.tasks.genai.converter"
+    },
+    "gguf_llama_cpp": {
+      "runtime_name": "llama.cpp / GGUF ARM64 Android Runtime",
+      "supported_models": [
+        "Gemma 1.1 / 2",
+        "MedGemma (PaliGemma architecture derivatives)",
+        "LLaMA",
+        "Qwen"
+      ],
+      "medgemma_1.5_4b_support": "NATIVE GGUF ARCHITECTURE SUPPORTED",
+      "android_npu_gpu_acceleration": "GOOD (Vulkan / CPU NEON acceleration)",
+      "custom_chat_template_support": "NATIVE JINJA / CHAT TEMPLATE IN GGUF METADATA",
+      "conversion_tool": "convert_hf_to_gguf.py"
+    }
+  },
+  "decision_matrix_summary": "LiteRT is the official Google Edge framework for mobile NPU/GPU acceleration, while GGUF/llama.cpp provides native Gemma architecture support, low-memory Q4_K_M quantization, and robust CPU NEON fallback for ARM64 Android."
+}

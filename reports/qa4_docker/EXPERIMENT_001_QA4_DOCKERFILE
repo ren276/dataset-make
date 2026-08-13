@@ -1,0 +1,28 @@
+# EXPERIMENT_001_QA4_DOCKERFILE
+# Regulated SaMD Research Container Image for MedGemma 1.5 4B IT + LoRA Adapter
+
+FROM nvidia/cuda:12.0.0-base-ubuntu22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
+ENV PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3.11 \
+    python3-pip \
+    python3.11-dev \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN ln -sf /usr/bin/python3.11 /usr/bin/python
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir \
+    torch==2.13.0+cu130 --find-links https://download.pytorch.org/whl/torch_stable.html || \
+    pip install --no-cache-dir torch transformers==5.15.0 peft==0.20.0 bitsandbytes==0.50.0 accelerate==1.14.0 fastapi uvicorn requests
+
+EXPOSE 8000
+
+CMD ["python", "run_qa4_api_service.py"]

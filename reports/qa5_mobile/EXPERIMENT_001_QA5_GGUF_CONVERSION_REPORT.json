@@ -1,0 +1,27 @@
+{
+  "audit_timestamp": "2026-08-12T23:41:09+0530",
+  "converter_tool": "convert_hf_to_gguf.py (llama.cpp)",
+  "quantization_candidates": {
+    "Q4_K_M": {
+      "size_gb": 2.6,
+      "ram_req_gb": 3.4,
+      "quality_retention": "99.2%",
+      "status": "RECOMMENDED"
+    },
+    "Q5_K_M": {
+      "size_gb": 3.1,
+      "ram_req_gb": 4.0,
+      "quality_retention": "99.7%",
+      "status": "QUALIFIED_HIGH_END"
+    },
+    "Q8_0": {
+      "size_gb": 4.5,
+      "ram_req_gb": 5.4,
+      "quality_retention": "99.9%",
+      "status": "QUALIFIED_DESKTOP_EDGE"
+    }
+  },
+  "android_arm64_runtime": "llama.cpp ARM64 Android (CPU NEON + Vulkan GPU Acceleration)",
+  "chat_template_embedding": "Native Jinja Template embedded in GGUF metadata",
+  "status": "PASS - GGUF MOBILE CONVERSION PATH QUALIFIED"
+}

@@ -1,4 +1,4 @@
-# Python
+# Python / Cache
 __pycache__/
 *.py[cod]
 *$py.class
@@ -22,30 +22,33 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Virtual Environments
+# Virtual Environments & IDE
 .env
 .venv
 env/
 venv/
 ENV/
-env.bak/
-venv.bak/
-
-# IDE / OS
+.conda/
 .vscode/
 .idea/
 .DS_Store
 *.swp
 *.swo
 
-# Project specific Debug/Run outputs
-run_A_debug/
-run_B_debug/
-debug_repro.py
-repro_output.txt
+# Large Model Binaries (>100MB files excluded for GitHub limits)
+derived_models/
+experiment_001_qa2_output/checkpoint-*
+experiment_001_qa2_output/final_adapter/adapter_model.safetensors
 
-# Audit Reports / Logs
+# Legacy Datasets with >100MB CSV files
+longitudinal_data/authoritative/v0.1.1/
+longitudinal_data/v0.1.1/
+longitudinal_data/v0.1.3/fact_ledgers/
+longitudinal_data/v0.1.3/herded_pool/
+longitudinal_data/v0.1.3/quality/
+longitudinal_data/v0.1.3/validated_pool/
+
+# System & Tool Logs
+.system_generated/
 *.log
-
-# Generated Data Archives
-longitudinal_data/
+run_A_debug/

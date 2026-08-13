@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHC SaMD MedGemma Research Interface</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="warning-banner">
+        ⚠️ RESEARCH INFERENCE ONLY — NOT FOR CLINICAL USE — NOT A DIAGNOSTIC OR PRESCRIBING SYSTEM
+    </div>
+    
+    <header class="app-header">
+        <div class="header-title">
+            <span class="logo-icon">🏥</span>
+            <div>
+                <h1>PHC SaMD MedGemma 1.5 4B Research Interface</h1>
+                <span class="header-subtitle">Record-Grounded SLM Research Qualification UI</span>
+            </div>
+        </div>
+        <div class="header-controls">
+            <span class="status-badge" id="statusBadge">CHECKING SERVICE...</span>
+            <button class="btn btn-secondary" onclick="clearChat()">Clear Session</button>
+        </div>
+    </header>
+
+    <main class="chat-container">
+        <div class="chat-box" id="chatBox">
+            <div class="message assistant-message">
+                <div class="message-content">
+                    Welcome to the PHC SaMD MedGemma Research Interface. Enter historical patient record queries below to inspect model output.
+                </div>
+                <div class="message-meta">
+                    System • Qualified Contract Lock: greedy decoding (temp=0.0, max_tokens=256, max_input=576)
+                </div>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-wrapper">
+                <textarea id="promptInput" placeholder="Type a message or paste historical record query..." rows="2"></textarea>
+                <button id="sendBtn" class="btn btn-primary" onclick="sendMessage()">Send Query</button>
+            </div>
+            <div class="input-footer">
+                <span>Model: <strong>MedGemma 1.5 4B IT + PHC LoRA</strong></span>
+                <span id="tokenCounter">Max Input: 576 tokens</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

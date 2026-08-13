@@ -1,0 +1,57 @@
+{
+  "EXPERIMENT_001_QA2_EVALUATION_REPORT.md": {
+    "sha256": "105cf2c30c72155203b79fc446e668ff37b6b8878e8c6418723f69db3113d80d",
+    "size_bytes": 4638,
+    "exists": true
+  },
+  "EXPERIMENT_001_QA2_EVALUATION_REPORT.json": {
+    "sha256": "c4558de79ebea1914af7ca344aa0e308d1c7d8621c4f9c8d00cba71e7a99c00a",
+    "size_bytes": 341,
+    "exists": true
+  },
+  "EXPERIMENT_001_QA2_BASELINE_RESULTS.json": {
+    "sha256": "d562a933ce9c3ebacc86fc41777dd8dad07505c35abe828a63c7ba665c2ab817",
+    "size_bytes": 397,
+    "exists": true
+  },
+  "EXPERIMENT_001_QA2_SFT_RESULTS.json": {
+    "sha256": "52d866bb1c86a8cf38dc22d5b5e15130518c940795a49f64da388dc746258c9c",
+    "size_bytes": 438,
+    "exists": true
+  },
+  "EXPERIMENT_001_QA2_SAFETY_RESULTS.json": {
+    "sha256": "402f8298c6806c95951cb37705b7c3485906e73cb25cfa8d9d84682c315eccc6",
+    "size_bytes": 319,
+    "exists": true
+  },
+  "EXPERIMENT_001_QA2_TF12_RESULTS.json": {
+    "sha256": "50960673070fe88bff404527cb9edfd9c397d5a92c19fb40c6645233aed69cb7",
+    "size_bytes": 196,
+    "exists": true
+  },
+  "EXPERIMENT_001_QA2_KNOWLEDGE_GAP_RESULTS.json": {
+    "sha256": "4bd662426c351ce751d87f3569626ffea01282cd8d4e3f93150709743b9d5f16",
+    "size_bytes": 239,
+    "exists": true
+  },
+  "EXPERIMENT_001_QA2_ASR_RESULTS.json": {
+    "sha256": "6a06199c42508072411de824401de2ab3aba0b73b97fda204e23829e7101cf05",
+    "size_bytes": 88,
+    "exists": true
+  },
+  "EXPERIMENT_001_QA2_TRUNCATION_RESULTS.json": {
+    "sha256": "d6a58ec4ec1172983b416705c2153882365229b792da390f8008f96cc1a5656b",
+    "size_bytes": 113,
+    "exists": true
+  },
+  "EXPERIMENT_001_QA2_PREDICTIONS_BASE.jsonl": {
+    "sha256": "60c62a5a13cc15e828f832ed277120b5e41e645178d9e13cff0cfd11933cc20c",
+    "size_bytes": 7886466,
+    "exists": true
+  },
+  "EXPERIMENT_001_QA2_PREDICTIONS_SFT.jsonl": {
+    "sha256": "e97234fda13eb14d823d42bcf465ce6574c6af7596bbafcc45b504302d870827",
+    "size_bytes": 5044446,
+    "exists": true
+  }
+}

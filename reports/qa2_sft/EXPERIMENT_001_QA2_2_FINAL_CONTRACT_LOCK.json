@@ -1,0 +1,123 @@
+{
+  "timestamp": "2026-08-12T12:00:36+05:30",
+  "audit_name": "PHC SaMD Experiment 001-QA2.2 Final Training Contract Lock Audit",
+  "authoritative_dataset_path": "longitudinal_data/authoritative/v0.1.3-QA.1.1/",
+  "quarantined_dataset_path": "longitudinal_data/v0.1.3-QA.1.1/",
+  "quarantined_directory_status": "UNTOUCHED_AND_FROZEN",
+  "final_readiness_classification": "READY_FOR_EXPLICIT_SFT_APPROVAL",
+  "sft_started": false,
+  "sha256_verification": {
+    "train.jsonl": {
+      "expected_sha256": "8d8d6d9d8087c38c71d8bc4613e4cd64b8f8fa4fae021fb9309d1af553e2ce3f",
+      "calculated_sha256": "8d8d6d9d8087c38c71d8bc4613e4cd64b8f8fa4fae021fb9309d1af553e2ce3f",
+      "status": "PASS"
+    },
+    "validation.jsonl": {
+      "expected_sha256": "34d221c5a045965a9335a7f68a0105ae232d577496f3224fc4bb6c89f93ad04a",
+      "calculated_sha256": "34d221c5a045965a9335a7f68a0105ae232d577496f3224fc4bb6c89f93ad04a",
+      "status": "PASS"
+    },
+    "test.jsonl": {
+      "expected_sha256": "7d0ea53f5c820475d4e4d97e915f085381a8dfe39593bcf3b56a6c5043545da5",
+      "calculated_sha256": "7d0ea53f5c820475d4e4d97e915f085381a8dfe39593bcf3b56a6c5043545da5",
+      "status": "PASS"
+    },
+    "safety_test.jsonl": {
+      "expected_sha256": "dba7e517fcc778c2b9113330a02f207604bfda6ce970d914bc70b11d8bf6617b",
+      "calculated_sha256": "dba7e517fcc778c2b9113330a02f207604bfda6ce970d914bc70b11d8bf6617b",
+      "status": "PASS"
+    },
+    "tf12_safety_eval.jsonl": {
+      "expected_sha256": "fe542d48c8c739bfceb156abdfe151bfb1b1485e7d3fb60cb058df17de57e8fa",
+      "calculated_sha256": "fe542d48c8c739bfceb156abdfe151bfb1b1485e7d3fb60cb058df17de57e8fa",
+      "status": "PASS"
+    },
+    "knowledge_gap/knowledge_gap_tasks.jsonl": {
+      "expected_sha256": "57809cf3c9131ad69a5412e33217cf4a733e5fc99b45c972b99777977954c509",
+      "calculated_sha256": "57809cf3c9131ad69a5412e33217cf4a733e5fc99b45c972b99777977954c509",
+      "status": "PASS"
+    }
+  },
+  "dataset_path_lock": {
+    "train_path": "longitudinal_data/authoritative/v0.1.3-QA.1.1/train.jsonl",
+    "validation_path": "longitudinal_data/authoritative/v0.1.3-QA.1.1/validation.jsonl",
+    "test_path": "longitudinal_data/authoritative/v0.1.3-QA.1.1/test.jsonl",
+    "safety_test_path": "longitudinal_data/authoritative/v0.1.3-QA.1.1/safety_test.jsonl",
+    "tf12_evaluation_path": "longitudinal_data/authoritative/v0.1.3-QA.1.1/tf12_safety_eval.jsonl",
+    "knowledge_gap_evaluation_path": "longitudinal_data/authoritative/v0.1.3-QA.1.1/knowledge_gap/knowledge_gap_tasks.jsonl",
+    "tf12_in_sft": false,
+    "knowledge_gap_in_sft": false,
+    "safety_test_in_sft_training": false,
+    "validation_used_for_optimizer": false,
+    "test_used_for_optimizer": false,
+    "status": "PASS"
+  },
+  "known_limitation_576_tokens": {
+    "total_primary_records": 22210,
+    "max_length": 576,
+    "truncated_records": 44,
+    "truncated_percentage": 0.20,
+    "assistant_target_truncated": 43,
+    "eos_truncated": 44,
+    "patient_context_truncated": 0,
+    "instruction_truncated": 0,
+    "zero_truncation_claimed": false,
+    "100pct_target_preservation_claimed": false,
+    "modified_truncated_records": false,
+    "status": "EXPLICITLY_DOCUMENTED_KNOWN_LIMITATION"
+  },
+  "model_identity_lock": {
+    "model_name": "google/medgemma-1.5-4b-it",
+    "local_path": "/media/acps/twoTBDrive/SandeshWork/AI/medgemma/models/medgemma-1.5-4b-it",
+    "revision": "91850547d9f0b2fdd21aa7c5f4f3d1a8a52c243b",
+    "verified": true
+  },
+  "locked_runtime_contract": {
+    "max_length": 576,
+    "per_device_train_batch_size": 1,
+    "gradient_accumulation_steps": 16,
+    "effective_batch_size": 16,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0002,
+    "lr_scheduler_type": "cosine",
+    "warmup_ratio": 0.03,
+    "num_train_epochs": 3,
+    "seed": 42,
+    "gradient_checkpointing": true,
+    "use_reentrant": false,
+    "assistant_only_loss": true,
+    "cuda_alloc_conf": "expandable_segments:True",
+    "base_quantization": "4-bit NF4",
+    "double_quantization": true,
+    "compute_dtype": "bfloat16",
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "lora_target_modules": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+  },
+  "worst_case_576_memory_check": {
+    "forward_pass_loss": 0.2862,
+    "nan_inf_detected": false,
+    "lora_gradients_present": true,
+    "base_gradients_absent": true,
+    "optimizer_step_successful": true,
+    "peak_allocated_vram_gb": 13.10,
+    "peak_reserved_vram_gb": 13.64,
+    "vram_safety_headroom_gb": 2.46,
+    "vram_safety_headroom_pct": 15.8,
+    "status": "PASS"
+  },
+  "reproducibility_environment": {
+    "python": "3.11.15",
+    "pytorch": "2.13.0+cu130",
+    "transformers": "5.15.0",
+    "accelerate": "1.14.0",
+    "datasets": "5.0.1",
+    "peft": "0.20.0",
+    "trl": "1.9.2",
+    "bitsandbytes": "0.50.0",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 4070 Ti SUPER (15.56 GB VRAM)",
+    "seed": 42
+  }
+}

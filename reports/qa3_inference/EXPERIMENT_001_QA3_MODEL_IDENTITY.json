@@ -1,0 +1,53 @@
+{
+  "base_model": "google/medgemma-1.5-4b-it",
+  "base_model_path": "/media/acps/twoTBDrive/SandeshWork/AI/medgemma/models/medgemma-1.5-4b-it",
+  "base_model_revision": "91850547d9f0b2fdd21aa7c5f4f3d1a8a52c243b",
+  "adapter_path": "/media/acps/twoTBDrive/SandeshWork/AI/syntheadataset/dataset-make/experiment_001_qa2_output/final_adapter",
+  "adapter_config": {
+    "r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "target_modules": [
+      "up_proj",
+      "down_proj",
+      "q_proj",
+      "v_proj",
+      "gate_proj",
+      "o_proj",
+      "k_proj"
+    ],
+    "peft_type": "LORA"
+  },
+  "adapter_files": {
+    "tokenizer_config.json": {
+      "sha256": "4a9056b0e6b60c047b811bf260d2f01a7e7b19790fdb1b071f7ab51064619f01",
+      "size_bytes": 770
+    },
+    "training_args.bin": {
+      "sha256": "044bfd57bdffe11d702bf38ee0c1b81cf869d3d17f528e98ffa7fa459c68f0cd",
+      "size_bytes": 5265
+    },
+    "adapter_config.json": {
+      "sha256": "f46b9553b08aff22df46d767816ebaf06ec621835c89da921a4fe012d6b9b7d4",
+      "size_bytes": 1205
+    },
+    "tokenizer.json": {
+      "sha256": "daab2354f8a74e70d70b4d1f804939b68a8c9624dd06cb7858e52dd8970e9726",
+      "size_bytes": 33384567
+    },
+    "README.md": {
+      "sha256": "2ce1c8bb9e7fac8febc53e12c329ea89b83c24db0fd38fc750650a71bb6e87f6",
+      "size_bytes": 5298
+    },
+    "adapter_model.safetensors": {
+      "sha256": "70262714fe6d411787053d629b0f0b3a278f20568a56dc3ef3001c47abfac09b",
+      "size_bytes": 131250184
+    },
+    "chat_template.jinja": {
+      "sha256": "7de1c58e208eda46e9c7f86397df37ec49883aeece39fb961e0a6b24088dd3c4",
+      "size_bytes": 1532
+    }
+  },
+  "base_model_weights_frozen": true,
+  "status": "PASS - MODEL AND ADAPTER IDENTITY VERIFIED"
+}

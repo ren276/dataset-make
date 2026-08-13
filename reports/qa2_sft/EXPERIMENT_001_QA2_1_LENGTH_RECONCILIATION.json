@@ -1,0 +1,114 @@
+{
+  "timestamp": "2026-08-12T11:58:45+05:30",
+  "audit_name": "PHC SaMD Experiment 001-QA2.1 Final Dataset Length / Worst-Case Memory Reconciliation",
+  "authoritative_dataset_path": "longitudinal_data/authoritative/v0.1.3-QA.1.1/",
+  "quarantined_dataset_path": "longitudinal_data/v0.1.3-QA.1.1/",
+  "quarantined_directory_status": "UNTOUCHED_AND_FROZEN",
+  "final_readiness_classification": "READY_WITH_REVISED_MAX_LENGTH",
+  "recommended_contract": "CONTRACT_B_MAX_LENGTH_576",
+  "authoritative_record_count": 22210,
+  "token_distribution": {
+    "p50": 157.0,
+    "p75": 219.0,
+    "p90": 408.0,
+    "p95": 470.0,
+    "p97_5": 484.0,
+    "p98": 494.0,
+    "p99": 524.0,
+    "p99_5": 546.0,
+    "p100": 714.0
+  },
+  "truncation_analysis_512_tokens": {
+    "total_records_gt_512": 266,
+    "percentage_gt_512": 1.20,
+    "split_breakdown": {
+      "train": 193,
+      "validation": 24,
+      "test": 24,
+      "safety_test": 25
+    },
+    "component_classification": {
+      "cat_A_patient_context_lost": 0,
+      "cat_B_instruction_lost": 0,
+      "cat_C_assistant_target_lost": 260,
+      "cat_D_eos_only_lost": 0,
+      "cat_E_multiple_components_affected": 0,
+      "cat_F_no_clinical_content_lost": 6,
+      "cat_G_evidence_potentially_lost": 260,
+      "cat_H_assistant_answer_incomplete": 260
+    },
+    "reconciliation_sum": 266,
+    "safety_flags": {
+      "P0_TRAINING_OBJECTIVE_INTEGRITY": true,
+      "P0_SAFETY_EVALUATION_INTEGRITY": true,
+      "safety_test_truncated_records": 25
+    }
+  },
+  "candidate_contract_evaluation": {
+    "512": {
+      "truncated_records": 266,
+      "percentage_truncated": 1.20,
+      "patient_context_loss": 0,
+      "instruction_loss": 0,
+      "assistant_target_loss": 260,
+      "eos_loss": 266,
+      "gpu_memory_status": "PASS",
+      "peak_vram_gb": 12.10,
+      "headroom_gb": 3.46,
+      "headroom_pct": 22.2
+    },
+    "576": {
+      "truncated_records": 44,
+      "percentage_truncated": 0.20,
+      "patient_context_loss": 0,
+      "instruction_loss": 0,
+      "assistant_target_loss": 43,
+      "eos_loss": 44,
+      "gpu_memory_status": "PASS",
+      "peak_vram_gb": 13.20,
+      "headroom_gb": 2.36,
+      "headroom_pct": 15.2
+    },
+    "640": {
+      "truncated_records": 3,
+      "percentage_truncated": 0.01,
+      "patient_context_loss": 0,
+      "instruction_loss": 0,
+      "assistant_target_loss": 3,
+      "eos_loss": 3,
+      "gpu_memory_status": "PASS_HIGH_VRAM_RISK",
+      "peak_vram_gb": 14.23,
+      "headroom_gb": 1.33,
+      "headroom_pct": 8.6
+    },
+    "704": {
+      "truncated_records": 1,
+      "percentage_truncated": 0.00,
+      "patient_context_loss": 0,
+      "instruction_loss": 0,
+      "assistant_target_loss": 1,
+      "eos_loss": 1,
+      "gpu_memory_status": "FAIL_CUDA_OOM",
+      "peak_vram_gb": null,
+      "headroom_gb": 0.0,
+      "headroom_pct": 0.0
+    },
+    "768": {
+      "truncated_records": 0,
+      "percentage_truncated": 0.00,
+      "patient_context_loss": 0,
+      "instruction_loss": 0,
+      "assistant_target_loss": 0,
+      "eos_loss": 0,
+      "gpu_memory_status": "FAIL_CUDA_OOM",
+      "peak_vram_gb": null,
+      "headroom_gb": 0.0,
+      "headroom_pct": 0.0
+    }
+  },
+  "recommended_training_contract": {
+    "max_length": 576,
+    "cuda_alloc_conf": "expandable_segments:True",
+    "rationale": "Contract B (max_length=576) eliminates 83.5% of dataset truncation (reducing truncated records from 266 to 44, achieving 99.80% full dataset fit) while executing within safe VRAM limits (13.20 GB peak out of 15.56 GB)."
+  }
+}

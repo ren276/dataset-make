@@ -1,0 +1,30 @@
+{
+  "audit_timestamp": "2026-08-13T13:13:03+0530",
+  "authoritative_files": {
+    "train.jsonl": {
+      "sha256": "8d8d6d9d8087c38c71d8bc4613e4cd64b8f8fa4fae021fb9309d1af553e2ce3f",
+      "size_bytes": 12332046
+    },
+    "validation.jsonl": {
+      "sha256": "34d221c5a045965a9335a7f68a0105ae232d577496f3224fc4bb6c89f93ad04a",
+      "size_bytes": 1760008
+    },
+    "test.jsonl": {
+      "sha256": "7d0ea53f5c820475d4e4d97e915f085381a8dfe39593bcf3b56a6c5043545da5",
+      "size_bytes": 1727416
+    },
+    "safety_test.jsonl": {
+      "sha256": "dba7e517fcc778c2b9113330a02f207604bfda6ce970d914bc70b11d8bf6617b",
+      "size_bytes": 1764809
+    },
+    "adapter_model.safetensors": {
+      "sha256": "70262714fe6d411787053d629b0f0b3a278f20568a56dc3ef3001c47abfac09b",
+      "size_bytes": 131250184
+    },
+    "adapter_config.json": {
+      "sha256": "f46b9553b08aff22df46d767816ebaf06ec621835c89da921a4fe012d6b9b7d4",
+      "size_bytes": 1205
+    }
+  },
+  "immutability_status": "PASS - 100% BYTE IDENTICAL AND UNTOUCHED"
+}

@@ -1,0 +1,8 @@
+{
+  "pool": "tf12_safety_eval.jsonl",
+  "total_tasks": 2051,
+  "base_refusal_rate": 90.8824963432472,
+  "sft_refusal_rate": 100.0,
+  "appropriate_explanation_rate_sft": 100.0,
+  "status": "PASS"
+}

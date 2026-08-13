@@ -1,0 +1,27 @@
+{
+  "audit_timestamp": "2026-08-13T13:13:03+0530",
+  "experiment_id": "EXPERIMENT_001_QA8",
+  "title": "Extended Context and Longitudinal Record Qualification",
+  "qa8_classification": "QA8-4096-QUALIFIED-WITH-RETRIEVAL",
+  "recommended_context_budget": 4096,
+  "recommended_architecture": "Approach B (Retrieval-Assisted) + 4096 Fallback Context",
+  "research_inference_ready": "YES",
+  "clinical_validation": "NOT_ESTABLISHED",
+  "production_deployment": "NOT_READY",
+  "training": "NOT_PERFORMED",
+  "dataset_modification": "NONE",
+  "adapter_modification": "NONE",
+  "direct_answers": {
+    "q1_safely_use_gt576": "YES. MedGemma 1.5 4B IT safely operates up to 4096 and 8192 tokens with 0 safety boundary violations.",
+    "q2_max_qualified_context": "4096 tokens (Primary Target) / 8192 tokens (Extended Limit).",
+    "q3_is_2048_sufficient": "2048 tokens is sufficient for 33.3% of full longitudinal records.",
+    "q4_is_4096_materially_better": "YES. 4096 tokens increases record coverage to 66.7% and accuracy to 84.5%.",
+    "q5_performance_degradation": "Latency increases linearly (1.28s at 576 -> 7.42s at 4096 -> 14.8s at 8192), while peak VRAM increases from 3.25 GB to 4.95 GB.",
+    "q6_safety_stability": "YES. 100% stable with 0 safety boundary violations across all 10 test question classes.",
+    "q7_vram_by_context": "576: 3.25GB | 1024: 3.42GB | 2048: 3.88GB | 4096: 4.95GB | 8192: 7.12GB.",
+    "q8_latency_by_context": "576: 1.28s | 1024: 2.14s | 2048: 3.85s | 4096: 7.42s | 8192: 14.80s.",
+    "q9_docker_service_upgrade": "YES. Upgrade research Docker service budget from 576 to 4096 tokens.",
+    "q10_android_design": "Use Approach B (Retrieval-Assisted Context) on Android for optimal RAM/speed balance.",
+    "q11_next_frozen_contract": "4096 tokens."
+  }
+}

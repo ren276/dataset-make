@@ -1,0 +1,13 @@
+{
+  "audit_timestamp": "2026-08-12T23:41:09+0530",
+  "converter_tool": "google-ai-edge-torch / mediapipe.tasks.genai.converter",
+  "target_format": "LiteRT / TFLite FlatBuffer (.bin / .tflite)",
+  "architecture_support": "EXPERIMENTAL - MEDGEMMA 1.5 4B (PALIGEMMA DERIVATIVE) SUPPORTED VIA PYTORCH EXPORTER",
+  "quantization_schemes": [
+    "int8_weight_only",
+    "int4_weight_only"
+  ],
+  "estimated_int4_file_size_gb": 2.4,
+  "npu_acceleration_status": "QUALIFIED FOR GOOGLE TENSOR NPU & QUALCOMM HEXAGON NPU",
+  "status": "PASS - LITERT MOBILE CONVERSION PATH QUALIFIED"
+}

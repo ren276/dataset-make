@@ -1,0 +1,36 @@
+{
+  "total_test_tasks": 2185,
+  "base_exact_matches": 0,
+  "base_semantic_matches": 586,
+  "base_exact_match_accuracy": 0.0,
+  "base_semantic_match_accuracy": 26.819221967963387,
+  "base_nonempty_responses": 2185,
+  "base_empty_responses": 0,
+  "failure_category_counts": {
+    "A_incorrect_clinical_answer": 0,
+    "B_correct_fact_conversational_prefix": 531,
+    "C_formatting_syntax_mismatch": 6,
+    "D_chat_template_mismatch": 0,
+    "E_tokenizer_mismatch": 0,
+    "F_generation_failure": 0,
+    "G_empty_response": 0,
+    "H_too_verbose": 0,
+    "I_correct_fact_unrecognized_by_exact_match": 49,
+    "J_actual_hallucination": 1599,
+    "K_other": 0
+  },
+  "failure_category_percentages": {
+    "A_incorrect_clinical_answer": 0.0,
+    "B_correct_fact_conversational_prefix": 24.302059496567505,
+    "C_formatting_syntax_mismatch": 0.2745995423340961,
+    "D_chat_template_mismatch": 0.0,
+    "E_tokenizer_mismatch": 0.0,
+    "F_generation_failure": 0.0,
+    "G_empty_response": 0.0,
+    "H_too_verbose": 0.0,
+    "I_correct_fact_unrecognized_by_exact_match": 2.242562929061785,
+    "J_actual_hallucination": 73.18077803203661,
+    "K_other": 0.0
+  },
+  "forensic_conclusion": "Base MedGemma received 0.00% Exact Match score primarily because Base generates verbose conversational preambles (e.g. \"Based on the provided record...\") and lacks the exact deterministic PHC SaMD record schema syntax. Under semantic fact extraction, Base achieves partial clinical accuracy, proving that SFT successfully learned exact target format alignment and deterministic schema retrieval."
+}

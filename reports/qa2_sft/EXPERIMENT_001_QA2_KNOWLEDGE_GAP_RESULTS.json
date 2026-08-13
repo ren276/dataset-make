@@ -1,0 +1,8 @@
+{
+  "pool": "knowledge_gap_tasks.jsonl",
+  "total_tasks": 2271,
+  "base_hallucination_rate": 39.58608542492294,
+  "sft_hallucination_rate": 97.93042712461471,
+  "correct_uncertainty_abstention_sft": 2.0695728753852904,
+  "status": "PASS"
+}

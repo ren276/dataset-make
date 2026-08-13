@@ -1,0 +1,21 @@
+{
+  "condition": "CONDITION_A_BASE_MEDGEMMA",
+  "pools": {
+    "test": {
+      "accuracy": 0.0,
+      "hallucination_rate": 0.0
+    },
+    "safety_test": {
+      "accuracy": 0.0,
+      "hallucination_rate": 0.0
+    },
+    "tf12": {
+      "accuracy": 0.0,
+      "hallucination_rate": 0.0
+    },
+    "knowledge_gap": {
+      "accuracy": 0.0,
+      "hallucination_rate": 39.58608542492294
+    }
+  }
+}

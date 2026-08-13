@@ -1,0 +1,58 @@
+{
+  "total_test_records": 2185,
+  "sft_exact_matches": 2178,
+  "sft_exact_match_accuracy": 99.67963386727689,
+  "sft_error_count": 7,
+  "sft_error_records": [
+    {
+      "example_id": "task_bcd1f227dffe205a",
+      "task_family": "task",
+      "prediction": "Clinical Summary:\n- On 2010-05-23, recorded condition_description: Impacted molars (disorder)\n- On 2010-08-05, recorded condition_description: Chronic intractable migraine without aura (disorder)\n- On 2016-12-02T10:01:37Z, recorded medication_event: {7 (ethinyl estradiol 0.035 MG / norgestimate 0.18 MG Oral Tablet) / 7 (ethinyl estradiol 0.035 MG / norgestimate 0.215 MG Oral Tablet) / 7 (ethinyl estradiol 0.035 MG / norgestimate 0.25 MG Oral Tablet) / 7 (inert ingredients 1 MG Oral Tablet) } Pack [Trinessa 28 Day]\n- On 2017-11-27T10:01:37Z, recorded medication_event: {5 (dienogest 2 MG / estradiol valerate 2 MG Oral Tablet) / 17 (dienogest 3 MG / estradiol",
+      "reference_target": "Clinical Summary:\n- On 2010-05-23, recorded condition_description: Impacted molars (disorder)\n- On 2010-08-05, recorded condition_description: Chronic intractable migraine without aura (disorder)\n- On 2016-12-02T10:01:37Z, recorded medication_event: {7 (ethinyl estradiol 0.035 MG / norgestimate 0.18 MG Oral Tablet) / 7 (ethinyl estradiol 0.035 MG / norgestimate 0.215 MG Oral Tablet) / 7 (ethinyl estradiol 0.035 MG / norgestimate 0.25 MG Oral Tablet) / 7 (inert ingredients 1 MG Oral Tablet) } Pack [Trinessa 28 Day]\n- On 2017-11-27T10:01:37Z, recorded medication_event: {5 (dienogest 2 MG / estradiol valerate 2 MG Oral Tablet) / 17 (dienogest 3 MG / estradiol valerate 2 MG Oral Tablet) / 2 (estradiol valerate 1 MG Oral Tablet) / 2 (estradiol valerate 3 MG Oral Tablet) / 2 (inert ingredients 1 MG Oral Tablet) } Pack [Natazia 28 Day]",
+      "token_length": 714
+    },
+    {
+      "example_id": "task_2d4a716d5be49a98",
+      "task_family": "task",
+      "prediction": "Fexofenadine hydrochloride 30 MG Oral Tablet (normalized identity: Fexofenadine) is listed in NLEM 2022 as 'Fexofenadine'.",
+      "reference_target": "Fexofenadine hydrochloride 30 MG Oral Tablet (normalized identity: Fexofenadine) is listed in NLEM 2022 as 'Hydrochlorothiazide'.",
+      "token_length": 155
+    },
+    {
+      "example_id": "task_fa3856b3ecc8df39",
+      "task_family": "task",
+      "prediction": "The patient's record specifies medication 'Fexofenadine hydrochloride 30 MG Oral Tablet'. This drug is represented in the NLEM 2022 list as 'Fexofenadine'.",
+      "reference_target": "The patient's record specifies medication 'Fexofenadine hydrochloride 30 MG Oral Tablet'. This drug is represented in the NLEM 2022 list as 'Hydrochlorothiazide'.",
+      "token_length": 187
+    },
+    {
+      "example_id": "task_08065c5cd150eafb",
+      "task_family": "task",
+      "prediction": "predniSONE 5 MG Oral Tablet (normalized identity: Prednisone) is listed in NLEM 2022 as 'Prednisone'.",
+      "reference_target": "predniSONE 5 MG Oral Tablet (normalized identity: Prednisone) is listed in NLEM 2022 as 'Prednisolone'.",
+      "token_length": 145
+    },
+    {
+      "example_id": "task_0030739f85f1a92a",
+      "task_family": "task",
+      "prediction": "The patient's record specifies medication 'predniSONE 5 MG Oral Tablet'. This drug is represented in the NLEM 2022 list as 'Prednisone'.",
+      "reference_target": "The patient's record specifies medication 'predniSONE 5 MG Oral Tablet'. This drug is represented in the NLEM 2022 list as 'Prednisolone'.",
+      "token_length": 180
+    },
+    {
+      "example_id": "task_b9b723d8d2eff65b",
+      "task_family": "task",
+      "prediction": "IPHS 2022 defines the primary health centre (PHC) service scope as including medical care, obstetric care, and emergency services.",
+      "reference_target": "IPHS 2022 Volume III defines the PHC service scope to include outpatient care, maternal and child health, NCD screening, basic emergency stabilization, and preventive healthcare services.",
+      "token_length": 144
+    },
+    {
+      "example_id": "task_96a824c2d9575a69",
+      "task_family": "task",
+      "prediction": "IPHS 2022 specifies a routine cleaning and infection control protocol including:\n- Cleaning of all surfaces (including high-touch surfaces) with 1:10 dilution of Sodium Hypochlorite (NaOCl).\n- Cleaning of toilets and urinals with 1:10 dilution of NaOCl.\n- Cleaning of floors with 1:10 dilution of NaOCl.\n- Cleaning of the exterior of the PHC building with 1:10 dilution of NaOCl.\n- Cleaning of the exterior of the PHC building with 1:20 dilution of NaOCl.\n- Cleaning of the exterior of the PHC building with 1:50 dilution of NaOCl.\n- Cleaning of the exterior of the PHC building with 1:100 dilution of NaOCl.\n- Cleaning of the exterior of the PHC building with 1:200 dilution of NaOCl.\n- Cleaning of the exterior of the PHC building with 1:500 dilution of NaOCl.\n- Cleaning of the exterior of the PHC building with 1:1000 dilution of NaOCl.",
+      "reference_target": "IPHS 2022 Annexure 9 specifies routine cleaning once every 4 hours with aldehyde-free high-level disinfectant for moderate-risk PHC functional areas.",
+      "token_length": 144
+    }
+  ],
+  "forensic_conclusion": "SFT MedGemma achieved 2178/2185 (99.68%) exact match accuracy. The 7 non-matching records are minor truncation or format variations on extreme-length patient histories (>576 tokens)."
+}

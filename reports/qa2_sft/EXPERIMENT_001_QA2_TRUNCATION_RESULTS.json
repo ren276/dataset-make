@@ -1,0 +1,6 @@
+{
+  "max_length": 576,
+  "test_gt_576": 24,
+  "safety_test_gt_576": 25,
+  "status": "KNOWN_LIMITATION_ACCEPTED"
+}

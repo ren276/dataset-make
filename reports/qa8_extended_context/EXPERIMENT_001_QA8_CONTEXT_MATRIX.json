@@ -1,0 +1,37 @@
+{
+  "audit_timestamp": "2026-08-13T13:13:03+0530",
+  "context_conditions": {
+    "QA8-C576": {
+      "usable_records_pct": 0.0,
+      "accuracy_pct": 0.0,
+      "vram_gb": 3.25,
+      "latency_sec": 1.28
+    },
+    "QA8-C1024": {
+      "usable_records_pct": 16.7,
+      "accuracy_pct": 0.0,
+      "vram_gb": 3.42,
+      "latency_sec": 2.14
+    },
+    "QA8-C2048": {
+      "usable_records_pct": 33.3,
+      "accuracy_pct": 8.33,
+      "vram_gb": 3.88,
+      "latency_sec": 3.85
+    },
+    "QA8-C4096": {
+      "usable_records_pct": 66.7,
+      "accuracy_pct": 11.67,
+      "vram_gb": 4.95,
+      "latency_sec": 7.42
+    },
+    "QA8-C8192": {
+      "usable_records_pct": 100.0,
+      "accuracy_pct": 25.56,
+      "vram_gb": 7.12,
+      "latency_sec": 14.8
+    }
+  },
+  "recommended_context_budget": 4096,
+  "classification": "QA8-4096-QUALIFIED-WITH-RETRIEVAL"
+}

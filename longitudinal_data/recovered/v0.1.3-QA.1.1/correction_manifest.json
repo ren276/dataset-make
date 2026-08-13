@@ -1,0 +1,21 @@
+{
+  "source_release": "v0.1.3-QA.1",
+  "derived_release": "v0.1.3-QA.1.1",
+  "corrections": [
+    "P0-001",
+    "P0-002"
+  ],
+  "files_changed": [
+    "longitudinal_pipeline/steps/step19_build_v013_qa1_release.py",
+    "longitudinal_pipeline/steps/step20_build_v013_qa11_release.py"
+  ],
+  "records_rebuilt": 1948,
+  "records_excluded": 0,
+  "records_preserved": 1948,
+  "asr_clinical_token_corruptions": 0,
+  "example_id_collisions": 0,
+  "source_release_hashes": {
+    "qa1_train_sha256": "e4175623b3415b904693e28b4dc37b8bc6b963aa101262d90f3a7a27ed93d589",
+    "qa1_metadata_sha256": "d036eabb2386d45ec20640aed437ff663de51415edf5978335bdf7027f7baa9f"
+  }
+}

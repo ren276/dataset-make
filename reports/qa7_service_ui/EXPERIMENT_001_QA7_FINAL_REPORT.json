@@ -1,0 +1,13 @@
+{
+  "audit_timestamp": "2026-08-12T23:44:25+0530",
+  "experiment_id": "EXPERIMENT_001_QA7",
+  "title": "Dockerized MedGemma Inference Service + Local Chat Interface",
+  "qa7_classification": "DOCKER_RESEARCH_INFERENCE_QUALIFIED",
+  "research_inference_ready": "YES",
+  "clinical_validation": "NOT_ESTABLISHED",
+  "production_deployment": "NOT_READY",
+  "android_integration": "FROZEN",
+  "training": "NOT_PERFORMED",
+  "dataset_modification": "NONE",
+  "adapter_modification": "NONE"
+}

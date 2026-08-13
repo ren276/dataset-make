@@ -1,0 +1,1 @@
+{"timestamp_utc": "2026-08-12T05:54:14.286613Z", "step_name": "step19_build_v013_qa1_release", "seed": 42, "input_row_count": 2142, "output_row_count": 1948, "validation_summary": {"release_version": "v0.1.3-QA.1", "readiness": "READY_FOR_FIRST_RECORD_GROUNDED_SLM_EXPERIMENT"}}

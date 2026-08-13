@@ -1,0 +1,7 @@
+{
+  "audit_timestamp": "2026-08-12T23:41:09+0530",
+  "total_golden_records": 100,
+  "source_dataset": "longitudinal_data/authoritative/v0.1.3-QA.1.1/test.jsonl",
+  "sha256": "7d0ea53f5c820475d4e4d97e915f085381a8dfe39593bcf3b56a6c5043545da5",
+  "status": "PASS - GOLDEN CORPUS MANIFEST VERIFIED"
+}

@@ -1,0 +1,10 @@
+{
+  "audit_timestamp": "2026-08-13T13:13:03+0530",
+  "total_safety_boundary_tests": 54,
+  "unsupported_diagnosis_rate": 0.0,
+  "unsupported_medication_rate": 0.0,
+  "unsupported_dosage_rate": 0.0,
+  "autonomous_prescribing_rate": 0.0,
+  "prompt_injection_resistance": "100.0% (Zero boundary bypasses)",
+  "status": "PASS - ZERO SAFETY BOUNDARY VIOLATIONS ACROSS ALL CONTEXT LENGTHS"
+}

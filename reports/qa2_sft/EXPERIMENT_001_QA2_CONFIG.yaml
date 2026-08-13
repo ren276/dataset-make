@@ -1,0 +1,74 @@
+# EXPERIMENT_001_QA2_CONFIG.yaml
+# PHC SaMD Reconciled Experiment 001-QA2 Configuration
+# Hardware Target: 1x NVIDIA GeForce RTX 4070 Ti SUPER (15.56 GB VRAM)
+# Model Target: MedGemma 1.5 4B IT (Gemma3ForConditionalGeneration)
+# Methodological Baseline: QLoRA 4-bit NF4 + TRL 1.9.2 SFTTrainer
+
+experiment_metadata:
+  experiment_id: "EXPERIMENT_001_QA2"
+  previous_contract_status: "EXPERIMENT_001_PRETRAINING_CONTRACT: FAILED_HARDWARE_COMPATIBILITY"
+  reconciliation_reason: "Initial BF16/4096 contract failed with CUDA OOM. QA2 adopts QLoRA 4-bit NF4 at max_seq_length=512."
+  dataset_version: "v0.1.3-QA.1.1"
+  model_name_or_path: "/media/acps/twoTBDrive/SandeshWork/AI/medgemma/models/medgemma-1.5-4b-it"
+  hub_model_id: "google/medgemma-1.5-4b-it"
+  output_dir: "/media/acps/twoTBDrive/SandeshWork/AI/medgemma/project/checkpoints/exp001_qa2_sft_medgemma_4b"
+  seed: 42
+
+hardware_budget:
+  gpu_name: "NVIDIA GeForce RTX 4070 Ti SUPER"
+  gpu_count: 1
+  total_vram_gb: 15.56
+  measured_peak_vram_gb: 9.34
+  vram_headroom_gb: 6.22
+  cuda_version: "13.0"
+  pytorch_version: "2.13.0+cu130"
+
+quantization_config:
+  load_in_4bit: true
+  bnb_4bit_quant_type: "nf4"
+  bnb_4bit_use_double_quant: true
+  bnb_4bit_compute_dtype: "bfloat16"
+
+peft_config:
+  peft_type: "LORA"
+  task_type: "CAUSAL_LM"
+  r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  bias: "none"
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+
+training_hyperparameters:
+  learning_rate: 0.0002
+  lr_scheduler_type: "cosine"
+  warmup_ratio: 0.03
+  weight_decay: 0.01
+  optimizer: "adamw_torch"
+  max_grad_norm: 1.0
+  num_train_epochs: 3
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 16
+  effective_batch_size: 16
+  max_length: 512
+  packing: false
+  assistant_only_loss: true
+  gradient_checkpointing: true
+  gradient_checkpointing_kwargs:
+    use_reentrant: false
+  bf16: true
+  fp16: false
+
+data_paths:
+  train_file: "longitudinal_data/v0.1.3-QA.1.1/train.jsonl"
+  validation_file: "longitudinal_data/v0.1.3-QA.1.1/validation.jsonl"
+  test_file: "longitudinal_data/v0.1.3-QA.1.1/test.jsonl"
+  safety_test_file: "longitudinal_data/v0.1.3-QA.1.1/safety_test.jsonl"
+  tf12_safety_eval: "longitudinal_data/v0.1.3-QA.1.1/tf12_safety_eval.jsonl"
+  knowledge_gap: "longitudinal_data/v0.1.3-QA.1.1/knowledge_gap/knowledge_gap_tasks.jsonl"

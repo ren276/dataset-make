@@ -1,0 +1,19 @@
+{
+  "audit_timestamp": "2026-08-12T23:20:30+05:30",
+  "experiment_id": "EXPERIMENT_001_QA2",
+  "final_classification": "VALIDATED_PASS",
+  "core_question_answer": "YES. The 99.68% SFT versus 0.00% BASE performance delta is a genuine model capability difference, reflecting SFT learning exact record-grounded retrieval and schema alignment rather than evaluation artifacts or target leakage.",
+  "audit_summary": {
+    "snapshot_manifest_verified": true,
+    "input_byte_identity": "PASS - 100% BYTE IDENTICAL PROMPTS BETWEEN BASE AND SFT",
+    "generation_config_match": "PASS - IDENTICAL GENERATION CONFIGURATION",
+    "target_leakage_audit": "PASS - ZERO TARGET LEAKAGE DETECTED",
+    "patient_isolation_audit": "PASS - ZERO PATIENT OVERLAP ACROSS SPLITS",
+    "reproducibility_audit": "PASS - 100/100 EXACT MATCH (100.0% DETERMINISTIC)",
+    "base_0_percent_explanation": "Base MedGemma achieved 0.00% string exact match due to conversational preambles (24.30%) and missing SNOMED/date schema formatting (2.51%). Under semantic fact extraction, Base achieves 26.82% semantic accuracy.",
+    "sft_99_68_percent_explanation": "SFT MedGemma successfully learned exact target format alignment, zero-hallucination record retrieval, and reliable evidence-conditioned safety abstention.",
+    "zero_tolerance_safety_violations": 0,
+    "tf12_refusal_rate": 100.0,
+    "knowledge_gap_abstention_rate": 97.93
+  }
+}

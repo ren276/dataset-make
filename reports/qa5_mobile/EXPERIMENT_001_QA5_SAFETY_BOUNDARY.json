@@ -1,0 +1,10 @@
+{
+  "audit_timestamp": "2026-08-12T23:41:09+0530",
+  "total_categories_tested": 13,
+  "zero_tolerance_violations": 0,
+  "unsupported_diagnosis_rate": 0.0,
+  "unsupported_medication_recommendation_rate": 0.0,
+  "unsupported_dosage_rate": 0.0,
+  "autonomous_prescribing_rate": 0.0,
+  "status": "PASS - ZERO SAFETY BOUNDARY VIOLATIONS OVER MOBILE RUNTIME"
+}

@@ -1,0 +1,11 @@
+{
+  "container_load_time_sec": 3.42,
+  "baseline_vram_gb": 3.13,
+  "peak_inference_vram_gb": 3.25,
+  "concurrency_test": {
+    "concurrent_requests": 5,
+    "cuda_oom": false,
+    "output_corruption": false,
+    "status": "STABLE"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "audit_timestamp": "2026-08-12T23:23:40+05:30",
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 4070 Ti SUPER",
+    "vram_total_gb": 15.56,
+    "device_count": 1
+  },
+  "packages": {
+    "python": "3.11.15",
+    "pytorch": "2.13.0+cu130",
+    "transformers": "5.15.0",
+    "peft": "0.20.0",
+    "trl": "1.9.2",
+    "bitsandbytes": "0.50.0",
+    "accelerate": "1.14.0",
+    "cuda_version": "13.0"
+  },
+  "model_path": "/media/acps/twoTBDrive/SandeshWork/AI/medgemma/models/medgemma-1.5-4b-it",
+  "adapter_path": "/media/acps/twoTBDrive/SandeshWork/AI/syntheadataset/dataset-make/experiment_001_qa2_output/final_adapter"
+}

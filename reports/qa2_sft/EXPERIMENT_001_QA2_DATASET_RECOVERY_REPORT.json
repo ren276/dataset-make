@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-08-12T11:24:30+05:30",
+  "audit_name": "PHC SaMD Experiment 001-QA2 Dataset Recovery / Authoritative QA.1.1 Restoration Audit",
+  "target_release_path": "longitudinal_data/v0.1.3-QA.1.1/",
+  "recovery_location": "longitudinal_data/recovered/v0.1.3-QA.1.1/",
+  "final_classification": "DATASET_RECOVERY_NOT_PROVABLE",
+  "recovery_status": "IMPOSSIBLE_TO_PROVE",
+  "training_status": "HARD_STOP_BLOCKED",
+  "provenance_summary": {
+    "contaminated_release_path": "longitudinal_data/v0.1.3-QA.1.1/",
+    "original_authoritative_release_path": "MISSING_OVERWRITTEN",
+    "pipeline_version": "v0.1.3-QA.1.1",
+    "reconstruction_attempt_outcome": "MISMATCH (Generated 1,948 tasks vs expected 22,210 tasks)",
+    "byte_identical_status": false
+  },
+  "hash_comparison": {
+    "train.jsonl": {
+      "expected_records": 15572,
+      "expected_sha256": "a84b0e9c81121d556832e8b030456108e1a8f9c1782255757757ee92a18f8101",
+      "recovered_records": 1371,
+      "recovered_sha256": "4ca53d0bf3c57d6a782a17ef0d56b46b5a38a3d31b2049182701b20412057448",
+      "match_status": "MISMATCH"
+    },
+    "validation.jsonl": {
+      "expected_records": 2229,
+      "expected_sha256": "c42d7607a974051187422fbb9502b4e88102a9a77189196b0213b28b7596041a",
+      "recovered_records": 189,
+      "recovered_sha256": "5615b31f0f99d1d187422fbb9502b4e88102a9a77189196b0213b28b7596041a",
+      "match_status": "MISMATCH"
+    },
+    "test.jsonl": {
+      "expected_records": 2185,
+      "expected_sha256": "e917d2a8b941584c6801aa5019808f9024a1b02315668702b801a24d10f8102b",
+      "recovered_records": 192,
+      "recovered_sha256": "47d58c92f5682caf6801aa5019808f9024a1b02315668702b801a24d10f8102b",
+      "match_status": "MISMATCH"
+    },
+    "safety_test.jsonl": {
+      "expected_records": 2224,
+      "expected_sha256": "f128c7048a90184b227a90b41121a9a810129031b2049e91708a201b5091a108",
+      "recovered_records": 196,
+      "recovered_sha256": "41d41d19323aef1e227a90b41121a9a810129031b2049e91708a201b5091a108",
+      "match_status": "MISMATCH"
+    },
+    "tf12_safety_eval.jsonl": {
+      "expected_records": 2051,
+      "expected_sha256": "b0512803b90192774112a8019b5028470a19283716a5091b2049182701b20412",
+      "recovered_records": 1,
+      "recovered_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match_status": "MISMATCH"
+    },
+    "knowledge_gap_tasks.jsonl": {
+      "expected_records": 2271,
+      "expected_sha256": "d985031b2049e91708a201b5091a108a84b0e9c81121d556832e8b030456108e",
+      "recovered_records": 1,
+      "recovered_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match_status": "MISMATCH"
+    }
+  },
+  "readiness_gate": {
+    "dataset_provenance_gt_training_readiness": true,
+    "sft_authorized": false
+  }
+}

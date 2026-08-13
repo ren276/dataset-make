@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-08-12T11:14:52+05:30",
+  "project": "PHC SaMD First Controlled SLM Experiment",
+  "experiment_id": "EXPERIMENT_001_QA2",
+  "previous_contract_status": "EXPERIMENT_001_PRETRAINING_CONTRACT: FAILED_HARDWARE_COMPATIBILITY",
+  "dataset_release": "v0.1.3-QA.1.1",
+  "dataset_status": "FROZEN_AND_READY",
+  "model_environment": {
+    "model_identifier": "google/medgemma-1.5-4b-it",
+    "local_model_path": "/media/acps/twoTBDrive/SandeshWork/AI/medgemma/models/medgemma-1.5-4b-it",
+    "model_revision": "91850547d9f0b2fdd21aa7c5f4f3d1a8a52c243b",
+    "parameter_count": "2,523,011,440 (2.52B active text parameters)",
+    "trainable_parameter_count": "32,788,480 (1.300%)",
+    "quantization_type": "4-bit NF4 (load_in_4bit=True, bnb_4bit_quant_type=nf4, bnb_4bit_use_double_quant=True)",
+    "compute_dtype": "bfloat16"
+  },
+  "hardware_environment": {
+    "gpu_name": "NVIDIA GeForce RTX 4070 Ti SUPER",
+    "gpu_count": 1,
+    "gpu_vram_gb": 15.5614,
+    "measured_dryrun_peak_vram_gb": 9.34,
+    "vram_headroom_gb": 6.22,
+    "cuda_version": "13.0",
+    "pytorch_version": "2.13.0+cu130"
+  },
+  "software_packages": {
+    "python_version": "3.11.15",
+    "pytorch_version": "2.13.0+cu130",
+    "transformers_version": "5.15.0",
+    "accelerate_version": "1.14.0",
+    "datasets_version": "5.0.1",
+    "peft_version": "0.20.0",
+    "trl_version": "1.9.2",
+    "bitsandbytes_version": "0.50.0"
+  },
+  "dataset_hashes": {
+    "train.jsonl": {
+      "records": 1915,
+      "bytes": 2571477,
+      "sha256": "0574489d5023db3c6ae574e791a5a09fe5d6ac9cce03d6292ff78eeb9198a0f6"
+    },
+    "validation.jsonl": {
+      "records": 328,
+      "bytes": 440892,
+      "sha256": "026dda2a5109460a050956dec7f647f7a04b788b6cf6b9907c5bbce0a208cbc1"
+    },
+    "test.jsonl": {
+      "records": 289,
+      "bytes": 387417,
+      "sha256": "38d6bf89f320e06c42d94d7ff11c0caf040af2b9fb68035d87bf5d2649c7a83a"
+    },
+    "safety_test.jsonl": {
+      "records": 19683,
+      "bytes": 26401580,
+      "sha256": "871fd40c6dec7dce2db437b3a097fdd6cbe781da545047c3681d51758ff065f0"
+    },
+    "tf12_safety_eval.jsonl": {
+      "records": 2222,
+      "bytes": 2980510,
+      "sha256": "00a559cd5fea12139f311ac6100cd2737ac4dddbe2ee1abd7163443e386a51b6"
+    },
+    "knowledge_gap_tasks.jsonl": {
+      "records": 2469,
+      "bytes": 3313143,
+      "sha256": "e27f7a969c45f3d267cdb29a334b3843da0620930ba604571d0645e6e46beaba"
+    }
+  },
+  "readiness_summary": {
+    "readiness_status": "READY_FOR_EXPERIMENT_001_QA2_SFT",
+    "full_sft_started": false,
+    "checkpoints_created": false
+  }
+}

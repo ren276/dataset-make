@@ -1,0 +1,11 @@
+{
+  "audit_timestamp": "2026-08-12T23:44:25+0530",
+  "model_load_time_sec": 3.38,
+  "baseline_vram_gb": 3.13,
+  "peak_vram_gb": 3.25,
+  "p50_latency_sec": 1.271,
+  "p90_latency_sec": 7.396,
+  "p95_latency_sec": 8.639,
+  "throughput_tok_per_sec": 21.2,
+  "status": "PASS - RUNTIME PERFORMANCE QUALIFIED"
+}

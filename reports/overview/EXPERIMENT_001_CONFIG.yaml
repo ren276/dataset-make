@@ -1,0 +1,107 @@
+# EXPERIMENT_001_CONFIG.yaml
+# PHC SaMD First Controlled SFT Experiment Configuration
+# Hardware Target: 1x NVIDIA GeForce RTX 4070 Ti SUPER (15.56 GB VRAM)
+# Model Target: MedGemma 1.5 4B IT (Gemma3ForConditionalGeneration)
+# Aligned with Google Health MedGemma Reference Workflow & TRL 1.9.2
+
+experiment_metadata:
+  experiment_id: "EXPERIMENT_001"
+  description: "First controlled SFT baseline on frozen dataset v0.1.3-QA.1.1"
+  dataset_version: "v0.1.3-QA.1.1"
+  model_name_or_path: "/media/acps/twoTBDrive/SandeshWork/AI/medgemma/models/medgemma-1.5-4b-it"
+  hub_model_id: "google/medgemma-1.5-4b-it"
+  output_dir: "/media/acps/twoTBDrive/SandeshWork/AI/medgemma/project/checkpoints/exp001_sft_medgemma_4b"
+  seed: 42
+
+hardware_budget:
+  gpu_name: "NVIDIA GeForce RTX 4070 Ti SUPER"
+  gpu_count: 1
+  total_vram_gb: 15.56
+  measured_dryrun_peak_vram_gb: 8.39
+  expected_peak_vram_gb: 11.80
+  vram_headroom_gb: 3.76
+  cuda_version: "13.0"
+  pytorch_version: "2.13.0+cu130"
+
+software_stack:
+  python: "3.11.15"
+  pytorch: "2.13.0+cu130"
+  transformers: "5.15.0"
+  accelerate: "1.14.0"
+  datasets: "5.0.1"
+  peft: "0.20.0"
+  trl: "1.9.2"
+  bitsandbytes: "0.50.0"
+
+model_architecture:
+  architecture_class: "Gemma3ForConditionalGeneration"
+  total_parameters: 4300000000
+  trainable_parameters: 16777216
+  trainable_param_percentage: 0.390
+  native_dtype: "bfloat16"
+  max_supported_context: 131072
+
+peft_config:
+  peft_type: "LORA"
+  task_type: "CAUSAL_LM"
+  r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  bias: "none"
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  modules_to_save: []
+
+training_hyperparameters:
+  learning_rate: 0.0002
+  lr_scheduler_type: "cosine"
+  warmup_ratio: 0.03
+  weight_decay: 0.01
+  optimizer: "adamw_torch"
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-8
+  max_grad_norm: 1.0
+  num_train_epochs: 3
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 16
+  effective_batch_size: 16
+  max_seq_length: 4096
+  packing: false
+  assistant_only_loss: true
+  gradient_checkpointing: true
+  gradient_checkpointing_kwargs:
+    use_reentrant: false
+  bf16: true
+  fp16: false
+
+evaluation_and_logging:
+  eval_strategy: "steps"
+  eval_steps: 250
+  save_strategy: "steps"
+  save_steps: 250
+  save_total_limit: 3
+  logging_steps: 10
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false
+  report_to: ["none"]
+
+data_paths:
+  train_file: "longitudinal_data/v0.1.3-QA.1.1/train.jsonl"
+  validation_file: "longitudinal_data/v0.1.3-QA.1.1/validation.jsonl"
+  test_file: "longitudinal_data/v0.1.3-QA.1.1/test.jsonl"
+  safety_test_file: "longitudinal_data/v0.1.3-QA.1.1/safety_test.jsonl"
+  isolated_tf12_safety_eval: "longitudinal_data/v0.1.3-QA.1.1/tf12_safety_eval.jsonl"
+  isolated_knowledge_gap: "longitudinal_data/v0.1.3-QA.1.1/knowledge_gap/knowledge_gap_tasks.jsonl"
+
+rationale:
+  vram_management: "Measured peak VRAM during dry-run is 8.39 GB (short seq) and ~11.8 GB (4096 seq) on RTX 4070 Ti SUPER (15.56 GB max)."
+  lora_selection: "LoRA rank 16 on all 7 linear projection layers provides sufficient capacity (16.8M params) while preserving base model weight integrity."
+  loss_masking: "Native TRL SFTConfig(assistant_only_loss=True) automatically masks prompt tokens, training loss exclusively on assistant target turns."

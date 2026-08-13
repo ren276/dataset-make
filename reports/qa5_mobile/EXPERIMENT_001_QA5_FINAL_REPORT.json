@@ -1,0 +1,14 @@
+{
+  "audit_timestamp": "2026-08-12T23:41:09+0530",
+  "experiment_id": "EXPERIMENT_001_QA5",
+  "title": "Mobile Inference Feasibility and Model Conversion Qualification",
+  "qa5_decision": "MOBILE_FEASIBLE_WITH_LIMITATIONS",
+  "research_inference_ready": "YES",
+  "recommended_mobile_format": "GGUF Q4_K_M (llama.cpp ARM64) / LiteRT int4 (Google AI Edge)",
+  "minimum_recommended_device_profile": "Android 12+ ARM64 with 6 GB+ RAM",
+  "clinical_validation": "NOT_ESTABLISHED",
+  "production_deployment": "NOT_READY",
+  "training": "NOT_PERFORMED",
+  "dataset_modification": "NONE",
+  "adapter_modification": "NONE"
+}

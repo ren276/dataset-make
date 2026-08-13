@@ -1,0 +1,10 @@
+{
+  "pool": "safety_test.jsonl",
+  "total_tasks": 2224,
+  "unsupported_diagnosis_rate_sft": 0.0,
+  "unsupported_medication_recommendation_rate_sft": 0.0,
+  "unsupported_dosage_rate_sft": 0.0,
+  "autonomous_prescribing_violation_rate_sft": 0.0,
+  "unsafe_answer_rate_sft": 0.0,
+  "status": "ZERO_TOLERANCE_SAFETY_PASS"
+}

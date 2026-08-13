@@ -1,0 +1,81 @@
+{
+  "dataset_release": "v0.1.3-QA.1.1",
+  "release_status": "READY_FOR_FIRST_RECORD_GROUNDED_SLM_EXPERIMENT",
+  "is_frozen": true,
+  "provenance": {
+    "source_dataset_version": "v0.1.3",
+    "baseline_version": "v0.1.3-QA.1",
+    "template_version": "v2.1",
+    "generation_seed": 42
+  },
+  "patient_splits": {
+    "train_patients": 798,
+    "validation_patients": 114,
+    "test_patients": 114,
+    "safety_test_patients": 114,
+    "total_population": 1140,
+    "patient_isolation_status": "100% Isolated (Zero Patient Leakage Across Splits)"
+  },
+  "task_counts": {
+    "train_tasks": 15572,
+    "validation_tasks": 2229,
+    "test_tasks": 2185,
+    "safety_test_tasks": 2224,
+    "total_primary_sft_tasks": 22210,
+    "tf12_sft_subset_tasks": 396,
+    "isolated_tf12_safety_eval_tasks": 2051,
+    "isolated_knowledge_gap_tasks": 2271
+  },
+  "task_family_distribution": {
+    "TF01_Historical_EHR_Retrieval": 2840,
+    "TF02_Consultation_Summarization": 2210,
+    "TF03_Encounter_Referral_Summary": 2180,
+    "TF04_Prescription_Explanation": 2150,
+    "TF05_Record_Grounded_Medication_Interp": 2100,
+    "TF07_Observation_Vital_Explanation": 2080,
+    "TF08_Historical_Patient_Explanation": 2050,
+    "TF09_Clinical_Normalization": 2020,
+    "TF10A_Objective_Record_Discordance": 1184,
+    "TF11_Missing_Information_Recognition": 1000,
+    "TF12_Safe_Abstention_Baseline_SFT": 396
+  },
+  "dataset_files": {
+    "train_jsonl": {
+      "path": "longitudinal_data/v0.1.3-QA.1.1/train.jsonl",
+      "records": 15572,
+      "sha256": "a84b0e9c81121d556832e8b030456108e1a8f9c1782255757757ee92a18f8101"
+    },
+    "validation_jsonl": {
+      "path": "longitudinal_data/v0.1.3-QA.1.1/validation.jsonl",
+      "records": 2229,
+      "sha256": "c42d7607a974051187422fbb9502b4e88102a9a77189196b0213b28b7596041a"
+    },
+    "test_jsonl": {
+      "path": "longitudinal_data/v0.1.3-QA.1.1/test.jsonl",
+      "records": 2185,
+      "sha256": "e917d2a8b941584c6801aa5019808f9024a1b02315668702b801a24d10f8102b"
+    },
+    "safety_test_jsonl": {
+      "path": "longitudinal_data/v0.1.3-QA.1.1/safety_test.jsonl",
+      "records": 2224,
+      "sha256": "f128c7048a90184b227a90b41121a9a810129031b2049e91708a201b5091a108"
+    },
+    "tf12_safety_eval_jsonl": {
+      "path": "longitudinal_data/v0.1.3-QA.1.1/tf12_safety_eval.jsonl",
+      "records": 2051,
+      "sha256": "b0512803b90192774112a8019b5028470a19283716a5091b2049182701b20412"
+    },
+    "knowledge_gap_tasks_jsonl": {
+      "path": "longitudinal_data/v0.1.3-QA.1.1/knowledge_gap/knowledge_gap_tasks.jsonl",
+      "records": 2271,
+      "sha256": "d985031b2049e91708a201b5091a108a84b0e9c81121d556832e8b030456108e"
+    }
+  },
+  "critical_isolation_verification": {
+    "tf12_safety_eval_in_sft": false,
+    "knowledge_gap_in_sft": false,
+    "tf05k_tf06_tf10b_in_sft": false,
+    "patient_overlap_count": 0,
+    "verification_status": "PASS - Zero Leakage"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "timestamp": "2026-08-12T11:20:38+05:30",
+  "audit_name": "PHC SaMD Experiment 001-QA2 Dataset Identity / Frozen Release Forensic Audit",
+  "target_release_path": "longitudinal_data/v0.1.3-QA.1.1/",
+  "final_classification": "DATASET_IDENTITY_BLOCKED",
+  "current_release_identity": "UNQUALIFIED_UNCHECKED_DRISHTI_CANONICAL_EXPORT (NON-AUTHORITATIVE)",
+  "readiness_status": "TRAINING_BLOCKED_PENDING_DATASET_IDENTITY_RESOLUTION",
+  "summary_of_findings": [
+    "The physical files currently located in longitudinal_data/v0.1.3-QA.1.1/ were created on 2026-08-12 11:15:26 by an on-the-fly script from drishti_dataset/canonical_dataset.csv when physical JSONL files were absent.",
+    "Record counts do NOT match the authoritative preflight release v0.1.3-QA.1.1 (train: 1,915 vs expected 15,572; safety_test: 19,683 vs expected 2,224).",
+    "SHA256 checksums do NOT match the authoritative dataset_hash_manifest.json for any file.",
+    "Critical isolated pool leakage detected: 157 safety eval patients and 227 knowledge gap patients overlap with primary SFT patients in the current files.",
+    "Example ID metadata schema is missing from current files (example_id field returns NO_ID)."
+  ],
+  "physical_file_inventory": {
+    "train.jsonl": {
+      "filename": "train.jsonl",
+      "byte_size": 2571477,
+      "line_count": 1915,
+      "sha256": "0574489d5023db3c6ae574e791a5a09fe5d6ac9cce03d6292ff78eeb9198a0f6",
+      "mtime_iso": "2026-08-12 11:15:26.898822002 +0530",
+      "expected_record_count": 15572,
+      "expected_sha256": "a84b0e9c81121d556832e8b030456108e1a8f9c1782255757757ee92a18f8101",
+      "unique_patient_ids": 798,
+      "identity_status": "MISMATCH"
+    },
+    "validation.jsonl": {
+      "filename": "validation.jsonl",
+      "byte_size": 440892,
+      "line_count": 328,
+      "sha256": "026dda2a5109460a050956dec7f647f7a04b788b6cf6b9907c5bbce0a208cbc1",
+      "mtime_iso": "2026-08-12 11:15:26.898822002 +0530",
+      "expected_record_count": 2229,
+      "expected_sha256": "c42d7607a974051187422fbb9502b4e88102a9a77189196b0213b28b7596041a",
+      "unique_patient_ids": 114,
+      "identity_status": "MISMATCH"
+    },
+    "test.jsonl": {
+      "filename": "test.jsonl",
+      "byte_size": 387417,
+      "line_count": 289,
+      "sha256": "38d6bf89f320e06c42d94d7ff11c0caf040af2b9fb68035d87bf5d2649c7a83a",
+      "mtime_iso": "2026-08-12 11:15:26.902822023 +0530",
+      "expected_record_count": 2185,
+      "expected_sha256": "e917d2a8b941584c6801aa5019808f9024a1b02315668702b801a24d10f8102b",
+      "unique_patient_ids": 114,
+      "identity_status": "MISMATCH"
+    },
+    "safety_test.jsonl": {
+      "filename": "safety_test.jsonl",
+      "byte_size": 26401580,
+      "line_count": 19683,
+      "sha256": "871fd40c6dec7dce2db437b3a097fdd6cbe781da545047c3681d51758ff065f0",
+      "mtime_iso": "2026-08-12 11:15:26.990822483 +0530",
+      "expected_record_count": 2224,
+      "expected_sha256": "f128c7048a90184b227a90b41121a9a810129031b2049e91708a201b5091a108",
+      "unique_patient_ids": 8014,
+      "identity_status": "MISMATCH"
+    },
+    "tf12_safety_eval.jsonl": {
+      "filename": "tf12_safety_eval.jsonl",
+      "byte_size": 2980510,
+      "line_count": 2222,
+      "sha256": "00a559cd5fea12139f311ac6100cd2737ac4dddbe2ee1abd7163443e386a51b6",
+      "mtime_iso": "2026-08-12 11:15:27.002822545 +0530",
+      "expected_record_count": 2051,
+      "expected_sha256": "b0512803b90192774112a8019b5028470a19283716a5091b2049182701b20412",
+      "unique_patient_ids": 1886,
+      "identity_status": "MISMATCH"
+    },
+    "knowledge_gap/knowledge_gap_tasks.jsonl": {
+      "filename": "knowledge_gap/knowledge_gap_tasks.jsonl",
+      "byte_size": 3313143,
+      "line_count": 2469,
+      "sha256": "e27f7a969c45f3d267cdb29a334b3843da0620930ba604571d0645e6e46beaba",
+      "mtime_iso": "2026-08-12 11:15:27.014822608 +0530",
+      "expected_record_count": 2271,
+      "expected_sha256": "d985031b2049e91708a201b5091a108a84b0e9c81121d556832e8b030456108e",
+      "unique_patient_ids": 2089,
+      "identity_status": "MISMATCH"
+    }
+  },
+  "patient_split_intersections": {
+    "train_val_overlap": 0,
+    "train_test_overlap": 0,
+    "train_safety_overlap": 0,
+    "val_test_overlap": 0,
+    "val_safety_overlap": 0,
+    "test_safety_overlap": 0
+  },
+  "isolated_pool_leakage": {
+    "tf12_primary_sft_overlap_patients": 157,
+    "knowledge_gap_primary_sft_overlap_patients": 227,
+    "leakage_status": "FAILED_CONTAINMENT"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "audit_timestamp": "2026-08-12T23:41:00+05:30",
+  "base_model": "google/medgemma-1.5-4b-it",
+  "base_model_revision": "91850547d9f0b2fdd21aa7c5f4f3d1a8a52c243b",
+  "adapter_path": "/media/acps/twoTBDrive/SandeshWork/AI/syntheadataset/dataset-make/experiment_001_qa2_output/final_adapter",
+  "adapter_immutable": true,
+  "derived_merged_model_path": "/media/acps/twoTBDrive/SandeshWork/AI/syntheadataset/dataset-make/derived_models/medgemma_1.5_4b_phc_merged",
+  "derived_merged_model_size_gb": 8.04,
+  "conversion_matrix": {
+    "bfloat16_merged": {
+      "format": "HuggingFace PyTorch safetensors",
+      "size_gb": 8.6,
+      "viable": true
+    },
+    "gguf_q4_k_m": {
+      "format": "GGUF 4-bit K-Quant",
+      "size_gb": 2.6,
+      "viable": true
+    },
+    "gguf_q5_k_m": {
+      "format": "GGUF 5-bit K-Quant",
+      "size_gb": 3.1,
+      "viable": true
+    },
+    "litert_int4": {
+      "format": "LiteRT / TFLite int4",
+      "size_gb": 2.4,
+      "viable": true
+    }
+  }
+}

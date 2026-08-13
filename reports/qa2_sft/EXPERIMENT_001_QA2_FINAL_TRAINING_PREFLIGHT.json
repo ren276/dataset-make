@@ -1,0 +1,152 @@
+{
+  "timestamp": "2026-08-12T11:55:40+05:30",
+  "audit_name": "PHC SaMD Experiment 001-QA2 Final Training Preflight Report",
+  "authoritative_dataset_path": "longitudinal_data/authoritative/v0.1.3-QA.1.1/",
+  "quarantined_dataset_path": "longitudinal_data/v0.1.3-QA.1.1/",
+  "quarantined_directory_status": "UNTOUCHED_AND_QUARANTINED",
+  "final_readiness_classification": "READY_FOR_FULL_SFT",
+  "sha256_verification": {
+    "train.jsonl": {
+      "expected_sha256": "8d8d6d9d8087c38c71d8bc4613e4cd64b8f8fa4fae021fb9309d1af553e2ce3f",
+      "calculated_sha256": "8d8d6d9d8087c38c71d8bc4613e4cd64b8f8fa4fae021fb9309d1af553e2ce3f",
+      "status": "PASS"
+    },
+    "validation.jsonl": {
+      "expected_sha256": "34d221c5a045965a9335a7f68a0105ae232d577496f3224fc4bb6c89f93ad04a",
+      "calculated_sha256": "34d221c5a045965a9335a7f68a0105ae232d577496f3224fc4bb6c89f93ad04a",
+      "status": "PASS"
+    },
+    "test.jsonl": {
+      "expected_sha256": "7d0ea53f5c820475d4e4d97e915f085381a8dfe39593bcf3b56a6c5043545da5",
+      "calculated_sha256": "7d0ea53f5c820475d4e4d97e915f085381a8dfe39593bcf3b56a6c5043545da5",
+      "status": "PASS"
+    },
+    "safety_test.jsonl": {
+      "expected_sha256": "dba7e517fcc778c2b9113330a02f207604bfda6ce970d914bc70b11d8bf6617b",
+      "calculated_sha256": "dba7e517fcc778c2b9113330a02f207604bfda6ce970d914bc70b11d8bf6617b",
+      "status": "PASS"
+    },
+    "tf12_safety_eval.jsonl": {
+      "expected_sha256": "fe542d48c8c739bfceb156abdfe151bfb1b1485e7d3fb60cb058df17de57e8fa",
+      "calculated_sha256": "fe542d48c8c739bfceb156abdfe151bfb1b1485e7d3fb60cb058df17de57e8fa",
+      "status": "PASS"
+    },
+    "knowledge_gap/knowledge_gap_tasks.jsonl": {
+      "expected_sha256": "57809cf3c9131ad69a5412e33217cf4a733e5fc99b45c972b99777977954c509",
+      "calculated_sha256": "57809cf3c9131ad69a5412e33217cf4a733e5fc99b45c972b99777977954c509",
+      "status": "PASS"
+    }
+  },
+  "physical_record_counts": {
+    "train": 15572,
+    "validation": 2229,
+    "test": 2185,
+    "safety_test": 2224,
+    "total_primary_sft": 22210,
+    "tf12_safety_eval": 2051,
+    "knowledge_gap": 2271
+  },
+  "patient_counts": {
+    "train": 798,
+    "validation": 114,
+    "test": 114,
+    "safety_test": 114,
+    "total_primary_population": 1140,
+    "tf12_safety_eval": 1114,
+    "knowledge_gap": 1140
+  },
+  "patient_split_isolation": {
+    "train_val_overlap": 0,
+    "train_test_overlap": 0,
+    "train_safety_overlap": 0,
+    "val_test_overlap": 0,
+    "val_safety_overlap": 0,
+    "test_safety_overlap": 0,
+    "tf12_primary_sft_overlap": 0,
+    "gap_primary_sft_overlap": 0,
+    "status": "PASS"
+  },
+  "example_id_uniqueness": {
+    "total_unique_ids": 26532,
+    "collisions": 0,
+    "status": "PASS"
+  },
+  "metadata_correspondence": {
+    "match_percentage": 100.0,
+    "status": "PASS"
+  },
+  "model_identity": {
+    "model_path": "/media/acps/twoTBDrive/SandeshWork/AI/medgemma/models/medgemma-1.5-4b-it",
+    "expected_revision": "91850547d9f0b2fdd21aa7c5f4f3d1a8a52c243b",
+    "verified": true
+  },
+  "environment_versions": {
+    "python": "3.11.15",
+    "pytorch": "2.13.0+cu130",
+    "transformers": "5.15.0",
+    "accelerate": "1.14.0",
+    "datasets": "5.0.1",
+    "peft": "0.20.0",
+    "trl": "1.9.2",
+    "bitsandbytes": "0.50.0",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 4070 Ti SUPER (15.56 GB VRAM)"
+  },
+  "tokenization_statistics": {
+    "p50": 157.0,
+    "p75": 219.0,
+    "p90": 408.0,
+    "p95": 470.0,
+    "p97_5": 484.0,
+    "p98": 494.0,
+    "p99": 524.0,
+    "p99_5": 546.0,
+    "p100": 714.0,
+    "max_token_length": 714,
+    "records_gt_512": 266,
+    "records_lte_512": 21944,
+    "pct_lte_512": 98.80
+  },
+  "qlora_configuration": {
+    "base_quantization": "4-bit NF4",
+    "double_quantization": true,
+    "compute_dtype": "bfloat16",
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+  },
+  "trainable_parameter_count": {
+    "trainable_parameters": 32788480,
+    "total_parameters": 2523011440,
+    "trainable_percentage": 1.2996
+  },
+  "base_parameter_freeze_verification": {
+    "base_params_with_requires_grad": 0,
+    "status": "PASS"
+  },
+  "assistant_only_loss_verification": {
+    "prompt_masked_indices": "0..105 (-100)",
+    "target_unmasked_count": 32,
+    "status": "PASS"
+  },
+  "one_step_training_validation": {
+    "forward_pass_loss": 0.8489,
+    "nan_inf_detected": false,
+    "lora_gradients_present": true,
+    "optimizer_step_successful": true,
+    "peak_vram_gb": 6.44,
+    "allocated_vram_gb": 4.92,
+    "reserved_vram_gb": 7.01,
+    "vram_headroom_gb": 9.12
+  },
+  "reproducibility_configuration": {
+    "seed": 42,
+    "deterministic_mode": true
+  },
+  "safety_eval_isolation": {
+    "tf12_in_sft": false,
+    "knowledge_gap_in_sft": false,
+    "status": "PASS"
+  }
+}

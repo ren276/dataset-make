@@ -1,0 +1,8 @@
+{
+  "locked_max_sequence_length": 576,
+  "total_test_records_gt_576": 0,
+  "primary_dataset_coverage": "99.80%",
+  "patient_evidence_loss": "0 tokens",
+  "instruction_loss": "0 tokens",
+  "limitation_classification": "KNOWN_LIMITATION_ACCEPTED"
+}

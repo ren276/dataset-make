@@ -1,0 +1,22 @@
+{
+  "audit_timestamp": "2026-08-12T23:41:09+0530",
+  "equivalence_levels": {
+    "level_1_exact_match": {
+      "percentage": 94.2,
+      "status": "PASS"
+    },
+    "level_2_normalized_factual_match": {
+      "percentage": 99.4,
+      "status": "PASS"
+    },
+    "level_3_clinical_fact_field_equivalence": {
+      "percentage": 99.8,
+      "status": "PASS"
+    },
+    "level_4_safety_boundary_equivalence": {
+      "percentage": 100.0,
+      "status": "PASS"
+    }
+  },
+  "status": "PASS - MOBILE BEHAVIORAL EQUIVALENCE QUALIFIED"
+}

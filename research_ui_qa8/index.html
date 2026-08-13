@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHC SaMD MedGemma QA8 Extended Context Interface</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary-blue: #0284c7;
+            --primary-blue-hover: #0369a1;
+            --accent-cyan: #38bdf8;
+            --warning-bg: #7f1d1d;
+            --warning-text: #fca5a5;
+            --success-bg: #065f46;
+            --success-text: #6ee7b7;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-dark); color: var(--text-main); display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+        .banner { background: var(--warning-bg); color: var(--warning-text); padding: 8px; text-align: center; font-weight: bold; font-size: 0.85rem; }
+        header { background: var(--card-bg); padding: 14px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        h1 { margin: 0; font-size: 1.15rem; color: var(--accent-cyan); display: flex; align-items: center; gap: 10px; }
+        .badge { background: #334155; color: var(--text-muted); padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; }
+        .badge.online { background: var(--success-bg); color: var(--success-text); }
+        .container { flex: 1; display: flex; flex-direction: column; max-width: 960px; width: 100%; margin: 0 auto; padding: 20px; box-sizing: border-box; height: calc(100vh - 110px); }
+        .chat-box { flex: 1; background: var(--card-bg); border-radius: 10px; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; border: 1px solid var(--border-color); }
+        .msg { display: flex; flex-direction: column; max-width: 85%; padding: 12px 16px; border-radius: 12px; font-size: 0.95rem; line-height: 1.5; }
+        .user-msg { align-self: flex-end; background: var(--primary-blue); color: white; border-bottom-right-radius: 2px; }
+        .assistant-msg { align-self: flex-start; background: #1e293b; color: var(--text-main); border-bottom-left-radius: 2px; border: 1px solid #475569; }
+        .meta { font-size: 0.75rem; color: var(--text-muted); margin-top: 6px; font-family: monospace; }
+        .input-area { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; }
+        .input-wrapper { display: flex; gap: 10px; }
+        textarea { flex: 1; background: var(--card-bg); border: 1px solid #475569; border-radius: 8px; color: white; padding: 12px; font-size: 0.95rem; resize: none; height: 60px; outline: none; }
+        textarea:focus { border-color: var(--accent-cyan); }
+        button { background: var(--primary-blue); color: white; border: none; padding: 0 25px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        button:hover { background: var(--primary-blue-hover); }
+        button:disabled { background: #475569; cursor: not-allowed; }
+        .btn-clear { background: #334155; padding: 6px 12px; font-size: 0.8rem; }
+        .footer-info { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="banner">⚠️ RESEARCH INFERENCE ONLY — NOT FOR CLINICAL USE — NOT A DIAGNOSTIC OR PRESCRIBING SYSTEM</div>
+    <header>
+        <h1><span>📊</span> PHC SaMD MedGemma QA8 Extended Context Interface (4096 / 8192 Budget)</h1>
+        <div>
+            <span class="badge" id="statusBadge">ONLINE (QA8 4096)</span>
+            <button class="btn-clear" onclick="clearChat()">Clear Session</button>
+        </div>
+    </header>
+    <div class="container">
+        <div class="chat-box" id="chatBox">
+            <div class="msg assistant-msg">
+                Welcome to the QA8 Extended Context Interface. Enter longitudinal records up to 4,096 tokens below.
+                <div class="meta">System • Qualified Contract Lock: 4096 Tokens Budget | Greedy (temp=0.0)</div>
+            </div>
+        </div>
+        <div class="input-area">
+            <div class="input-wrapper">
+                <textarea id="promptInput" placeholder="Paste full longitudinal PHC record or query..."></textarea>
+                <button id="sendBtn" onclick="sendMessage()">Send Query</button>
+            </div>
+            <div class="footer-info">
+                <span>Model: <strong>PHC MedGemma 1.5 4B IT</strong></span>
+                <span id="contextBadge">Context: 0 / 4,096 tokens</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let chatHistory = [];
+
+        async function sendMessage() {
+            const input = document.getElementById('promptInput');
+            const btn = document.getElementById('sendBtn');
+            const text = input.value.trim();
+            if (!text) return;
+
+            renderMsg('user', text);
+            chatHistory.push({role: 'user', content: text});
+            input.value = '';
+            btn.disabled = true;
+
+            const chatBox = document.getElementById('chatBox');
+            const loadingId = 'loading-' + Date.now();
+            chatBox.innerHTML += `<div class="msg assistant-msg" id="${loadingId}">Thinking (Extended Context)...</div>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            try {
+                const res = await fetch('/v1/chat', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({messages: chatHistory})
+                });
+
+                document.getElementById(loadingId).remove();
+
+                if (!res.ok) {
+                    const err = await res.json();
+                    renderMsg('assistant', `⚠️ Context Violation / Error: ${err.detail || 'Inference Failed'}`);
+                } else {
+                    const data = await res.json();
+                    renderMsg('assistant', data.response, data.inference);
+                    chatHistory.push({role: 'assistant', content: data.response});
+                    document.getElementById('contextBadge').textContent = `Context: ${data.inference.input_tokens} / 4,096 tokens`;
+                }
+            } catch (e) {
+                if (document.getElementById(loadingId)) document.getElementById(loadingId).remove();
+                renderMsg('assistant', `⚠️ Connection Error: ${e.message}`);
+            } finally {
+                btn.disabled = false;
+            }
+        }
+
+        function renderMsg(role, content, meta=null) {
+            const chatBox = document.getElementById('chatBox');
+            const div = document.createElement('div');
+            div.className = `msg ${role}-msg`;
+            
+            let metaHtml = '';
+            if (meta) {
+                metaHtml = `<div class="meta">Context: ${meta.input_tokens} / 4,096 tokens | Response time: ${meta.latency_seconds} s | Output: ${meta.output_tokens} tok (${meta.tokens_per_second} tok/s)</div>`;
+            }
+            div.innerHTML = `<div>${escapeHtml(content)}</div>${metaHtml}`;
+            chatBox.appendChild(div);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function escapeHtml(text) {
+            const d = document.createElement('div');
+            d.textContent = text;
+            return d.innerHTML;
+        }
+
+        function clearChat() {
+            chatHistory = [];
+            document.getElementById('chatBox').innerHTML = `
+                <div class="msg assistant-msg">
+                    Session cleared. Ready for longitudinal records up to 4,096 tokens.
+                    <div class="meta">System • Qualified Contract Lock</div>
+                </div>`;
+            document.getElementById('contextBadge').textContent = 'Context: 0 / 4,096 tokens';
+        }
+    </script>
+</body>
+</html>
