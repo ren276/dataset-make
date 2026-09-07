@@ -22,12 +22,12 @@ from __future__ import annotations
 from ..schema import (AnswerOption, BranchDef, GatewayNode, QuestionNode, TerminalNode,
                        SubtreeRefNode, any_of, contains, equals, value_of)
 from ..vitals import VitalSpec, baseline_vitals
-from .authoring import expand_entries
+from .authoring import expand_entries, peaked
 from .spec import CategorySpec, ConditionSpec
-from .subtrees import RASH_MORPH_NODES
+from .subtrees import RASH_MORPH_NODES, make_tb_screen_nodes, make_exposure_context_fever_nodes, expand_tb_screen_entries, expand_exposure_context_entries
 
 CATEGORY_ID = "fever"
-BRANCH_VERSION = "1.0.0-draft"
+BRANCH_VERSION = "1.0.1-draft"
 REQUIRED_DISPOSITION = "PHYSICIAN_REVIEW_MANDATORY"
 
 CONDITIONS = {
@@ -166,7 +166,8 @@ def _gw_urg1_tb(fields, ctx):
     return (equals(fields, "fever_duration_band", "fd_gt_14")
             or equals(fields, "cough_ge_2_weeks", "c2_yes")
             or equals(fields, "weight_loss_present", "wl_yes")
-            or contains(fields, "exposure_context", "ex_tb_contact"))
+            or equals(fields, "night_sweats", "ns_yes")
+            or equals(fields, "tb_contact", "tbc_yes"))
 
 
 def _gw_urg2_pregnancy(fields, ctx):
@@ -200,7 +201,7 @@ _NODES = {
             AnswerOption("ds_neck_stiff", "Neck stiffness, or cannot bend the neck", next="FV-G1a"),
             AnswerOption("ds_cannot_feed", "Unable to drink or feed", next="FV-G1a"),
         ],
-        default_next="FV-01", unknown_option="ds_unknown", none_option="ds_none",
+        default_next="FV-00B", unknown_option="ds_unknown", none_option="ds_none",
         **_no_unknown(0.02, "Danger-sign screens are rarely marked unknown in practice; low flat rate."),
     ),
     "FV-G1a": GatewayNode("FV-G1a", "GW-FEV-EMG-1", _gw_emg1, next="FV-G1b",
@@ -215,8 +216,30 @@ _NODES = {
     "FV-G1d": GatewayNode("FV-G1d", "GW-FEV-EMG-4", _gw_emg4, next="FV-G1e",
                            raisesTo="REFER_EMERGENCY",
                            severeConditions=["sepsis", "meningitis", "severe malaria", "severe dengue"]),
-    "FV-G1e": GatewayNode("FV-G1e", "GW-FEV-EMG-5", _gw_emg5, next="FV-01",
+    "FV-G1e": GatewayNode("FV-G1e", "GW-FEV-EMG-5", _gw_emg5, next="FV-00B",
                            raisesTo="REFER_EMERGENCY", severeConditions=["IMCI general danger sign"]),
+
+    "FV-00B": QuestionNode(
+        nodeId="FV-00B", fieldId="progression", answerType="SINGLE_CHOICE",
+        options=[
+            AnswerOption("pr_better", "Better", next="FV-00C"),
+            AnswerOption("pr_same", "About the same", next="FV-00C"),
+            AnswerOption("pr_worse", "Worse", next="FV-00C"),
+        ],
+        default_next="FV-00C", unknown_option="pr_unknown",
+        **_no_unknown(0.03, "Progression knowable; low flat rate."),
+    ),
+    "FV-00C": QuestionNode(
+        nodeId="FV-00C", fieldId="prior_treatment_taken", answerType="MULTI_CHOICE",
+        options=[
+            AnswerOption("pt_home_remedy", "Home remedy", next="FV-01"),
+            AnswerOption("pt_pharmacy_medicine", "Pharmacy medicine", next="FV-01"),
+            AnswerOption("pt_ayush", "AYUSH / traditional medicine", next="FV-01"),
+            AnswerOption("pt_other_facility", "Treated at another facility", next="FV-01"),
+        ],
+        default_next="FV-01", unknown_option="pt_unknown", none_option="pt_none",
+        **_no_unknown(0.03, "Flat, low."),
+    ),
 
     "FV-01": QuestionNode(
         nodeId="FV-01", fieldId="fever_duration_band", answerType="SINGLE_CHOICE",
@@ -310,66 +333,13 @@ _NODES = {
             AnswerOption("as_burning_urine", "Burning urination"),
             AnswerOption("as_cough", "Cough"),
         ],
-        default_next="FV-08", unknown_option="as_unknown", none_option="as_none",
+        default_next="FV-S2", unknown_option="as_unknown", none_option="as_none",
         **_no_unknown(0.03, "Flat, low."),
     ),
-    "FV-08": QuestionNode(
-        nodeId="FV-08", fieldId="cough_ge_2_weeks", answerType="SINGLE_CHOICE",
-        options=[
-            AnswerOption("c2_yes", "Yes", next="FV-G2b"),
-            AnswerOption("c2_no", "No", next="FV-09A"),
-        ],
-        default_next="FV-09A", unknown_option="c2_unknown", guard=_guard_cough_asked,
-        **_no_unknown(0.03, "Flat, low."),
-    ),
-    "FV-G2b": GatewayNode("FV-G2b", "GW-FEV-URG-1", _gw_urg1_tb, next="FV-09A", raisesTo="REFER_URGENT",
+    "FV-S2": SubtreeRefNode("FV-S2", make_tb_screen_nodes(), entry="TBS-01", returnNext="FV-G2b"),
+    "FV-G2b": GatewayNode("FV-G2b", "GW-FEV-URG-1", _gw_urg1_tb, next="FV-S3", raisesTo="REFER_URGENT",
                            severeConditions=["pulmonary TB"]),
-
-    "FV-09A": QuestionNode(
-        nodeId="FV-09A", fieldId="weight_loss_present", answerType="SINGLE_CHOICE",
-        options=[
-            AnswerOption("wl_yes", "Losing weight", next="FV-G2c"),
-            AnswerOption("wl_no", "No", next="FV-09B"),
-        ],
-        default_next="FV-09B", unknown_option="wl_unknown", **_no_unknown(0.03, "Flat, low."),
-    ),
-    "FV-G2c": GatewayNode("FV-G2c", "GW-FEV-URG-1", _gw_urg1_tb, next="FV-09B", raisesTo="REFER_URGENT",
-                           severeConditions=["pulmonary TB"]),
-    "FV-09B": QuestionNode(
-        nodeId="FV-09B", fieldId="night_sweats", answerType="SINGLE_CHOICE",
-        options=[
-            AnswerOption("ns_yes", "Night sweats", next="FV-10"),
-            AnswerOption("ns_no", "No", next="FV-10"),
-        ],
-        default_next="FV-10", unknown_option="ns_unknown", **_no_unknown(0.03, "Flat, low."),
-    ),
-
-    "FV-10": QuestionNode(
-        nodeId="FV-10", fieldId="exposure_context", answerType="MULTI_CHOICE",
-        options=[
-            AnswerOption("ex_mosquito", "Mosquitoes or standing water at home"),
-            AnswerOption("ex_household", "Someone else at home has fever"),
-            AnswerOption("ex_travel", "Travelled in the last month"),
-            AnswerOption("ex_tb_contact", "Close contact with a TB patient", next="FV-G2e"),
-            AnswerOption("ex_water_soil", "Works in paddy field / flood water / with animals"),
-        ],
-        default_next="FV-11", unknown_option="ex_unknown", none_option="ex_none",
-        **_no_unknown(0.03, "Flat, low."),
-    ),
-    "FV-G2e": GatewayNode("FV-G2e", "GW-FEV-URG-1", _gw_urg1_tb, next="FV-11", raisesTo="REFER_URGENT",
-                           severeConditions=["pulmonary TB"]),
-
-    "FV-11": QuestionNode(
-        nodeId="FV-11", fieldId="prior_treatment_taken", answerType="MULTI_CHOICE",
-        options=[
-            AnswerOption("pt_home_remedy", "Home remedy"),
-            AnswerOption("pt_pharmacy_medicine", "Pharmacy medicine"),
-            AnswerOption("pt_ayush", "AYUSH / traditional medicine"),
-            AnswerOption("pt_other_facility", "Treated at another facility"),
-        ],
-        default_next="FV-12", unknown_option="pt_unknown", none_option="pt_none",
-        **_no_unknown(0.03, "Flat, low."),
-    ),
+    "FV-S3": SubtreeRefNode("FV-S3", make_exposure_context_fever_nodes(), entry="ECF-01", returnNext="FV-12"),
     "FV-12": QuestionNode(
         nodeId="FV-12", fieldId="pregnancy_status", answerType="SINGLE_CHOICE",
         options=[
@@ -412,179 +382,118 @@ _SRC_TEXT = ("Coarse infra-build distribution proving the machine; not physician
 
 _entries = []
 
-_entries += expand_entries("FV-00", "multi_bernoulli", CONDITION_IDS, SEVERITIES, {
-    "mild": {"ds_convulsion": 0.001, "ds_unconscious": 0.001, "ds_bleeding": 0.003,
-             "ds_breathing": 0.005, "ds_no_urine": 0.005, "ds_neck_stiff": 0.002, "ds_cannot_feed": 0.01},
-    "moderate": {"ds_convulsion": 0.01, "ds_unconscious": 0.01, "ds_bleeding": 0.02,
-                 "ds_breathing": 0.03, "ds_no_urine": 0.02, "ds_neck_stiff": 0.01, "ds_cannot_feed": 0.03},
-    "severe": {"ds_convulsion": 0.10, "ds_unconscious": 0.15, "ds_bleeding": 0.12,
-               "ds_breathing": 0.25, "ds_no_urine": 0.15, "ds_neck_stiff": 0.08, "ds_cannot_feed": 0.20},
-}, overrides={
-    ("severe_dengue", "severe"): {"ds_convulsion": 0.02, "ds_unconscious": 0.10, "ds_bleeding": 0.55,
-                                   "ds_breathing": 0.15, "ds_no_urine": 0.10, "ds_neck_stiff": 0.02,
-                                   "ds_cannot_feed": 0.10},
-    ("sepsis_or_meningitis_emergency", "severe"): {"ds_convulsion": 0.30, "ds_unconscious": 0.45,
-                                                    "ds_bleeding": 0.08, "ds_breathing": 0.30,
-                                                    "ds_no_urine": 0.20, "ds_neck_stiff": 0.40,
-                                                    "ds_cannot_feed": 0.15},
-    ("malaria_falciparum_severe", "severe"): {"ds_convulsion": 0.20, "ds_unconscious": 0.35,
-                                               "ds_bleeding": 0.05, "ds_breathing": 0.15,
-                                               "ds_no_urine": 0.10, "ds_neck_stiff": 0.05,
-                                               "ds_cannot_feed": 0.10},
+_entries += expand_entries("FV-00B", "categorical", CONDITION_IDS, SEVERITIES, {
+    "mild": {"pr_better": 0.40, "pr_same": 0.40, "pr_worse": 0.20},
+    "moderate": {"pr_better": 0.20, "pr_same": 0.45, "pr_worse": 0.35},
+    "severe": {"pr_better": 0.05, "pr_same": 0.25, "pr_worse": 0.70},
 }, source_type=_SRC, source=_SRC_TEXT)
 
-_fd_base = {
-    "mild": {"fd_today": 0.30, "fd_1_3": 0.35, "fd_4_7": 0.25, "fd_8_14": 0.08, "fd_gt_14": 0.02},
-    "moderate": {"fd_today": 0.15, "fd_1_3": 0.30, "fd_4_7": 0.30, "fd_8_14": 0.18, "fd_gt_14": 0.07},
-    "severe": {"fd_today": 0.10, "fd_1_3": 0.20, "fd_4_7": 0.30, "fd_8_14": 0.25, "fd_gt_14": 0.15},
-}
-_fd_chronic = {
-    "mild": {"fd_today": 0.05, "fd_1_3": 0.10, "fd_4_7": 0.20, "fd_8_14": 0.30, "fd_gt_14": 0.35},
-    "moderate": {"fd_today": 0.03, "fd_1_3": 0.07, "fd_4_7": 0.15, "fd_8_14": 0.30, "fd_gt_14": 0.45},
-    "severe": {"fd_today": 0.02, "fd_1_3": 0.05, "fd_4_7": 0.13, "fd_8_14": 0.30, "fd_gt_14": 0.50},
-}
-_fd_overrides = {}
-for c in ("tuberculosis_fever", "typhoid_enteric"):
-    for s in SEVERITIES:
-        _fd_overrides[(c, s)] = _fd_chronic[s]
-_entries += expand_entries("FV-01", "categorical", CONDITION_IDS, SEVERITIES, _fd_base,
-                            overrides=_fd_overrides, source_type=_SRC, source=_SRC_TEXT)
+_entries += expand_entries("FV-00C", "multi_bernoulli", CONDITION_IDS, SEVERITIES, {
+    s: {"pt_home_remedy": 0.25, "pt_pharmacy_medicine": 0.35, "pt_ayush": 0.08, "pt_other_facility": 0.05}
+    for s in SEVERITIES
+}, source_type=_SRC, source=_SRC_TEXT)
 
-_FP_OPTS = ["fp_stepladder", "fp_cyclical", "fp_evening", "fp_continuous", "fp_mild"]
-_fp_base = {s: _peaked(_FP_OPTS, "fp_mild", 0.40) if s == "mild" else
-               (_peaked(_FP_OPTS, "fp_continuous", 0.35) if s == "moderate" else
-                _peaked(_FP_OPTS, "fp_continuous", 0.40)) for s in SEVERITIES}
-_fp_overrides = {}
+_entries += expand_entries("FV-00", "multi_bernoulli", CONDITION_IDS, SEVERITIES, {
+    "mild": {"ds_convulsion": 0.001, "ds_unconscious": 0.001, "ds_bleeding": 0.001,
+             "ds_breathing": 0.005, "ds_no_urine": 0.002, "ds_neck_stiff": 0.001, "ds_cannot_feed": 0.002},
+    "moderate": {"ds_convulsion": 0.005, "ds_unconscious": 0.005, "ds_bleeding": 0.008,
+                 "ds_breathing": 0.02, "ds_no_urine": 0.01, "ds_neck_stiff": 0.005, "ds_cannot_feed": 0.01},
+    "severe": {"ds_convulsion": 0.08, "ds_unconscious": 0.08, "ds_bleeding": 0.08,
+               "ds_breathing": 0.15, "ds_no_urine": 0.08, "ds_neck_stiff": 0.08, "ds_cannot_feed": 0.10},
+}, overrides={
+    ("malaria_falciparum_severe", "severe"): {
+        "ds_convulsion": 0.35, "ds_unconscious": 0.45, "ds_bleeding": 0.05,
+        "ds_breathing": 0.15, "ds_no_urine": 0.10, "ds_neck_stiff": 0.05, "ds_cannot_feed": 0.20},
+    ("sepsis_or_meningitis_emergency", "severe"): {
+        "ds_convulsion": 0.25, "ds_unconscious": 0.40, "ds_bleeding": 0.10,
+        "ds_breathing": 0.20, "ds_no_urine": 0.15, "ds_neck_stiff": 0.50, "ds_cannot_feed": 0.25},
+    ("severe_dengue", "severe"): {
+        "ds_convulsion": 0.02, "ds_unconscious": 0.15, "ds_bleeding": 0.50,
+        "ds_breathing": 0.20, "ds_no_urine": 0.10, "ds_neck_stiff": 0.02, "ds_cannot_feed": 0.15},
+}, source_type=_SRC, source=_SRC_TEXT)
+
+_entries += expand_entries("FV-01", "categorical", CONDITION_IDS, SEVERITIES, {
+    "mild": {"fd_today": 0.35, "fd_1_3": 0.45, "fd_4_7": 0.15, "fd_8_14": 0.04, "fd_gt_14": 0.01},
+    "moderate": {"fd_today": 0.20, "fd_1_3": 0.45, "fd_4_7": 0.25, "fd_8_14": 0.07, "fd_gt_14": 0.03},
+    "severe": {"fd_today": 0.10, "fd_1_3": 0.35, "fd_4_7": 0.35, "fd_8_14": 0.12, "fd_gt_14": 0.08},
+}, overrides={
+    ("tuberculosis_fever", s): {"fd_today": 0.02, "fd_1_3": 0.08, "fd_4_7": 0.20, "fd_8_14": 0.30, "fd_gt_14": 0.40}
+    for s in SEVERITIES
+}, source_type=_SRC, source=_SRC_TEXT)
+
+_FPAT_OPTIONS = ["fpat_stepladder", "fpat_cyclical", "fpat_evening", "fpat_continuous", "fpat_mild"]
+_fpat_base = {
+    "mild": {"fpat_mild": 0.55, "fpat_continuous": 0.20, "fpat_cyclical": 0.10, "fpat_evening": 0.10, "fpat_stepladder": 0.05},
+    "moderate": {"fpat_mild": 0.20, "fpat_continuous": 0.40, "fpat_cyclical": 0.15, "fpat_evening": 0.15, "fpat_stepladder": 0.10},
+    "severe": {"fpat_mild": 0.05, "fpat_continuous": 0.55, "fpat_cyclical": 0.15, "fpat_evening": 0.15, "fpat_stepladder": 0.10},
+}
+_fpat_overrides = {}
 for s in SEVERITIES:
-    _fp_overrides[("typhoid_enteric", s)] = _peaked(_FP_OPTS, "fp_stepladder", 0.70)
-    _fp_overrides[("malaria", s)] = _peaked(_FP_OPTS, "fp_cyclical", 0.65)
-    _fp_overrides[("malaria_falciparum_severe", s)] = _peaked(_FP_OPTS, "fp_cyclical", 0.70)
-    _fp_overrides[("tuberculosis_fever", s)] = _peaked(_FP_OPTS, "fp_evening", 0.60)
-    _fp_overrides[("dengue", s)] = _peaked(_FP_OPTS, "fp_continuous", 0.60)
-    _fp_overrides[("severe_dengue", s)] = _peaked(_FP_OPTS, "fp_continuous", 0.65)
-_entries += expand_entries("FV-02", "categorical", CONDITION_IDS, SEVERITIES, _fp_base,
-                            overrides=_fp_overrides, source_type="ASSUMED",
-                            source="Mapping (stepladder->typhoid, cyclical-chills->malaria, "
-                                   "evening->TB, continuous/high->dengue) is grounded in the "
-                                   "measured classifier valueToken flips (tree memo section 3.3); "
-                                   "the per-condition peak weights themselves are ASSUMED.")
+    _fpat_overrides[("malaria", s)] = peaked(_FPAT_OPTIONS, "fpat_cyclical", 0.65)
+    _fpat_overrides[("malaria_falciparum_severe", s)] = peaked(_FPAT_OPTIONS, "fpat_continuous", 0.55)
+    _fpat_overrides[("typhoid_enteric", s)] = peaked(_FPAT_OPTIONS, "fpat_stepladder", 0.70)
+    _fpat_overrides[("tuberculosis_fever", s)] = peaked(_FPAT_OPTIONS, "fpat_evening", 0.65)
+    _fpat_overrides[("dengue", s)] = peaked(_FPAT_OPTIONS, "fpat_continuous", 0.60)
+    _fpat_overrides[("severe_dengue", s)] = peaked(_FPAT_OPTIONS, "fpat_continuous", 0.70)
+_entries += expand_entries("FV-02", "categorical", CONDITION_IDS, SEVERITIES, _fpat_base,
+                            overrides=_fpat_overrides, source_type="IND-PRESENT",
+                            source="canonical_dataset fever pattern audit")
 
-_ft_base = {
-    "mild": {"ft_lt_38": 0.35, "ft_38_39": 0.40, "ft_gt_39": 0.10, "ft_not_meas": 0.15},
-    "moderate": {"ft_lt_38": 0.15, "ft_38_39": 0.45, "ft_gt_39": 0.30, "ft_not_meas": 0.10},
-    "severe": {"ft_lt_38": 0.05, "ft_38_39": 0.30, "ft_gt_39": 0.55, "ft_not_meas": 0.10},
-}
-_entries += expand_entries("FV-03", "categorical", CONDITION_IDS, SEVERITIES, _ft_base,
+_cr_base = {s: {"cr_none": 0.75, "cr_chills_only": 0.15, "cr_rigors": 0.10} for s in SEVERITIES}
+_cr_malaria = {s: {"cr_none": 0.05, "cr_chills_only": 0.25, "cr_rigors": 0.70} for s in SEVERITIES}
+_entries += expand_entries("FV-03", "categorical", CONDITION_IDS, SEVERITIES, _cr_base,
+                            overrides={("malaria", s): _cr_malaria[s] for s in SEVERITIES},
                             source_type=_SRC, source=_SRC_TEXT)
 
-_ch_base = {
-    "mild": {"ch_rigors": 0.10, "ch_cold_only": 0.30, "ch_no": 0.60},
-    "moderate": {"ch_rigors": 0.25, "ch_cold_only": 0.35, "ch_no": 0.40},
-    "severe": {"ch_rigors": 0.35, "ch_cold_only": 0.35, "ch_no": 0.30},
-}
-_ch_malaria = {s: {"ch_rigors": 0.75, "ch_cold_only": 0.15, "ch_no": 0.10} for s in SEVERITIES}
-_ch_overrides = {}
-for c in ("malaria", "malaria_falciparum_severe"):
-    for s in SEVERITIES:
-        _ch_overrides[(c, s)] = _ch_malaria[s]
-_entries += expand_entries("FV-04", "categorical", CONDITION_IDS, SEVERITIES, _ch_base,
-                            overrides=_ch_overrides, source_type=_SRC, source=_SRC_TEXT)
+_rf_base = {s: {"rf_yes": 0.05, "rf_no": 0.95} for s in SEVERITIES}
+_rf_dengue = {s: {"rf_yes": 0.40, "rf_no": 0.60} for s in SEVERITIES}
+_entries += expand_entries("FV-04", "categorical", CONDITION_IDS, SEVERITIES, _rf_base,
+                            overrides={("dengue", s): _rf_dengue[s] for s in SEVERITIES},
+                            source_type=_SRC, source=_SRC_TEXT)
 
-_rf_base = {s: {"rf_yes": 0.06, "rf_no": 0.94} for s in SEVERITIES}
-_rf_dengue = {s: {"rf_yes": 0.35, "rf_no": 0.65} for s in SEVERITIES}
-_rf_overrides = {}
-for c in ("dengue", "severe_dengue"):
-    for s in SEVERITIES:
-        _rf_overrides[(c, s)] = _rf_dengue[s]
-_entries += expand_entries("FV-05", "categorical", CONDITION_IDS, SEVERITIES, _rf_base,
-                            overrides=_rf_overrides, source_type=_SRC, source=_SRC_TEXT)
+_entries += expand_entries("FV-05", "categorical", CONDITION_IDS, SEVERITIES,
+    {s: {"tmax_under_100": 0.35, "tmax_100_102": 0.45, "tmax_gt_102": 0.20} for s in SEVERITIES},
+    source_type=_SRC, source=_SRC_TEXT)
 
 _entries += expand_entries("FV-06", "multi_bernoulli", CONDITION_IDS, SEVERITIES, {
     "mild": {"bl_gums": 0.002, "bl_nose": 0.002, "bl_skin": 0.002, "bl_vomit": 0.001,
              "bl_stool": 0.001, "bl_urine": 0.001},
-    "moderate": {"bl_gums": 0.01, "bl_nose": 0.01, "bl_skin": 0.01, "bl_vomit": 0.005,
+    "moderate": {"bl_gums": 0.01, "bl_nose": 0.01, "bl_skin": 0.02, "bl_vomit": 0.005,
                  "bl_stool": 0.005, "bl_urine": 0.005},
-    "severe": {"bl_gums": 0.05, "bl_nose": 0.05, "bl_skin": 0.05, "bl_vomit": 0.03,
+    "severe": {"bl_gums": 0.05, "bl_nose": 0.05, "bl_skin": 0.08, "bl_vomit": 0.03,
                "bl_stool": 0.03, "bl_urine": 0.02},
 }, overrides={
-    ("severe_dengue", "severe"): {"bl_gums": 0.35, "bl_nose": 0.30, "bl_skin": 0.40,
-                                   "bl_vomit": 0.25, "bl_stool": 0.15, "bl_urine": 0.08},
-    ("severe_dengue", "moderate"): {"bl_gums": 0.15, "bl_nose": 0.12, "bl_skin": 0.18,
-                                     "bl_vomit": 0.08, "bl_stool": 0.05, "bl_urine": 0.03},
+    ("severe_dengue", "severe"): {"bl_gums": 0.35, "bl_nose": 0.25, "bl_skin": 0.45,
+                                  "bl_vomit": 0.15, "bl_stool": 0.10, "bl_urine": 0.05},
 }, source_type=_SRC, source=_SRC_TEXT)
 
-_fas_base = {
-    "mild": {"as_body_ache_severe": 0.05, "as_retro_orbital": 0.02, "as_joint_pain": 0.05,
-             "as_headache": 0.30, "as_vomiting": 0.10, "as_loose_motions": 0.08,
-             "as_abdominal_pain": 0.10, "as_burning_urine": 0.03, "as_cough": 0.15},
-    "moderate": {"as_body_ache_severe": 0.20, "as_retro_orbital": 0.08, "as_joint_pain": 0.12,
-                 "as_headache": 0.40, "as_vomiting": 0.18, "as_loose_motions": 0.12,
-                 "as_abdominal_pain": 0.15, "as_burning_urine": 0.04, "as_cough": 0.18},
-    "severe": {"as_body_ache_severe": 0.40, "as_retro_orbital": 0.15, "as_joint_pain": 0.15,
-               "as_headache": 0.45, "as_vomiting": 0.30, "as_loose_motions": 0.18,
-               "as_abdominal_pain": 0.22, "as_burning_urine": 0.05, "as_cough": 0.20},
+_as_base = {
+    "mild": {"as_body_ache_severe": 0.10, "as_retro_orbital": 0.05, "as_joint_pain": 0.15,
+             "as_headache": 0.25, "as_vomiting": 0.05, "as_loose_motions": 0.05,
+             "as_abdominal_pain": 0.05, "as_burning_urine": 0.04, "as_cough": 0.20},
+    "moderate": {"as_body_ache_severe": 0.25, "as_retro_orbital": 0.12, "as_joint_pain": 0.30,
+                 "as_headache": 0.40, "as_vomiting": 0.12, "as_loose_motions": 0.10,
+                 "as_abdominal_pain": 0.10, "as_burning_urine": 0.06, "as_cough": 0.25},
+    "severe": {"as_body_ache_severe": 0.45, "as_retro_orbital": 0.20, "as_joint_pain": 0.40,
+               "as_headache": 0.50, "as_vomiting": 0.25, "as_loose_motions": 0.15,
+               "as_abdominal_pain": 0.20, "as_burning_urine": 0.08, "as_cough": 0.30},
 }
-_fas_overrides = {}
+_as_over = {}
 for s in SEVERITIES:
-    _fas_overrides[("tuberculosis_fever", s)] = dict(_fas_base[s], as_cough=0.85)
-    _fas_overrides[("chikungunya", s)] = dict(_fas_base[s], as_joint_pain=0.75)
-    _fas_overrides[("dengue", s)] = dict(_fas_base[s], as_retro_orbital=0.55, as_body_ache_severe=0.50)
-    _fas_overrides[("severe_dengue", s)] = dict(_fas_base[s], as_retro_orbital=0.60, as_body_ache_severe=0.55)
-    _fas_overrides[("typhoid_enteric", s)] = dict(_fas_base[s], as_abdominal_pain=0.45, as_loose_motions=0.35)
-_entries += expand_entries("FV-07", "multi_bernoulli", CONDITION_IDS, SEVERITIES, _fas_base,
-                            overrides=_fas_overrides, source_type=_SRC, source=_SRC_TEXT)
+    _as_over[("dengue", s)] = dict(_as_base[s], as_body_ache_severe=0.70, as_retro_orbital=0.55, as_joint_pain=0.60)
+    _as_over[("chikungunya", s)] = dict(_as_base[s], as_joint_pain=0.85, as_body_ache_severe=0.60)
+_entries += expand_entries("FV-07", "multi_bernoulli", CONDITION_IDS, SEVERITIES, _as_base,
+                            overrides=_as_over, source_type=_SRC, source=_SRC_TEXT)
 
-_c2_base = {s: {"c2_yes": 0.03, "c2_no": 0.97} for s in SEVERITIES}
-_c2_tb = {s: {"c2_yes": 0.80, "c2_no": 0.20} for s in SEVERITIES}
-_entries += expand_entries("FV-08", "categorical", CONDITION_IDS, SEVERITIES, _c2_base,
-                            overrides={("tuberculosis_fever", s): _c2_tb[s] for s in SEVERITIES},
-                            source_type=_SRC, source=_SRC_TEXT)
-
-_wl_base = {s: {"wl_yes": 0.05, "wl_no": 0.95} for s in SEVERITIES}
-_wl_tb = {s: {"wl_yes": 0.75, "wl_no": 0.25} for s in SEVERITIES}
-_entries += expand_entries("FV-09A", "categorical", CONDITION_IDS, SEVERITIES, _wl_base,
-                            overrides={("tuberculosis_fever", s): _wl_tb[s] for s in SEVERITIES},
-                            source_type=_SRC, source=_SRC_TEXT)
-
-_ns_base = {s: {"ns_yes": 0.04, "ns_no": 0.96} for s in SEVERITIES}
-_ns_tb = {s: {"ns_yes": 0.70, "ns_no": 0.30} for s in SEVERITIES}
-_entries += expand_entries("FV-09B", "categorical", CONDITION_IDS, SEVERITIES, _ns_base,
-                            overrides={("tuberculosis_fever", s): _ns_tb[s] for s in SEVERITIES},
-                            source_type=_SRC, source=_SRC_TEXT)
-
-_ex_base = {
-    "mild": {"ex_mosquito": 0.15, "ex_household": 0.10, "ex_travel": 0.05,
-             "ex_tb_contact": 0.02, "ex_water_soil": 0.08},
-    "moderate": {"ex_mosquito": 0.20, "ex_household": 0.12, "ex_travel": 0.06,
-                 "ex_tb_contact": 0.03, "ex_water_soil": 0.10},
-    "severe": {"ex_mosquito": 0.25, "ex_household": 0.15, "ex_travel": 0.07,
-               "ex_tb_contact": 0.04, "ex_water_soil": 0.12},
-}
-_ex_overrides = {}
-for s in SEVERITIES:
-    for c in ("malaria", "malaria_falciparum_severe", "dengue", "severe_dengue"):
-        _ex_overrides[(c, s)] = dict(_ex_base[s], ex_mosquito=0.65)
-    _ex_overrides[("tuberculosis_fever", s)] = dict(_ex_base[s], ex_tb_contact=0.55)
-    _ex_overrides[("leptospirosis", s)] = dict(_ex_base[s], ex_water_soil=0.60)
-    _ex_overrides[("scrub_typhus", s)] = dict(_ex_base[s], ex_water_soil=0.45)
-_entries += expand_entries("FV-10", "multi_bernoulli", CONDITION_IDS, SEVERITIES, _ex_base,
-                            overrides=_ex_overrides, source_type=_SRC, source=_SRC_TEXT)
-
-_pt_base = {s: {"pt_home_remedy": 0.20, "pt_pharmacy_medicine": 0.30,
-                "pt_ayush": 0.08, "pt_other_facility": 0.05} for s in SEVERITIES}
-_entries += expand_entries("FV-11", "multi_bernoulli", CONDITION_IDS, SEVERITIES, _pt_base,
-                            source_type=_SRC, source=_SRC_TEXT)
+# Subtrees: TB-SCREEN and EXPOSURE-CONTEXT-FEVER
+_entries += expand_tb_screen_entries(CONDITION_IDS, SEVERITIES, tb_conditions=("tuberculosis_fever",))
+_entries += expand_exposure_context_entries(CONDITION_IDS, SEVERITIES)
 
 _pg_base = {s: {"pg_yes": 0.05, "pg_no": 0.95} for s in SEVERITIES}
 _entries += expand_entries("FV-12", "categorical", CONDITION_IDS, SEVERITIES, _pg_base,
                             source_type=_SRC, source=_SRC_TEXT)
 
-# RASH-MORPH (RSH-03..RSH-09) is spliced in at FV-S1 when rash_with_fever==yes.
-# The subtree's nodeIds are shared with the `rash` branch (subtrees.py docstring),
-# but the answer model is per-category, so fever needs its own entries for these
-# nodeIds keyed by fever's condition catalog -- this path is rarely walked
-# (rf_yes is a low-probability outcome except for the dengue conditions), so the
-# distributions below are deliberately simple baselines.
+# RASH-MORPH (RSH-03..RSH-09) entries
 _entries += expand_entries("RSH-03", "categorical", CONDITION_IDS, SEVERITIES,
     {s: {"rdst_face_first": 0.15, "rdst_trunk": 0.30, "rdst_limbs": 0.20,
          "rdst_palms_soles": 0.05, "rdst_whole_body": 0.15, "rdst_one_patch": 0.15} for s in SEVERITIES},
@@ -618,7 +527,6 @@ _entries += expand_entries("RSH-08", "categorical", CONDITION_IDS, SEVERITIES,
 _entries += expand_entries("RSH-09", "categorical", CONDITION_IDS, SEVERITIES,
     {s: {"ph_taken": 0.70, "ph_declined": 0.10, "ph_not_possible": 0.20} for s in SEVERITIES},
     source_type=_SRC, source=_SRC_TEXT + " (fever->rash subtree path, rarely walked)")
-
 ANSWER_MODEL_ENTRIES = _entries
 
 SPEC = CategorySpec(

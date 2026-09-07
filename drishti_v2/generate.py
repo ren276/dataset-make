@@ -20,9 +20,7 @@ from __future__ import annotations
 from typing import Dict, List, Optional
 
 from .answer_model import AnswerModel
-from .branches.fever import SPEC as FEVER_SPEC
-from .branches.known_hypertension import SPEC as HTN_SPEC
-from .branches.rash import SPEC as RASH_SPEC
+from .branches import ALL_SPECS
 from .category_marginal import draw_category
 from .demographics import draw_demographics, age_band_label
 from .emergency import THRESHOLD_TABLE_VERSION, path1_triggered, path2_aggregate_score, path2_disposition
@@ -31,24 +29,62 @@ from .schema import FieldValue, collect_multi_fields, max_disposition, walk_bran
 from .vitals import (VITALS, draw_encounter_date, draw_facility_tier, generate_vitals,
                       DEVICE_MEASURED, MANUAL_ENTERED)
 
-GENERATOR_COMMIT = "drishti_v2-build-1"
+GENERATOR_COMMIT = "drishti_v2-build-2"
 ANSWER_MODEL_VERSION = "answer_model-0.1.0-draft"
 CATEGORY_REGISTRY_VERSION = "category_registry-0.1.0-draft"
 
-SPECS = {"fever": FEVER_SPEC, "known_hypertension": HTN_SPEC, "rash": RASH_SPEC}
+SPECS = ALL_SPECS
 ANSWER_MODELS = {cid: AnswerModel(spec.answer_model_entries) for cid, spec in SPECS.items()}
 MULTI_FIELDS = {cid: collect_multi_fields(spec.branch) for cid, spec in SPECS.items()}
 
 CODING_BACKBONE = {
     "fever": {"icd10_mapping": "R50.9", "icpc3_basis": "A03"},
-    "known_hypertension": {"icd10_mapping": "I10", "icpc3_basis": "K86"},
+    "weakness_unwell": {"icd10_mapping": "R53", "icpc3_basis": "A04,A05"},
+    "body_ache": {"icd10_mapping": "M79.1,M79.7", "icpc3_basis": "A01"},
+    "weight_loss": {"icd10_mapping": "R63.4", "icpc3_basis": "T08"},
+    "oedema": {"icd10_mapping": "R60.9", "icpc3_basis": "K07"},
+    "cough": {"icd10_mapping": "R05", "icpc3_basis": "R05"},
+    "cold_sore_throat": {"icd10_mapping": "J00,J02.9,J06.9", "icpc3_basis": "R07,R21,R74"},
+    "breathlessness": {"icd10_mapping": "R06.0", "icpc3_basis": "R02"},
+    "abdominal_pain": {"icd10_mapping": "R10.4", "icpc3_basis": "D01,D06"},
+    "acidity_heartburn": {"icd10_mapping": "R12,K30", "icpc3_basis": "D03,D08"},
+    "diarrhoea": {"icd10_mapping": "A09,K52.9", "icpc3_basis": "D11"},
+    "vomiting_nausea": {"icd10_mapping": "R11", "icpc3_basis": "D09,D10"},
+    "joint_pain": {"icd10_mapping": "M25.5", "icpc3_basis": "L20,L15"},
+    "back_neck_pain": {"icd10_mapping": "M54.5,M54.2", "icpc3_basis": "L01,L02,L03"},
+    "injury": {"icd10_mapping": "T14.9", "icpc3_basis": "A80,L81"},
     "rash": {"icd10_mapping": "R21", "icpc3_basis": "S06,S07"},
+    "itching": {"icd10_mapping": "L29.9", "icpc3_basis": "S02"},
+    "skin_infection": {"icd10_mapping": "L02,L03", "icpc3_basis": "S10,S11,S76"},
+    "headache": {"icd10_mapping": "R51", "icpc3_basis": "N01"},
+    "dizziness": {"icd10_mapping": "R42", "icpc3_basis": "N17"},
+    "urinary_symptoms": {"icd10_mapping": "R30.0,N39.0", "icpc3_basis": "U01,U02,U71"},
+    "chest_pain": {"icd10_mapping": "R07.4", "icpc3_basis": "K01,K02"},
+    "known_hypertension": {"icd10_mapping": "I10", "icpc3_basis": "K86"},
+    "known_diabetes": {"icd10_mapping": "E11", "icpc3_basis": "T90"},
+    "pallor_anaemia": {"icd10_mapping": "D50.9,D64.9", "icpc3_basis": "B80,B82"},
+    "antenatal_visit": {"icd10_mapping": "Z34,Z35", "icpc3_basis": "W78"},
+    "other_not_in_list": {"icd10_mapping": "R69", "icpc3_basis": "A29"},
+    "emergency_convulsions": {"icd10_mapping": "R56.9", "icpc3_basis": "N07"},
+    "emergency_unconscious": {"icd10_mapping": "R40.2", "icpc3_basis": "N05,A29"},
+    "emergency_bite_sting": {"icd10_mapping": "T63,W59,T14.1", "icpc3_basis": "A80,S13"},
+    "emergency_poisoning": {"icd10_mapping": "T65.9", "icpc3_basis": "A86"},
+    "emergency_heavy_bleeding": {"icd10_mapping": "R58", "icpc3_basis": "A10"},
+    "emergency_pregnancy_danger": {"icd10_mapping": "O20.9,O15,O46", "icpc3_basis": "W03,W99"},
 }
 
 _CHILD_DANGER_SIGN_IDS = {
     "ds_convulsion", "ds_unconscious", "ds_breathing", "ds_no_urine", "ds_neck_stiff", "ds_cannot_feed",
     "ds_chest_pain", "ds_weakness", "ds_speech", "ds_vision", "ds_severe_head",
     "ds_mucosal", "ds_skin_peeling", "ds_purpura", "ds_fever_high", "ds_swollen_face",
+    "ds_vomiting_every", "ds_blood_stool", "ds_black_tarry_stool", "ds_abdomen_rigid",
+    "ds_cough_blood", "ds_wheeze_stridor", "ds_spreading_red", "ds_crepitus", "ds_wound_gas",
+    "ds_high_fever_inf", "ds_breathless_rest", "ds_severe_pallor", "ds_lump_swelling", "ds_fever_gt_2wk",
+    "ds_blood_in_cough", "ds_facial_puffiness", "ds_reduced_urine", "ds_rapid_pulse", "ds_bleeding_now",
+    "ds_one_side_weak", "ds_speech_change", "ds_jaundice", "ds_swollen_face_lips", "ds_rash_petechial",
+    "ds_high_fever_urine", "ds_flank_pain_severe", "ds_ear_discharge", "ds_fever_chills_severe",
+    "ds_fever_with_sweat", "ds_breathless_stiff", "ds_swollen_face_h", "ds_severe_abd_pain",
+    "ds_no_fetal_move", "ds_water_break", "ds_fever_preg", "ds_vaginal_bleed",
 }
 
 
@@ -89,9 +125,10 @@ def generate_row(row_index: int, master_seed: str, urinary_mode: str = "odisha")
 
     child_danger = False
     if demo.age_years < 18:
-        ds = output.fields.get("danger_signs")
-        if ds is not None and isinstance(ds.value, (frozenset, set)):
-            child_danger = bool(ds.value & _CHILD_DANGER_SIGN_IDS)
+        for ds_field in ("danger_signs", "danger_signs_pregnancy"):
+            ds = output.fields.get(ds_field)
+            if ds is not None and isinstance(ds.value, (frozenset, set)):
+                child_danger = child_danger or bool(ds.value & _CHILD_DANGER_SIGN_IDS)
 
     p1 = path1_triggered(vitals, demo.age_years, child_danger_sign_present=child_danger)
     p2_score = path2_aggregate_score(vitals)

@@ -7,10 +7,12 @@ New synthetic dataset generator, built against
 repo). The old `drishti_pipeline/` is left untouched for reference; this is a
 clean, independent module with no import dependency on it.
 
-Scope: three branches only -- `fever`, `known_hypertension`, `rash` -- per the
-operator's locked build scope. The remaining 24 Tier-1 branches and 6 Tier-0
-rule-based branches are deferred fill-in against the same machine (tree memo
-section 6.5's authoring order).
+Scope: full 33-branch clinical questionnaire tree (build-2) -- 26 core condition
+branches, 1 fallback branch (`other_not_in_list`), and 6 Tier-0 emergency router
+branches (`emergency_convulsions`, `emergency_unconscious`, `emergency_bite_sting`,
+`emergency_poisoning`, `emergency_heavy_bleeding`, `emergency_pregnancy_danger`),
+along with shared subtrees (`TB-SCREEN`, `DEHYDRATION`, `FEVER-QUAL v1.1`,
+`EXPOSURE-CONTEXT-FEVER`, `RASH-MORPH`). Zero deferred branches.
 
 ## Running it
 

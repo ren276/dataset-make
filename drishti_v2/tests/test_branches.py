@@ -7,13 +7,9 @@ path.
 
 import pytest
 
-from drishti_v2.branches.fever import SPEC as FEVER_SPEC
-from drishti_v2.branches.known_hypertension import SPEC as HTN_SPEC
-from drishti_v2.branches.rash import SPEC as RASH_SPEC
+from drishti_v2.branches import ALL_SPECS as SPECS
 from drishti_v2.generate import generate_rows
 from drishti_v2.schema import DISPOSITIONS, GatewayNode, QuestionNode, SubtreeRefNode, TerminalNode
-
-SPECS = {"fever": FEVER_SPEC, "known_hypertension": HTN_SPEC, "rash": RASH_SPEC}
 TIER0_CATEGORIES = {"emergency_convulsions", "emergency_unconscious", "emergency_bite_sting",
                      "emergency_poisoning", "emergency_heavy_bleeding", "emergency_pregnancy_danger"}
 _RANK = {name: i for i, name in enumerate(DISPOSITIONS)}
@@ -53,6 +49,7 @@ def _reachable_ids(branch) -> set:
             continue
         if isinstance(node, SubtreeRefNode):
             to_visit.append((node.subtree_nodes, node.entry))
+            to_visit.append((node_dict, node.returnNext))
             continue
         if isinstance(node, GatewayNode):
             to_visit.append((node_dict, node.next))

@@ -1,0 +1,3244 @@
+{
+  "master_seed": "drishti_v2_build2_2026-09-07",
+  "n_rows": 23000,
+  "generator_commit": "drishti_v2-build-2",
+  "generator_module": "drishti_v2",
+  "answer_model_version": "answer_model-0.1.0-draft",
+  "category_registry_version": "category_registry-0.1.0-draft",
+  "threshold_table_version": "ews_provisional-0.1.0",
+  "threshold_table_status": "PROVISIONAL -- early-warning-score-derived, NOT an Indian clinical standard. CBAC/IMCI/IHCI reconciliation is a named build-time requirement (memo section 6.3) not performed in this build.",
+  "scope": {
+    "built_branches": [
+      "fever",
+      "cough",
+      "abdominal_pain",
+      "known_hypertension",
+      "diarrhoea",
+      "chest_pain",
+      "rash",
+      "joint_pain",
+      "back_neck_pain",
+      "breathlessness",
+      "known_diabetes",
+      "headache",
+      "injury",
+      "vomiting_nausea",
+      "acidity_heartburn",
+      "urinary_symptoms",
+      "cold_sore_throat",
+      "weakness_unwell",
+      "body_ache",
+      "weight_loss",
+      "oedema",
+      "pallor_anaemia",
+      "dizziness",
+      "itching",
+      "skin_infection",
+      "antenatal_visit",
+      "other_not_in_list",
+      "emergency_convulsions",
+      "emergency_unconscious",
+      "emergency_bite_sting",
+      "emergency_poisoning",
+      "emergency_heavy_bleeding",
+      "emergency_pregnancy_danger"
+    ],
+    "deferred_branches": "none -- full 33-branch questionnaire tree authored, wired, and active"
+  },
+  "rng": {
+    "scheme": "sha256(master_seed|row_id|stream_name)[:12] -> [0,1)",
+    "module_level_rng_state": "none -- every draw goes through RowRng scoped to one row_id"
+  },
+  "category_marginal": {
+    "rescale_factor_table2_to_phc": 0.6749,
+    "urinary_anchor_mode": "odisha",
+    "urinary_anchor_odisha_pct": 0.27,
+    "urinary_anchor_aiims_pct": 8.1,
+    "pallor_anaemia_floor_pct": 2.0,
+    "other_not_in_list_floor_pct": 6.0,
+    "target_marginal_full_label_space": {
+      "fever": 0.34208049535603713,
+      "weakness_unwell": 0.043294117647058816,
+      "body_ache": 0.030286893704850364,
+      "weight_loss": 0.00863983488132095,
+      "oedema": 0.00863983488132095,
+      "abdominal_pain": 0.06721981424148606,
+      "acidity_heartburn": 0.04709184726522188,
+      "diarrhoea": 0.03360990712074303,
+      "vomiting_nausea": 0.020127966976264188,
+      "joint_pain": 0.05126934984520124,
+      "back_neck_pain": 0.034179566563467496,
+      "injury": 0.028482972136222907,
+      "cough": 0.029147574819401445,
+      "cold_sore_throat": 0.025919504643962848,
+      "breathlessness": 0.00968421052631579,
+      "known_hypertension": 0.029622291021671826,
+      "chest_pain": 0.012722394220846232,
+      "rash": 0.01462125902992776,
+      "itching": 0.01281733746130031,
+      "skin_infection": 0.009114551083591329,
+      "antenatal_visit": 0.03199587203302374,
+      "headache": 0.012722394220846232,
+      "dizziness": 0.005791537667698658,
+      "known_diabetes": 0.00835500515995872,
+      "urinary_symptoms": 0.002563467492260062,
+      "pallor_anaemia": 0.02,
+      "other_not_in_list": 0.06
+    },
+    "target_marginal_this_build": {
+      "fever": 0.34208049535603713,
+      "weakness_unwell": 0.043294117647058816,
+      "body_ache": 0.030286893704850364,
+      "weight_loss": 0.00863983488132095,
+      "oedema": 0.00863983488132095,
+      "abdominal_pain": 0.06721981424148606,
+      "acidity_heartburn": 0.04709184726522188,
+      "diarrhoea": 0.03360990712074303,
+      "vomiting_nausea": 0.020127966976264188,
+      "joint_pain": 0.05126934984520124,
+      "back_neck_pain": 0.034179566563467496,
+      "injury": 0.028482972136222907,
+      "cough": 0.029147574819401445,
+      "cold_sore_throat": 0.025919504643962848,
+      "breathlessness": 0.00968421052631579,
+      "known_hypertension": 0.029622291021671826,
+      "chest_pain": 0.012722394220846232,
+      "rash": 0.01462125902992776,
+      "itching": 0.01281733746130031,
+      "skin_infection": 0.009114551083591329,
+      "antenatal_visit": 0.03199587203302374,
+      "headache": 0.012722394220846232,
+      "dizziness": 0.005791537667698658,
+      "known_diabetes": 0.00835500515995872,
+      "urinary_symptoms": 0.002563467492260062,
+      "pallor_anaemia": 0.02,
+      "other_not_in_list": 0.06
+    }
+  },
+  "row_volume_per_category": {
+    "fever": 7849,
+    "abdominal_pain": 1563,
+    "other_not_in_list": 1453,
+    "joint_pain": 1125,
+    "acidity_heartburn": 1073,
+    "weakness_unwell": 1039,
+    "back_neck_pain": 803,
+    "diarrhoea": 766,
+    "antenatal_visit": 723,
+    "body_ache": 709,
+    "known_hypertension": 696,
+    "cough": 638,
+    "injury": 622,
+    "cold_sore_throat": 613,
+    "vomiting_nausea": 474,
+    "pallor_anaemia": 418,
+    "rash": 329,
+    "headache": 299,
+    "itching": 286,
+    "chest_pain": 276,
+    "skin_infection": 230,
+    "weight_loss": 218,
+    "breathlessness": 216,
+    "known_diabetes": 198,
+    "oedema": 186,
+    "dizziness": 130,
+    "urinary_symptoms": 68
+  },
+  "emergency_paths": {
+    "path1_adult_danger_bands": {
+      "bp_systolic_max": 90.0,
+      "bp_systolic_critical": 70.0,
+      "spo2_min": 92.0,
+      "rr_high": 30.0,
+      "rr_low": 9.0,
+      "hr_high": 130.0,
+      "hr_low": 40.0,
+      "temp_min": 35.0
+    },
+    "path1_child_spo2_min": 90.0,
+    "path2_aggregate_urgent_min": 5,
+    "path2_aggregate_emergency_min": 7
+  },
+  "encounter_window": {
+    "months": 24,
+    "generation_date": "2026-09-06"
+  },
+  "gate_tolerances": {
+    "GATE-MARGINAL/GATE-DECLARED": {
+      "tolerance_z_binomial_se": 4.0,
+      "abs_tolerance_floor": 0.006
+    },
+    "GATE-RANGE": {
+      "min_tail_rows": 3
+    },
+    "GATE-EMERGENCY": {
+      "min_path1_adult_rows": 15,
+      "min_tier0_route_rows": 3,
+      "min_refer_urgent_rows": 5
+    },
+    "GATE-LEAK": {
+      "mi_max_percentile": 99.0,
+      "null_run_shuffles": 40,
+      "mi_max_is_a_calibrated_manifest_constant": true
+    }
+  },
+  "python_version": "3.14.6 | packaged by Anaconda, Inc. | (main, Jul  9 2026, 14:37:38) [GCC 14.3.0]",
+  "library_versions": {
+    "pandas": "3.0.3",
+    "numpy": "2.4.6",
+    "scipy": "1.18.0",
+    "sklearn": "1.9.0"
+  },
+  "gate_results": {
+    "GATE-LEAK": {
+      "name": "GATE-LEAK",
+      "passed": true,
+      "detail": {
+        "mi_max": 0.009368810423692362,
+        "mi_max_percentile": 99.0,
+        "null_shuffles": 40,
+        "checks": [
+          {
+            "mi": 0.0006193120719935184,
+            "chi2_p": 0.4795709103733704,
+            "n": 20824,
+            "field": "danger_signs__status",
+            "stratum": "all"
+          },
+          {
+            "mi": 0.0010574940782987403,
+            "chi2_p": 0.29844279205574237,
+            "n": 1983,
+            "field": "pregnancy_status__status",
+            "stratum": "sex=F,age=15-49"
+          },
+          {
+            "mi": 0.0015604099896384081,
+            "chi2_p": 0.5496723246113333,
+            "n": 7870,
+            "field": "bp_systolic_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=LOW"
+          },
+          {
+            "mi": 0.0009529594409077189,
+            "chi2_p": 0.7797866924284176,
+            "n": 10405,
+            "field": "bp_systolic_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=MEDIUM"
+          },
+          {
+            "mi": 0.0028355011249916427,
+            "chi2_p": 0.38120959546720173,
+            "n": 4725,
+            "field": "bp_systolic_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=HIGH"
+          },
+          {
+            "mi": 0.00139328146902342,
+            "chi2_p": 0.6212175493460825,
+            "n": 7870,
+            "field": "bp_diastolic_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=LOW"
+          },
+          {
+            "mi": 0.000961263128210367,
+            "chi2_p": 0.8567510380608315,
+            "n": 10405,
+            "field": "bp_diastolic_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=MEDIUM"
+          },
+          {
+            "mi": 0.002547653993665825,
+            "chi2_p": 0.9094951810653819,
+            "n": 4725,
+            "field": "bp_diastolic_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=HIGH"
+          },
+          {
+            "mi": 0.0015628586054705444,
+            "chi2_p": 0.7370093223643301,
+            "n": 7870,
+            "field": "pulse_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=LOW"
+          },
+          {
+            "mi": 0.001317683354092814,
+            "chi2_p": 0.6455900591665547,
+            "n": 10405,
+            "field": "pulse_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=MEDIUM"
+          },
+          {
+            "mi": 0.003979103024519718,
+            "chi2_p": 0.03205714938811429,
+            "n": 4725,
+            "field": "pulse_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=HIGH"
+          },
+          {
+            "mi": 0.0014634842748727688,
+            "chi2_p": 0.5829572220390817,
+            "n": 7870,
+            "field": "spo2_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=LOW"
+          },
+          {
+            "mi": 0.001419765285268272,
+            "chi2_p": 0.2885321086243378,
+            "n": 10405,
+            "field": "spo2_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=MEDIUM"
+          },
+          {
+            "mi": 0.002668291845536395,
+            "chi2_p": 0.811676262254725,
+            "n": 4725,
+            "field": "spo2_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=HIGH"
+          },
+          {
+            "mi": 0.002916120040007261,
+            "chi2_p": 0.01019962685832514,
+            "n": 7870,
+            "field": "bmi_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=LOW"
+          },
+          {
+            "mi": 0.0007208818392226164,
+            "chi2_p": 0.9566981767499706,
+            "n": 10405,
+            "field": "bmi_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=MEDIUM"
+          },
+          {
+            "mi": 0.0019122957043299516,
+            "chi2_p": 0.8745286496326934,
+            "n": 4725,
+            "field": "bmi_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=HIGH"
+          },
+          {
+            "mi": 0.001956820074858253,
+            "chi2_p": 0.2398301162743486,
+            "n": 7870,
+            "field": "glucose_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=LOW"
+          },
+          {
+            "mi": 0.0012006741115733882,
+            "chi2_p": 0.4954946523284204,
+            "n": 10405,
+            "field": "glucose_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=MEDIUM"
+          },
+          {
+            "mi": 0.003137229637529494,
+            "chi2_p": 0.35169669740433757,
+            "n": 4725,
+            "field": "glucose_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=HIGH"
+          },
+          {
+            "mi": 0.0015901448036977558,
+            "chi2_p": 0.5788847798065628,
+            "n": 7870,
+            "field": "temperature_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=LOW"
+          },
+          {
+            "mi": 0.0006800487485237987,
+            "chi2_p": 0.9704024617437519,
+            "n": 10405,
+            "field": "temperature_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=MEDIUM"
+          },
+          {
+            "mi": 0.003052516822829165,
+            "chi2_p": 0.6885178648493055,
+            "n": 4725,
+            "field": "temperature_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=HIGH"
+          },
+          {
+            "mi": 0.0018445689254764893,
+            "chi2_p": 0.33450475526926793,
+            "n": 7870,
+            "field": "respiratory_rate_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=LOW"
+          },
+          {
+            "mi": 0.0011443463662024552,
+            "chi2_p": 0.6812831483504054,
+            "n": 10405,
+            "field": "respiratory_rate_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=MEDIUM"
+          },
+          {
+            "mi": 0.0018595297174615315,
+            "chi2_p": 0.9087436128047814,
+            "n": 4725,
+            "field": "respiratory_rate_provenance==NOT_MEASURED",
+            "stratum": "facility_tier=HIGH"
+          }
+        ],
+        "breaches": []
+      }
+    },
+    "GATE-MARGINAL": {
+      "name": "GATE-MARGINAL",
+      "passed": true,
+      "detail": {
+        "cells": {
+          "fever": {
+            "target": 0.34208049535603713,
+            "realized": 0.3412608695652174,
+            "ok": true
+          },
+          "weakness_unwell": {
+            "target": 0.043294117647058816,
+            "realized": 0.04517391304347826,
+            "ok": true
+          },
+          "body_ache": {
+            "target": 0.030286893704850364,
+            "realized": 0.03082608695652174,
+            "ok": true
+          },
+          "weight_loss": {
+            "target": 0.00863983488132095,
+            "realized": 0.009478260869565217,
+            "ok": true
+          },
+          "oedema": {
+            "target": 0.00863983488132095,
+            "realized": 0.00808695652173913,
+            "ok": true
+          },
+          "abdominal_pain": {
+            "target": 0.06721981424148606,
+            "realized": 0.06795652173913043,
+            "ok": true
+          },
+          "acidity_heartburn": {
+            "target": 0.04709184726522188,
+            "realized": 0.04665217391304348,
+            "ok": true
+          },
+          "diarrhoea": {
+            "target": 0.03360990712074303,
+            "realized": 0.033304347826086954,
+            "ok": true
+          },
+          "vomiting_nausea": {
+            "target": 0.020127966976264188,
+            "realized": 0.020608695652173912,
+            "ok": true
+          },
+          "joint_pain": {
+            "target": 0.05126934984520124,
+            "realized": 0.04891304347826087,
+            "ok": true
+          },
+          "back_neck_pain": {
+            "target": 0.034179566563467496,
+            "realized": 0.034913043478260866,
+            "ok": true
+          },
+          "injury": {
+            "target": 0.028482972136222907,
+            "realized": 0.027043478260869565,
+            "ok": true
+          },
+          "cough": {
+            "target": 0.029147574819401445,
+            "realized": 0.02773913043478261,
+            "ok": true
+          },
+          "cold_sore_throat": {
+            "target": 0.025919504643962848,
+            "realized": 0.02665217391304348,
+            "ok": true
+          },
+          "breathlessness": {
+            "target": 0.00968421052631579,
+            "realized": 0.009391304347826087,
+            "ok": true
+          },
+          "known_hypertension": {
+            "target": 0.029622291021671826,
+            "realized": 0.030260869565217393,
+            "ok": true
+          },
+          "chest_pain": {
+            "target": 0.012722394220846232,
+            "realized": 0.012,
+            "ok": true
+          },
+          "rash": {
+            "target": 0.01462125902992776,
+            "realized": 0.014304347826086956,
+            "ok": true
+          },
+          "itching": {
+            "target": 0.01281733746130031,
+            "realized": 0.012434782608695653,
+            "ok": true
+          },
+          "skin_infection": {
+            "target": 0.009114551083591329,
+            "realized": 0.01,
+            "ok": true
+          },
+          "antenatal_visit": {
+            "target": 0.03199587203302374,
+            "realized": 0.03143478260869565,
+            "ok": true
+          },
+          "headache": {
+            "target": 0.012722394220846232,
+            "realized": 0.013,
+            "ok": true
+          },
+          "dizziness": {
+            "target": 0.005791537667698658,
+            "realized": 0.005652173913043478,
+            "ok": true
+          },
+          "known_diabetes": {
+            "target": 0.00835500515995872,
+            "realized": 0.008608695652173913,
+            "ok": true
+          },
+          "urinary_symptoms": {
+            "target": 0.002563467492260062,
+            "realized": 0.002956521739130435,
+            "ok": true
+          },
+          "pallor_anaemia": {
+            "target": 0.02,
+            "realized": 0.018173913043478263,
+            "ok": true
+          },
+          "other_not_in_list": {
+            "target": 0.06,
+            "realized": 0.06317391304347826,
+            "ok": true
+          }
+        }
+      }
+    },
+    "GATE-DECLARED": {
+      "name": "GATE-DECLARED",
+      "passed": true,
+      "detail": {
+        "cells": {
+          "fever/self_limited_fever/share": {
+            "target": 0.68,
+            "realized": 0.6734615874633711,
+            "ok": true
+          },
+          "fever/self_limited_fever/severity/mild": {
+            "target": 0.6,
+            "realized": 0.602345819144911,
+            "ok": true
+          },
+          "fever/self_limited_fever/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.34922436625047293,
+            "ok": true
+          },
+          "fever/self_limited_fever/severity/severe": {
+            "target": 0.05,
+            "realized": 0.04842981460461597,
+            "ok": true
+          },
+          "fever/dengue/share": {
+            "target": 0.07,
+            "realized": 0.06421200152885718,
+            "ok": true
+          },
+          "fever/dengue/severity/mild": {
+            "target": 0.3,
+            "realized": 0.28174603174603174,
+            "ok": true
+          },
+          "fever/dengue/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.49206349206349204,
+            "ok": true
+          },
+          "fever/dengue/severity/severe": {
+            "target": 0.2,
+            "realized": 0.2261904761904762,
+            "ok": true
+          },
+          "fever/severe_dengue/share": {
+            "target": 0.015,
+            "realized": 0.01452414320295579,
+            "ok": true
+          },
+          "fever/severe_dengue/severity/mild": {
+            "target": 0.05,
+            "realized": 0.043859649122807015,
+            "ok": true
+          },
+          "fever/severe_dengue/severity/moderate": {
+            "target": 0.25,
+            "realized": 0.21052631578947367,
+            "ok": true
+          },
+          "fever/severe_dengue/severity/severe": {
+            "target": 0.7,
+            "realized": 0.7456140350877193,
+            "ok": true
+          },
+          "fever/malaria/share": {
+            "target": 0.05,
+            "realized": 0.05542107274812078,
+            "ok": true
+          },
+          "fever/malaria/severity/mild": {
+            "target": 0.3,
+            "realized": 0.3057471264367816,
+            "ok": true
+          },
+          "fever/malaria/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.4850574712643678,
+            "ok": true
+          },
+          "fever/malaria/severity/severe": {
+            "target": 0.2,
+            "realized": 0.20919540229885059,
+            "ok": true
+          },
+          "fever/malaria_falciparum_severe/share": {
+            "target": 0.01,
+            "realized": 0.008918333545674608,
+            "ok": true
+          },
+          "fever/malaria_falciparum_severe/severity/mild": {
+            "target": 0.05,
+            "realized": 0.014285714285714285,
+            "ok": true
+          },
+          "fever/malaria_falciparum_severe/severity/moderate": {
+            "target": 0.25,
+            "realized": 0.32857142857142857,
+            "ok": true
+          },
+          "fever/malaria_falciparum_severe/severity/severe": {
+            "target": 0.7,
+            "realized": 0.6571428571428571,
+            "ok": true
+          },
+          "fever/typhoid_enteric/share": {
+            "target": 0.04,
+            "realized": 0.04268059625429991,
+            "ok": true
+          },
+          "fever/typhoid_enteric/severity/mild": {
+            "target": 0.3,
+            "realized": 0.3164179104477612,
+            "ok": true
+          },
+          "fever/typhoid_enteric/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.46567164179104475,
+            "ok": true
+          },
+          "fever/typhoid_enteric/severity/severe": {
+            "target": 0.2,
+            "realized": 0.21791044776119403,
+            "ok": true
+          },
+          "fever/scrub_typhus/share": {
+            "target": 0.03,
+            "realized": 0.030449738820231876,
+            "ok": true
+          },
+          "fever/scrub_typhus/severity/mild": {
+            "target": 0.3,
+            "realized": 0.2594142259414226,
+            "ok": true
+          },
+          "fever/scrub_typhus/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.5439330543933054,
+            "ok": true
+          },
+          "fever/scrub_typhus/severity/severe": {
+            "target": 0.2,
+            "realized": 0.19665271966527198,
+            "ok": true
+          },
+          "fever/leptospirosis/share": {
+            "target": 0.02,
+            "realized": 0.018728500445916677,
+            "ok": true
+          },
+          "fever/leptospirosis/severity/mild": {
+            "target": 0.3,
+            "realized": 0.2857142857142857,
+            "ok": true
+          },
+          "fever/leptospirosis/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.4421768707482993,
+            "ok": true
+          },
+          "fever/leptospirosis/severity/severe": {
+            "target": 0.2,
+            "realized": 0.272108843537415,
+            "ok": true
+          },
+          "fever/chikungunya/share": {
+            "target": 0.04,
+            "realized": 0.041024334310103196,
+            "ok": true
+          },
+          "fever/chikungunya/severity/mild": {
+            "target": 0.3,
+            "realized": 0.3136645962732919,
+            "ok": true
+          },
+          "fever/chikungunya/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.4968944099378882,
+            "ok": true
+          },
+          "fever/chikungunya/severity/severe": {
+            "target": 0.2,
+            "realized": 0.18944099378881987,
+            "ok": true
+          },
+          "fever/tuberculosis_fever/share": {
+            "target": 0.03,
+            "realized": 0.03274302458911963,
+            "ok": true
+          },
+          "fever/tuberculosis_fever/severity/mild": {
+            "target": 0.3,
+            "realized": 0.30739299610894943,
+            "ok": true
+          },
+          "fever/tuberculosis_fever/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.48249027237354086,
+            "ok": true
+          },
+          "fever/tuberculosis_fever/severity/severe": {
+            "target": 0.2,
+            "realized": 0.21011673151750973,
+            "ok": true
+          },
+          "fever/sepsis_or_meningitis_emergency/share": {
+            "target": 0.015,
+            "realized": 0.017836667091349217,
+            "ok": true
+          },
+          "fever/sepsis_or_meningitis_emergency/severity/mild": {
+            "target": 0.05,
+            "realized": 0.06428571428571428,
+            "ok": true
+          },
+          "fever/sepsis_or_meningitis_emergency/severity/moderate": {
+            "target": 0.25,
+            "realized": 0.24285714285714285,
+            "ok": true
+          },
+          "fever/sepsis_or_meningitis_emergency/severity/severe": {
+            "target": 0.7,
+            "realized": 0.6928571428571428,
+            "ok": true
+          },
+          "cough/acute_bronchitis_or_urti/share": {
+            "target": 0.6,
+            "realized": 0.5971786833855799,
+            "ok": true
+          },
+          "cough/acute_bronchitis_or_urti/severity/mild": {
+            "target": 0.7,
+            "realized": 0.7349081364829396,
+            "ok": true
+          },
+          "cough/acute_bronchitis_or_urti/severity/moderate": {
+            "target": 0.25,
+            "realized": 0.2099737532808399,
+            "ok": true
+          },
+          "cough/acute_bronchitis_or_urti/severity/severe": {
+            "target": 0.05,
+            "realized": 0.05511811023622047,
+            "ok": true
+          },
+          "cough/pneumonia/share": {
+            "target": 0.12,
+            "realized": 0.11912225705329153,
+            "ok": true
+          },
+          "cough/pneumonia/severity/mild": {
+            "target": 0.1,
+            "realized": 0.11842105263157894,
+            "ok": true
+          },
+          "cough/pneumonia/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.42105263157894735,
+            "ok": true
+          },
+          "cough/pneumonia/severity/severe": {
+            "target": 0.45,
+            "realized": 0.4605263157894737,
+            "ok": true
+          },
+          "cough/asthma_or_copd/share": {
+            "target": 0.15,
+            "realized": 0.14420062695924765,
+            "ok": true
+          },
+          "cough/asthma_or_copd/severity/mild": {
+            "target": 0.2,
+            "realized": 0.17391304347826086,
+            "ok": true
+          },
+          "cough/asthma_or_copd/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.4673913043478261,
+            "ok": true
+          },
+          "cough/asthma_or_copd/severity/severe": {
+            "target": 0.3,
+            "realized": 0.358695652173913,
+            "ok": true
+          },
+          "cough/pulmonary_tuberculosis/share": {
+            "target": 0.08,
+            "realized": 0.09561128526645768,
+            "ok": true
+          },
+          "cough/pulmonary_tuberculosis/severity/mild": {
+            "target": 0.15,
+            "realized": 0.13114754098360656,
+            "ok": true
+          },
+          "cough/pulmonary_tuberculosis/severity/moderate": {
+            "target": 0.55,
+            "realized": 0.6229508196721312,
+            "ok": true
+          },
+          "cough/pulmonary_tuberculosis/severity/severe": {
+            "target": 0.3,
+            "realized": 0.2459016393442623,
+            "ok": true
+          },
+          "cough/lung_malignancy_or_chronic/share": {
+            "target": 0.05,
+            "realized": 0.0438871473354232,
+            "ok": true
+          },
+          "cough/lung_malignancy_or_chronic/severity/mild": {
+            "target": 0.1,
+            "realized": 0.03571428571428571,
+            "ok": true
+          },
+          "cough/lung_malignancy_or_chronic/severity/moderate": {
+            "target": 0.4,
+            "realized": 0.39285714285714285,
+            "ok": true
+          },
+          "cough/lung_malignancy_or_chronic/severity/severe": {
+            "target": 0.5,
+            "realized": 0.5714285714285714,
+            "ok": true
+          },
+          "abdominal_pain/acute_gastritis_or_dyspepsia/share": {
+            "target": 0.4,
+            "realized": 0.3941138835572617,
+            "ok": true
+          },
+          "abdominal_pain/acute_gastritis_or_dyspepsia/severity/mild": {
+            "target": 0.65,
+            "realized": 0.6525974025974026,
+            "ok": true
+          },
+          "abdominal_pain/acute_gastritis_or_dyspepsia/severity/moderate": {
+            "target": 0.3,
+            "realized": 0.3003246753246753,
+            "ok": true
+          },
+          "abdominal_pain/acute_gastritis_or_dyspepsia/severity/severe": {
+            "target": 0.05,
+            "realized": 0.04707792207792208,
+            "ok": true
+          },
+          "abdominal_pain/acute_appendicitis/share": {
+            "target": 0.16,
+            "realized": 0.17018554062699937,
+            "ok": true
+          },
+          "abdominal_pain/acute_appendicitis/severity/mild": {
+            "target": 0.15,
+            "realized": 0.19172932330827067,
+            "ok": true
+          },
+          "abdominal_pain/acute_appendicitis/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.5150375939849624,
+            "ok": true
+          },
+          "abdominal_pain/acute_appendicitis/severity/severe": {
+            "target": 0.35,
+            "realized": 0.2932330827067669,
+            "ok": true
+          },
+          "abdominal_pain/urinary_tract_infection/share": {
+            "target": 0.16,
+            "realized": 0.1490722968650032,
+            "ok": true
+          },
+          "abdominal_pain/urinary_tract_infection/severity/mild": {
+            "target": 0.45,
+            "realized": 0.49356223175965663,
+            "ok": true
+          },
+          "abdominal_pain/urinary_tract_infection/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.4206008583690987,
+            "ok": true
+          },
+          "abdominal_pain/urinary_tract_infection/severity/severe": {
+            "target": 0.1,
+            "realized": 0.08583690987124463,
+            "ok": true
+          },
+          "abdominal_pain/bowel_obstruction/share": {
+            "target": 0.08,
+            "realized": 0.07869481765834933,
+            "ok": true
+          },
+          "abdominal_pain/bowel_obstruction/severity/mild": {
+            "target": 0.05,
+            "realized": 0.0975609756097561,
+            "ok": true
+          },
+          "abdominal_pain/bowel_obstruction/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.2845528455284553,
+            "ok": true
+          },
+          "abdominal_pain/bowel_obstruction/severity/severe": {
+            "target": 0.6,
+            "realized": 0.6178861788617886,
+            "ok": true
+          },
+          "abdominal_pain/enteric_fever_abdominal/share": {
+            "target": 0.08,
+            "realized": 0.08765195137555983,
+            "ok": true
+          },
+          "abdominal_pain/enteric_fever_abdominal/severity/mild": {
+            "target": 0.2,
+            "realized": 0.22627737226277372,
+            "ok": true
+          },
+          "abdominal_pain/enteric_fever_abdominal/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.5109489051094891,
+            "ok": true
+          },
+          "abdominal_pain/enteric_fever_abdominal/severity/severe": {
+            "target": 0.3,
+            "realized": 0.26277372262773724,
+            "ok": true
+          },
+          "abdominal_pain/acute_pancreatitis/share": {
+            "target": 0.06,
+            "realized": 0.06525911708253358,
+            "ok": true
+          },
+          "abdominal_pain/acute_pancreatitis/severity/mild": {
+            "target": 0.1,
+            "realized": 0.08823529411764706,
+            "ok": true
+          },
+          "abdominal_pain/acute_pancreatitis/severity/moderate": {
+            "target": 0.4,
+            "realized": 0.3627450980392157,
+            "ok": true
+          },
+          "abdominal_pain/acute_pancreatitis/severity/severe": {
+            "target": 0.5,
+            "realized": 0.5490196078431373,
+            "ok": true
+          },
+          "abdominal_pain/ectopic_pregnancy/share": {
+            "target": 0.06,
+            "realized": 0.05502239283429303,
+            "ok": true
+          },
+          "abdominal_pain/ectopic_pregnancy/severity/mild": {
+            "target": 0.1,
+            "realized": 0.08139534883720931,
+            "ok": true
+          },
+          "abdominal_pain/ectopic_pregnancy/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.32558139534883723,
+            "ok": true
+          },
+          "abdominal_pain/ectopic_pregnancy/severity/severe": {
+            "target": 0.55,
+            "realized": 0.5930232558139535,
+            "ok": true
+          },
+          "known_hypertension/controlled_htn/share": {
+            "target": 0.45,
+            "realized": 0.47126436781609193,
+            "ok": true
+          },
+          "known_hypertension/controlled_htn/severity/mild": {
+            "target": 0.7,
+            "realized": 0.6859756097560976,
+            "ok": true
+          },
+          "known_hypertension/controlled_htn/severity/moderate": {
+            "target": 0.25,
+            "realized": 0.2804878048780488,
+            "ok": true
+          },
+          "known_hypertension/controlled_htn/severity/severe": {
+            "target": 0.05,
+            "realized": 0.03353658536585366,
+            "ok": true
+          },
+          "known_hypertension/uncontrolled_htn_no_symptoms/share": {
+            "target": 0.3,
+            "realized": 0.27011494252873564,
+            "ok": true
+          },
+          "known_hypertension/uncontrolled_htn_no_symptoms/severity/mild": {
+            "target": 0.3,
+            "realized": 0.2765957446808511,
+            "ok": true
+          },
+          "known_hypertension/uncontrolled_htn_no_symptoms/severity/moderate": {
+            "target": 0.55,
+            "realized": 0.5531914893617021,
+            "ok": true
+          },
+          "known_hypertension/uncontrolled_htn_no_symptoms/severity/severe": {
+            "target": 0.15,
+            "realized": 0.1702127659574468,
+            "ok": true
+          },
+          "known_hypertension/uncontrolled_htn_with_symptoms/share": {
+            "target": 0.15,
+            "realized": 0.17385057471264367,
+            "ok": true
+          },
+          "known_hypertension/uncontrolled_htn_with_symptoms/severity/mild": {
+            "target": 0.15,
+            "realized": 0.12396694214876033,
+            "ok": true
+          },
+          "known_hypertension/uncontrolled_htn_with_symptoms/severity/moderate": {
+            "target": 0.55,
+            "realized": 0.5702479338842975,
+            "ok": true
+          },
+          "known_hypertension/uncontrolled_htn_with_symptoms/severity/severe": {
+            "target": 0.3,
+            "realized": 0.30578512396694213,
+            "ok": true
+          },
+          "known_hypertension/hypertensive_emergency/share": {
+            "target": 0.03,
+            "realized": 0.021551724137931036,
+            "ok": true
+          },
+          "known_hypertension/htn_in_pregnancy_preeclampsia_risk/share": {
+            "target": 0.07,
+            "realized": 0.06321839080459771,
+            "ok": true
+          },
+          "known_hypertension/htn_in_pregnancy_preeclampsia_risk/severity/mild": {
+            "target": 0.2,
+            "realized": 0.18181818181818182,
+            "ok": true
+          },
+          "known_hypertension/htn_in_pregnancy_preeclampsia_risk/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.5227272727272727,
+            "ok": true
+          },
+          "known_hypertension/htn_in_pregnancy_preeclampsia_risk/severity/severe": {
+            "target": 0.3,
+            "realized": 0.29545454545454547,
+            "ok": true
+          },
+          "diarrhoea/acute_gastroenteritis/share": {
+            "target": 0.65,
+            "realized": 0.6174934725848564,
+            "ok": true
+          },
+          "diarrhoea/acute_gastroenteritis/severity/mild": {
+            "target": 0.65,
+            "realized": 0.6596194503171248,
+            "ok": true
+          },
+          "diarrhoea/acute_gastroenteritis/severity/moderate": {
+            "target": 0.25,
+            "realized": 0.24312896405919662,
+            "ok": true
+          },
+          "diarrhoea/acute_gastroenteritis/severity/severe": {
+            "target": 0.1,
+            "realized": 0.09725158562367865,
+            "ok": true
+          },
+          "diarrhoea/amoebiasis_or_giardiasis/share": {
+            "target": 0.15,
+            "realized": 0.17101827676240208,
+            "ok": true
+          },
+          "diarrhoea/amoebiasis_or_giardiasis/severity/mild": {
+            "target": 0.6,
+            "realized": 0.5648854961832062,
+            "ok": true
+          },
+          "diarrhoea/amoebiasis_or_giardiasis/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.35877862595419846,
+            "ok": true
+          },
+          "diarrhoea/amoebiasis_or_giardiasis/severity/severe": {
+            "target": 0.05,
+            "realized": 0.07633587786259542,
+            "ok": true
+          },
+          "diarrhoea/dysentery_shigellosis/share": {
+            "target": 0.1,
+            "realized": 0.1122715404699739,
+            "ok": true
+          },
+          "diarrhoea/dysentery_shigellosis/severity/mild": {
+            "target": 0.2,
+            "realized": 0.2558139534883721,
+            "ok": true
+          },
+          "diarrhoea/dysentery_shigellosis/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.46511627906976744,
+            "ok": true
+          },
+          "diarrhoea/dysentery_shigellosis/severity/severe": {
+            "target": 0.3,
+            "realized": 0.27906976744186046,
+            "ok": true
+          },
+          "diarrhoea/severe_secretory_diarrhoea_or_cholera/share": {
+            "target": 0.05,
+            "realized": 0.04046997389033943,
+            "ok": true
+          },
+          "diarrhoea/severe_secretory_diarrhoea_or_cholera/severity/mild": {
+            "target": 0.05,
+            "realized": 0.03225806451612903,
+            "ok": true
+          },
+          "diarrhoea/severe_secretory_diarrhoea_or_cholera/severity/moderate": {
+            "target": 0.25,
+            "realized": 0.22580645161290322,
+            "ok": true
+          },
+          "diarrhoea/severe_secretory_diarrhoea_or_cholera/severity/severe": {
+            "target": 0.7,
+            "realized": 0.7419354838709677,
+            "ok": true
+          },
+          "diarrhoea/enteric_fever_diarrhoea/share": {
+            "target": 0.05,
+            "realized": 0.0587467362924282,
+            "ok": true
+          },
+          "diarrhoea/enteric_fever_diarrhoea/severity/mild": {
+            "target": 0.15,
+            "realized": 0.26666666666666666,
+            "ok": true
+          },
+          "diarrhoea/enteric_fever_diarrhoea/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.4,
+            "ok": true
+          },
+          "diarrhoea/enteric_fever_diarrhoea/severity/severe": {
+            "target": 0.35,
+            "realized": 0.3333333333333333,
+            "ok": true
+          },
+          "chest_pain/musculoskeletal_chest_pain/share": {
+            "target": 0.4,
+            "realized": 0.391304347826087,
+            "ok": true
+          },
+          "chest_pain/musculoskeletal_chest_pain/severity/mild": {
+            "target": 0.65,
+            "realized": 0.6574074074074074,
+            "ok": true
+          },
+          "chest_pain/musculoskeletal_chest_pain/severity/moderate": {
+            "target": 0.3,
+            "realized": 0.2962962962962963,
+            "ok": true
+          },
+          "chest_pain/musculoskeletal_chest_pain/severity/severe": {
+            "target": 0.05,
+            "realized": 0.046296296296296294,
+            "ok": true
+          },
+          "chest_pain/acute_coronary_syndrome/share": {
+            "target": 0.22,
+            "realized": 0.21014492753623187,
+            "ok": true
+          },
+          "chest_pain/acute_coronary_syndrome/severity/mild": {
+            "target": 0.1,
+            "realized": 0.20689655172413793,
+            "ok": true
+          },
+          "chest_pain/acute_coronary_syndrome/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.3103448275862069,
+            "ok": true
+          },
+          "chest_pain/acute_coronary_syndrome/severity/severe": {
+            "target": 0.45,
+            "realized": 0.4827586206896552,
+            "ok": true
+          },
+          "chest_pain/stable_angina/share": {
+            "target": 0.15,
+            "realized": 0.15579710144927536,
+            "ok": true
+          },
+          "chest_pain/stable_angina/severity/mild": {
+            "target": 0.35,
+            "realized": 0.4186046511627907,
+            "ok": true
+          },
+          "chest_pain/stable_angina/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.3953488372093023,
+            "ok": true
+          },
+          "chest_pain/stable_angina/severity/severe": {
+            "target": 0.15,
+            "realized": 0.18604651162790697,
+            "ok": true
+          },
+          "chest_pain/gastro_oesophageal_reflux/share": {
+            "target": 0.12,
+            "realized": 0.13405797101449277,
+            "ok": true
+          },
+          "chest_pain/gastro_oesophageal_reflux/severity/mild": {
+            "target": 0.6,
+            "realized": 0.7027027027027027,
+            "ok": true
+          },
+          "chest_pain/gastro_oesophageal_reflux/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.24324324324324326,
+            "ok": true
+          },
+          "chest_pain/gastro_oesophageal_reflux/severity/severe": {
+            "target": 0.05,
+            "realized": 0.05405405405405406,
+            "ok": true
+          },
+          "chest_pain/pleurisy_or_pneumonia/share": {
+            "target": 0.05,
+            "realized": 0.05434782608695652,
+            "ok": true
+          },
+          "chest_pain/pulmonary_embolism_cp/share": {
+            "target": 0.03,
+            "realized": 0.025362318840579712,
+            "ok": true
+          },
+          "chest_pain/pericarditis/share": {
+            "target": 0.02,
+            "realized": 0.028985507246376812,
+            "ok": true
+          },
+          "chest_pain/aortic_dissection/share": {
+            "target": 0.01,
+            "realized": 0.0,
+            "ok": true
+          },
+          "rash/benign_dermatitis_or_fungal/share": {
+            "target": 0.55,
+            "realized": 0.5440729483282675,
+            "ok": true
+          },
+          "rash/benign_dermatitis_or_fungal/severity/mild": {
+            "target": 0.75,
+            "realized": 0.7430167597765364,
+            "ok": true
+          },
+          "rash/benign_dermatitis_or_fungal/severity/moderate": {
+            "target": 0.2,
+            "realized": 0.21787709497206703,
+            "ok": true
+          },
+          "rash/benign_dermatitis_or_fungal/severity/severe": {
+            "target": 0.05,
+            "realized": 0.03910614525139665,
+            "ok": true
+          },
+          "rash/viral_exanthem_with_fever/share": {
+            "target": 0.2,
+            "realized": 0.1884498480243161,
+            "ok": true
+          },
+          "rash/viral_exanthem_with_fever/severity/mild": {
+            "target": 0.3,
+            "realized": 0.24193548387096775,
+            "ok": true
+          },
+          "rash/viral_exanthem_with_fever/severity/moderate": {
+            "target": 0.55,
+            "realized": 0.5483870967741935,
+            "ok": true
+          },
+          "rash/viral_exanthem_with_fever/severity/severe": {
+            "target": 0.15,
+            "realized": 0.20967741935483872,
+            "ok": true
+          },
+          "rash/drug_reaction_mild/share": {
+            "target": 0.12,
+            "realized": 0.12158054711246201,
+            "ok": true
+          },
+          "rash/drug_reaction_mild/severity/mild": {
+            "target": 0.5,
+            "realized": 0.65,
+            "ok": true
+          },
+          "rash/drug_reaction_mild/severity/moderate": {
+            "target": 0.4,
+            "realized": 0.225,
+            "ok": true
+          },
+          "rash/drug_reaction_mild/severity/severe": {
+            "target": 0.1,
+            "realized": 0.125,
+            "ok": true
+          },
+          "rash/drug_reaction_sjs_ten_severe/share": {
+            "target": 0.02,
+            "realized": 0.02735562310030395,
+            "ok": true
+          },
+          "rash/leprosy_hypopigmented_patch/share": {
+            "target": 0.06,
+            "realized": 0.0486322188449848,
+            "ok": true
+          },
+          "rash/meningococcaemia_purpura/share": {
+            "target": 0.05,
+            "realized": 0.06990881458966565,
+            "ok": true
+          },
+          "rash/meningococcaemia_purpura/severity/mild": {
+            "target": 0.05,
+            "realized": 0.043478260869565216,
+            "ok": true
+          },
+          "rash/meningococcaemia_purpura/severity/moderate": {
+            "target": 0.15,
+            "realized": 0.2608695652173913,
+            "ok": true
+          },
+          "rash/meningococcaemia_purpura/severity/severe": {
+            "target": 0.8,
+            "realized": 0.6956521739130435,
+            "ok": true
+          },
+          "joint_pain/osteoarthritis/share": {
+            "target": 0.5,
+            "realized": 0.496,
+            "ok": true
+          },
+          "joint_pain/osteoarthritis/severity/mild": {
+            "target": 0.55,
+            "realized": 0.5483870967741935,
+            "ok": true
+          },
+          "joint_pain/osteoarthritis/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.33512544802867383,
+            "ok": true
+          },
+          "joint_pain/osteoarthritis/severity/severe": {
+            "target": 0.1,
+            "realized": 0.11648745519713262,
+            "ok": true
+          },
+          "joint_pain/rheumatoid_or_inflammatory_arthritis/share": {
+            "target": 0.18,
+            "realized": 0.16977777777777778,
+            "ok": true
+          },
+          "joint_pain/rheumatoid_or_inflammatory_arthritis/severity/mild": {
+            "target": 0.3,
+            "realized": 0.32460732984293195,
+            "ok": true
+          },
+          "joint_pain/rheumatoid_or_inflammatory_arthritis/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.4397905759162304,
+            "ok": true
+          },
+          "joint_pain/rheumatoid_or_inflammatory_arthritis/severity/severe": {
+            "target": 0.2,
+            "realized": 0.2356020942408377,
+            "ok": true
+          },
+          "joint_pain/gout_crystal_arthritis/share": {
+            "target": 0.12,
+            "realized": 0.11288888888888889,
+            "ok": true
+          },
+          "joint_pain/gout_crystal_arthritis/severity/mild": {
+            "target": 0.2,
+            "realized": 0.1968503937007874,
+            "ok": true
+          },
+          "joint_pain/gout_crystal_arthritis/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.5039370078740157,
+            "ok": true
+          },
+          "joint_pain/gout_crystal_arthritis/severity/severe": {
+            "target": 0.3,
+            "realized": 0.2992125984251969,
+            "ok": true
+          },
+          "joint_pain/chikungunya_or_viral_arthritis/share": {
+            "target": 0.1,
+            "realized": 0.10666666666666667,
+            "ok": true
+          },
+          "joint_pain/chikungunya_or_viral_arthritis/severity/mild": {
+            "target": 0.25,
+            "realized": 0.3,
+            "ok": true
+          },
+          "joint_pain/chikungunya_or_viral_arthritis/severity/moderate": {
+            "target": 0.55,
+            "realized": 0.5083333333333333,
+            "ok": true
+          },
+          "joint_pain/chikungunya_or_viral_arthritis/severity/severe": {
+            "target": 0.2,
+            "realized": 0.19166666666666668,
+            "ok": true
+          },
+          "joint_pain/septic_arthritis/share": {
+            "target": 0.05,
+            "realized": 0.051555555555555556,
+            "ok": true
+          },
+          "joint_pain/septic_arthritis/severity/mild": {
+            "target": 0.05,
+            "realized": 0.1206896551724138,
+            "ok": true
+          },
+          "joint_pain/septic_arthritis/severity/moderate": {
+            "target": 0.3,
+            "realized": 0.27586206896551724,
+            "ok": true
+          },
+          "joint_pain/septic_arthritis/severity/severe": {
+            "target": 0.65,
+            "realized": 0.603448275862069,
+            "ok": true
+          },
+          "joint_pain/tb_of_joint/share": {
+            "target": 0.05,
+            "realized": 0.06311111111111112,
+            "ok": true
+          },
+          "joint_pain/tb_of_joint/severity/mild": {
+            "target": 0.25,
+            "realized": 0.2676056338028169,
+            "ok": true
+          },
+          "joint_pain/tb_of_joint/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.4788732394366197,
+            "ok": true
+          },
+          "joint_pain/tb_of_joint/severity/severe": {
+            "target": 0.25,
+            "realized": 0.2535211267605634,
+            "ok": true
+          },
+          "back_neck_pain/mechanical_low_back_or_neck_pain/share": {
+            "target": 0.6,
+            "realized": 0.6226650062266501,
+            "ok": true
+          },
+          "back_neck_pain/mechanical_low_back_or_neck_pain/severity/mild": {
+            "target": 0.6,
+            "realized": 0.572,
+            "ok": true
+          },
+          "back_neck_pain/mechanical_low_back_or_neck_pain/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.362,
+            "ok": true
+          },
+          "back_neck_pain/mechanical_low_back_or_neck_pain/severity/severe": {
+            "target": 0.05,
+            "realized": 0.066,
+            "ok": true
+          },
+          "back_neck_pain/lumbar_cervical_spondylosis/share": {
+            "target": 0.2,
+            "realized": 0.19427148194271482,
+            "ok": true
+          },
+          "back_neck_pain/lumbar_cervical_spondylosis/severity/mild": {
+            "target": 0.4,
+            "realized": 0.42948717948717946,
+            "ok": true
+          },
+          "back_neck_pain/lumbar_cervical_spondylosis/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.4166666666666667,
+            "ok": true
+          },
+          "back_neck_pain/lumbar_cervical_spondylosis/severity/severe": {
+            "target": 0.15,
+            "realized": 0.15384615384615385,
+            "ok": true
+          },
+          "back_neck_pain/radiculopathy_sciatica/share": {
+            "target": 0.1,
+            "realized": 0.11083437110834371,
+            "ok": true
+          },
+          "back_neck_pain/radiculopathy_sciatica/severity/mild": {
+            "target": 0.25,
+            "realized": 0.20224719101123595,
+            "ok": true
+          },
+          "back_neck_pain/radiculopathy_sciatica/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.5056179775280899,
+            "ok": true
+          },
+          "back_neck_pain/radiculopathy_sciatica/severity/severe": {
+            "target": 0.25,
+            "realized": 0.29213483146067415,
+            "ok": true
+          },
+          "back_neck_pain/vertebral_fracture/share": {
+            "target": 0.04,
+            "realized": 0.028642590286425903,
+            "ok": true
+          },
+          "back_neck_pain/vertebral_fracture/severity/mild": {
+            "target": 0.1,
+            "realized": 0.043478260869565216,
+            "ok": true
+          },
+          "back_neck_pain/vertebral_fracture/severity/moderate": {
+            "target": 0.4,
+            "realized": 0.4782608695652174,
+            "ok": true
+          },
+          "back_neck_pain/vertebral_fracture/severity/severe": {
+            "target": 0.5,
+            "realized": 0.4782608695652174,
+            "ok": true
+          },
+          "back_neck_pain/spinal_tuberculosis_potts/share": {
+            "target": 0.04,
+            "realized": 0.0224159402241594,
+            "ok": true
+          },
+          "back_neck_pain/cauda_equina_or_cord_compression/share": {
+            "target": 0.02,
+            "realized": 0.021170610211706103,
+            "ok": true
+          },
+          "breathlessness/copd_or_asthma_exacerbation/share": {
+            "target": 0.38,
+            "realized": 0.375,
+            "ok": true
+          },
+          "breathlessness/copd_or_asthma_exacerbation/severity/mild": {
+            "target": 0.5,
+            "realized": 0.5679012345679012,
+            "ok": true
+          },
+          "breathlessness/copd_or_asthma_exacerbation/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.2962962962962963,
+            "ok": true
+          },
+          "breathlessness/copd_or_asthma_exacerbation/severity/severe": {
+            "target": 0.15,
+            "realized": 0.13580246913580246,
+            "ok": true
+          },
+          "breathlessness/pneumonia_lower_respiratory/share": {
+            "target": 0.22,
+            "realized": 0.22685185185185186,
+            "ok": true
+          },
+          "breathlessness/pneumonia_lower_respiratory/severity/mild": {
+            "target": 0.3,
+            "realized": 0.2857142857142857,
+            "ok": true
+          },
+          "breathlessness/pneumonia_lower_respiratory/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.5918367346938775,
+            "ok": true
+          },
+          "breathlessness/pneumonia_lower_respiratory/severity/severe": {
+            "target": 0.25,
+            "realized": 0.12244897959183673,
+            "ok": true
+          },
+          "breathlessness/congestive_heart_failure/share": {
+            "target": 0.18,
+            "realized": 0.2037037037037037,
+            "ok": true
+          },
+          "breathlessness/congestive_heart_failure/severity/mild": {
+            "target": 0.25,
+            "realized": 0.1590909090909091,
+            "ok": true
+          },
+          "breathlessness/congestive_heart_failure/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.5681818181818182,
+            "ok": true
+          },
+          "breathlessness/congestive_heart_failure/severity/severe": {
+            "target": 0.3,
+            "realized": 0.2727272727272727,
+            "ok": true
+          },
+          "breathlessness/severe_anaemia_breathlessness/share": {
+            "target": 0.1,
+            "realized": 0.09259259259259259,
+            "ok": true
+          },
+          "breathlessness/severe_anaemia_breathlessness/severity/mild": {
+            "target": 0.3,
+            "realized": 0.55,
+            "ok": true
+          },
+          "breathlessness/severe_anaemia_breathlessness/severity/moderate": {
+            "target": 0.4,
+            "realized": 0.3,
+            "ok": true
+          },
+          "breathlessness/severe_anaemia_breathlessness/severity/severe": {
+            "target": 0.3,
+            "realized": 0.15,
+            "ok": true
+          },
+          "breathlessness/pulmonary_embolism_or_dvt/share": {
+            "target": 0.05,
+            "realized": 0.046296296296296294,
+            "ok": true
+          },
+          "breathlessness/acute_allergic_anaphylaxis/share": {
+            "target": 0.04,
+            "realized": 0.032407407407407406,
+            "ok": true
+          },
+          "breathlessness/tuberculosis_breathlessness/share": {
+            "target": 0.03,
+            "realized": 0.023148148148148147,
+            "ok": true
+          },
+          "known_diabetes/controlled_type2_diabetes/share": {
+            "target": 0.45,
+            "realized": 0.3787878787878788,
+            "ok": true
+          },
+          "known_diabetes/controlled_type2_diabetes/severity/mild": {
+            "target": 0.7,
+            "realized": 0.6266666666666667,
+            "ok": true
+          },
+          "known_diabetes/controlled_type2_diabetes/severity/moderate": {
+            "target": 0.25,
+            "realized": 0.30666666666666664,
+            "ok": true
+          },
+          "known_diabetes/controlled_type2_diabetes/severity/severe": {
+            "target": 0.05,
+            "realized": 0.06666666666666667,
+            "ok": true
+          },
+          "known_diabetes/uncontrolled_diabetes_hyperglycaemia/share": {
+            "target": 0.3,
+            "realized": 0.32323232323232326,
+            "ok": true
+          },
+          "known_diabetes/uncontrolled_diabetes_hyperglycaemia/severity/mild": {
+            "target": 0.3,
+            "realized": 0.265625,
+            "ok": true
+          },
+          "known_diabetes/uncontrolled_diabetes_hyperglycaemia/severity/moderate": {
+            "target": 0.55,
+            "realized": 0.59375,
+            "ok": true
+          },
+          "known_diabetes/uncontrolled_diabetes_hyperglycaemia/severity/severe": {
+            "target": 0.15,
+            "realized": 0.140625,
+            "ok": true
+          },
+          "known_diabetes/diabetic_peripheral_neuropathy_or_ulcer/share": {
+            "target": 0.12,
+            "realized": 0.09090909090909091,
+            "ok": true
+          },
+          "known_diabetes/recurrent_hypoglycaemia/share": {
+            "target": 0.06,
+            "realized": 0.09090909090909091,
+            "ok": true
+          },
+          "known_diabetes/diabetic_ketoacidosis_emergency/share": {
+            "target": 0.04,
+            "realized": 0.06060606060606061,
+            "ok": true
+          },
+          "known_diabetes/diabetes_tb_comorbidity/share": {
+            "target": 0.03,
+            "realized": 0.05555555555555555,
+            "ok": true
+          },
+          "headache/tension_type_headache/share": {
+            "target": 0.5,
+            "realized": 0.46488294314381273,
+            "ok": true
+          },
+          "headache/tension_type_headache/severity/mild": {
+            "target": 0.6,
+            "realized": 0.6187050359712231,
+            "ok": true
+          },
+          "headache/tension_type_headache/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.31654676258992803,
+            "ok": true
+          },
+          "headache/tension_type_headache/severity/severe": {
+            "target": 0.05,
+            "realized": 0.06474820143884892,
+            "ok": true
+          },
+          "headache/migraine_without_or_with_aura/share": {
+            "target": 0.25,
+            "realized": 0.24414715719063546,
+            "ok": true
+          },
+          "headache/migraine_without_or_with_aura/severity/mild": {
+            "target": 0.2,
+            "realized": 0.1506849315068493,
+            "ok": true
+          },
+          "headache/migraine_without_or_with_aura/severity/moderate": {
+            "target": 0.55,
+            "realized": 0.6027397260273972,
+            "ok": true
+          },
+          "headache/migraine_without_or_with_aura/severity/severe": {
+            "target": 0.25,
+            "realized": 0.2465753424657534,
+            "ok": true
+          },
+          "headache/hypertensive_headache/share": {
+            "target": 0.12,
+            "realized": 0.13712374581939799,
+            "ok": true
+          },
+          "headache/hypertensive_headache/severity/mild": {
+            "target": 0.25,
+            "realized": 0.3170731707317073,
+            "ok": true
+          },
+          "headache/hypertensive_headache/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.4878048780487805,
+            "ok": true
+          },
+          "headache/hypertensive_headache/severity/severe": {
+            "target": 0.25,
+            "realized": 0.1951219512195122,
+            "ok": true
+          },
+          "headache/acute_sinusitis_headache/share": {
+            "target": 0.06,
+            "realized": 0.08361204013377926,
+            "ok": true
+          },
+          "headache/acute_sinusitis_headache/severity/mild": {
+            "target": 0.4,
+            "realized": 0.2,
+            "ok": true
+          },
+          "headache/acute_sinusitis_headache/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.48,
+            "ok": true
+          },
+          "headache/acute_sinusitis_headache/severity/severe": {
+            "target": 0.15,
+            "realized": 0.32,
+            "ok": true
+          },
+          "headache/meningitis_or_cns_infection/share": {
+            "target": 0.04,
+            "realized": 0.026755852842809364,
+            "ok": true
+          },
+          "headache/subarachnoid_haemorrhage_or_stroke/share": {
+            "target": 0.03,
+            "realized": 0.043478260869565216,
+            "ok": true
+          },
+          "injury/minor_contusion_or_abrasion/share": {
+            "target": 0.45,
+            "realized": 0.4646302250803859,
+            "ok": true
+          },
+          "injury/minor_contusion_or_abrasion/severity/mild": {
+            "target": 0.75,
+            "realized": 0.7820069204152249,
+            "ok": true
+          },
+          "injury/minor_contusion_or_abrasion/severity/moderate": {
+            "target": 0.22,
+            "realized": 0.18685121107266436,
+            "ok": true
+          },
+          "injury/minor_contusion_or_abrasion/severity/severe": {
+            "target": 0.03,
+            "realized": 0.031141868512110725,
+            "ok": true
+          },
+          "injury/closed_fracture_or_severe_sprain/share": {
+            "target": 0.22,
+            "realized": 0.21061093247588425,
+            "ok": true
+          },
+          "injury/closed_fracture_or_severe_sprain/severity/mild": {
+            "target": 0.2,
+            "realized": 0.22900763358778625,
+            "ok": true
+          },
+          "injury/closed_fracture_or_severe_sprain/severity/moderate": {
+            "target": 0.55,
+            "realized": 0.48091603053435117,
+            "ok": true
+          },
+          "injury/closed_fracture_or_severe_sprain/severity/severe": {
+            "target": 0.25,
+            "realized": 0.2900763358778626,
+            "ok": true
+          },
+          "injury/open_laceration_requiring_suture/share": {
+            "target": 0.15,
+            "realized": 0.14469453376205788,
+            "ok": true
+          },
+          "injury/open_laceration_requiring_suture/severity/mild": {
+            "target": 0.3,
+            "realized": 0.35555555555555557,
+            "ok": true
+          },
+          "injury/open_laceration_requiring_suture/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.45555555555555555,
+            "ok": true
+          },
+          "injury/open_laceration_requiring_suture/severity/severe": {
+            "target": 0.2,
+            "realized": 0.18888888888888888,
+            "ok": true
+          },
+          "injury/head_injury_concussion/share": {
+            "target": 0.08,
+            "realized": 0.07717041800643087,
+            "ok": true
+          },
+          "injury/head_injury_concussion/severity/mild": {
+            "target": 0.15,
+            "realized": 0.125,
+            "ok": true
+          },
+          "injury/head_injury_concussion/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.4166666666666667,
+            "ok": true
+          },
+          "injury/head_injury_concussion/severity/severe": {
+            "target": 0.4,
+            "realized": 0.4583333333333333,
+            "ok": true
+          },
+          "injury/animal_bite_rabies_risk/share": {
+            "target": 0.06,
+            "realized": 0.05305466237942122,
+            "ok": true
+          },
+          "injury/animal_bite_rabies_risk/severity/mild": {
+            "target": 0.35,
+            "realized": 0.30303030303030304,
+            "ok": true
+          },
+          "injury/animal_bite_rabies_risk/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.5151515151515151,
+            "ok": true
+          },
+          "injury/animal_bite_rabies_risk/severity/severe": {
+            "target": 0.2,
+            "realized": 0.18181818181818182,
+            "ok": true
+          },
+          "injury/burn_thermal_or_chemical/share": {
+            "target": 0.04,
+            "realized": 0.04983922829581994,
+            "ok": true
+          },
+          "injury/burn_thermal_or_chemical/severity/mild": {
+            "target": 0.2,
+            "realized": 0.1935483870967742,
+            "ok": true
+          },
+          "injury/burn_thermal_or_chemical/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.45161290322580644,
+            "ok": true
+          },
+          "injury/burn_thermal_or_chemical/severity/severe": {
+            "target": 0.35,
+            "realized": 0.3548387096774194,
+            "ok": true
+          },
+          "vomiting_nausea/acute_gastritis_gastroenteritis_vomiting/share": {
+            "target": 0.55,
+            "realized": 0.5590717299578059,
+            "ok": true
+          },
+          "vomiting_nausea/acute_gastritis_gastroenteritis_vomiting/severity/mild": {
+            "target": 0.65,
+            "realized": 0.6867924528301886,
+            "ok": true
+          },
+          "vomiting_nausea/acute_gastritis_gastroenteritis_vomiting/severity/moderate": {
+            "target": 0.25,
+            "realized": 0.2,
+            "ok": true
+          },
+          "vomiting_nausea/acute_gastritis_gastroenteritis_vomiting/severity/severe": {
+            "target": 0.1,
+            "realized": 0.11320754716981132,
+            "ok": true
+          },
+          "vomiting_nausea/hyperemesis_or_early_pregnancy_vomiting/share": {
+            "target": 0.15,
+            "realized": 0.17721518987341772,
+            "ok": true
+          },
+          "vomiting_nausea/hyperemesis_or_early_pregnancy_vomiting/severity/mild": {
+            "target": 0.4,
+            "realized": 0.38095238095238093,
+            "ok": true
+          },
+          "vomiting_nausea/hyperemesis_or_early_pregnancy_vomiting/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.4642857142857143,
+            "ok": true
+          },
+          "vomiting_nausea/hyperemesis_or_early_pregnancy_vomiting/severity/severe": {
+            "target": 0.15,
+            "realized": 0.15476190476190477,
+            "ok": true
+          },
+          "vomiting_nausea/bowel_obstruction_vomiting/share": {
+            "target": 0.1,
+            "realized": 0.09282700421940929,
+            "ok": true
+          },
+          "vomiting_nausea/bowel_obstruction_vomiting/severity/mild": {
+            "target": 0.05,
+            "realized": 0.045454545454545456,
+            "ok": true
+          },
+          "vomiting_nausea/bowel_obstruction_vomiting/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.4090909090909091,
+            "ok": true
+          },
+          "vomiting_nausea/bowel_obstruction_vomiting/severity/severe": {
+            "target": 0.6,
+            "realized": 0.5454545454545454,
+            "ok": true
+          },
+          "vomiting_nausea/acute_poisoning_toxic_ingestion/share": {
+            "target": 0.08,
+            "realized": 0.07805907172995781,
+            "ok": true
+          },
+          "vomiting_nausea/acute_poisoning_toxic_ingestion/severity/mild": {
+            "target": 0.1,
+            "realized": 0.10810810810810811,
+            "ok": true
+          },
+          "vomiting_nausea/acute_poisoning_toxic_ingestion/severity/moderate": {
+            "target": 0.4,
+            "realized": 0.4864864864864865,
+            "ok": true
+          },
+          "vomiting_nausea/acute_poisoning_toxic_ingestion/severity/severe": {
+            "target": 0.5,
+            "realized": 0.40540540540540543,
+            "ok": true
+          },
+          "vomiting_nausea/diabetic_ketoacidosis_vomiting/share": {
+            "target": 0.06,
+            "realized": 0.04852320675105485,
+            "ok": true
+          },
+          "vomiting_nausea/diabetic_ketoacidosis_vomiting/severity/mild": {
+            "target": 0.05,
+            "realized": 0.043478260869565216,
+            "ok": true
+          },
+          "vomiting_nausea/diabetic_ketoacidosis_vomiting/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.391304347826087,
+            "ok": true
+          },
+          "vomiting_nausea/diabetic_ketoacidosis_vomiting/severity/severe": {
+            "target": 0.6,
+            "realized": 0.5652173913043478,
+            "ok": true
+          },
+          "vomiting_nausea/raised_intracranial_pressure_vomiting/share": {
+            "target": 0.06,
+            "realized": 0.04430379746835443,
+            "ok": true
+          },
+          "vomiting_nausea/raised_intracranial_pressure_vomiting/severity/mild": {
+            "target": 0.1,
+            "realized": 0.047619047619047616,
+            "ok": true
+          },
+          "vomiting_nausea/raised_intracranial_pressure_vomiting/severity/moderate": {
+            "target": 0.4,
+            "realized": 0.38095238095238093,
+            "ok": true
+          },
+          "vomiting_nausea/raised_intracranial_pressure_vomiting/severity/severe": {
+            "target": 0.5,
+            "realized": 0.5714285714285714,
+            "ok": true
+          },
+          "acidity_heartburn/gastro_oesophageal_reflux_gerd/share": {
+            "target": 0.5,
+            "realized": 0.4958061509785648,
+            "ok": true
+          },
+          "acidity_heartburn/gastro_oesophageal_reflux_gerd/severity/mild": {
+            "target": 0.65,
+            "realized": 0.6296992481203008,
+            "ok": true
+          },
+          "acidity_heartburn/gastro_oesophageal_reflux_gerd/severity/moderate": {
+            "target": 0.3,
+            "realized": 0.3082706766917293,
+            "ok": true
+          },
+          "acidity_heartburn/gastro_oesophageal_reflux_gerd/severity/severe": {
+            "target": 0.05,
+            "realized": 0.06203007518796992,
+            "ok": true
+          },
+          "acidity_heartburn/peptic_ulcer_disease_gastritis/share": {
+            "target": 0.3,
+            "realized": 0.31873252562907733,
+            "ok": true
+          },
+          "acidity_heartburn/peptic_ulcer_disease_gastritis/severity/mild": {
+            "target": 0.4,
+            "realized": 0.4678362573099415,
+            "ok": true
+          },
+          "acidity_heartburn/peptic_ulcer_disease_gastritis/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.4093567251461988,
+            "ok": true
+          },
+          "acidity_heartburn/peptic_ulcer_disease_gastritis/severity/severe": {
+            "target": 0.15,
+            "realized": 0.12280701754385964,
+            "ok": true
+          },
+          "acidity_heartburn/cardiac_angina_mimic/share": {
+            "target": 0.1,
+            "realized": 0.09226467847157502,
+            "ok": true
+          },
+          "acidity_heartburn/cardiac_angina_mimic/severity/mild": {
+            "target": 0.15,
+            "realized": 0.13131313131313133,
+            "ok": true
+          },
+          "acidity_heartburn/cardiac_angina_mimic/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.494949494949495,
+            "ok": true
+          },
+          "acidity_heartburn/cardiac_angina_mimic/severity/severe": {
+            "target": 0.35,
+            "realized": 0.37373737373737376,
+            "ok": true
+          },
+          "acidity_heartburn/bleeding_peptic_ulcer/share": {
+            "target": 0.05,
+            "realized": 0.047530288909599254,
+            "ok": true
+          },
+          "acidity_heartburn/bleeding_peptic_ulcer/severity/mild": {
+            "target": 0.05,
+            "realized": 0.0784313725490196,
+            "ok": true
+          },
+          "acidity_heartburn/bleeding_peptic_ulcer/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.29411764705882354,
+            "ok": true
+          },
+          "acidity_heartburn/bleeding_peptic_ulcer/severity/severe": {
+            "target": 0.6,
+            "realized": 0.6274509803921569,
+            "ok": true
+          },
+          "acidity_heartburn/gastric_or_oesophageal_malignancy/share": {
+            "target": 0.05,
+            "realized": 0.045666356011183594,
+            "ok": true
+          },
+          "acidity_heartburn/gastric_or_oesophageal_malignancy/severity/mild": {
+            "target": 0.1,
+            "realized": 0.10204081632653061,
+            "ok": true
+          },
+          "acidity_heartburn/gastric_or_oesophageal_malignancy/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.24489795918367346,
+            "ok": true
+          },
+          "acidity_heartburn/gastric_or_oesophageal_malignancy/severity/severe": {
+            "target": 0.45,
+            "realized": 0.6530612244897959,
+            "ok": true
+          },
+          "urinary_symptoms/lower_urinary_tract_infection_cystitis/share": {
+            "target": 0.65,
+            "realized": 0.7205882352941176,
+            "ok": true
+          },
+          "urinary_symptoms/lower_urinary_tract_infection_cystitis/severity/mild": {
+            "target": 0.6,
+            "realized": 0.6326530612244898,
+            "ok": true
+          },
+          "urinary_symptoms/lower_urinary_tract_infection_cystitis/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.30612244897959184,
+            "ok": true
+          },
+          "urinary_symptoms/lower_urinary_tract_infection_cystitis/severity/severe": {
+            "target": 0.05,
+            "realized": 0.061224489795918366,
+            "ok": true
+          },
+          "urinary_symptoms/pyelonephritis_upper_uti/share": {
+            "target": 0.12,
+            "realized": 0.058823529411764705,
+            "ok": true
+          },
+          "urinary_symptoms/urolithiasis_renal_colic/share": {
+            "target": 0.1,
+            "realized": 0.11764705882352941,
+            "ok": true
+          },
+          "urinary_symptoms/sexually_transmitted_infection_urethritis/share": {
+            "target": 0.08,
+            "realized": 0.07352941176470588,
+            "ok": true
+          },
+          "urinary_symptoms/benign_prostatic_hyperplasia_or_stricture/share": {
+            "target": 0.05,
+            "realized": 0.029411764705882353,
+            "ok": true
+          },
+          "cold_sore_throat/viral_rhinosinusitis_common_cold/share": {
+            "target": 0.65,
+            "realized": 0.6590538336052202,
+            "ok": true
+          },
+          "cold_sore_throat/viral_rhinosinusitis_common_cold/severity/mild": {
+            "target": 0.75,
+            "realized": 0.7648514851485149,
+            "ok": true
+          },
+          "cold_sore_throat/viral_rhinosinusitis_common_cold/severity/moderate": {
+            "target": 0.22,
+            "realized": 0.2079207920792079,
+            "ok": true
+          },
+          "cold_sore_throat/viral_rhinosinusitis_common_cold/severity/severe": {
+            "target": 0.03,
+            "realized": 0.027227722772277228,
+            "ok": true
+          },
+          "cold_sore_throat/acute_tonsillopharyngitis_strep_or_viral/share": {
+            "target": 0.2,
+            "realized": 0.20717781402936378,
+            "ok": true
+          },
+          "cold_sore_throat/acute_tonsillopharyngitis_strep_or_viral/severity/mild": {
+            "target": 0.35,
+            "realized": 0.36220472440944884,
+            "ok": true
+          },
+          "cold_sore_throat/acute_tonsillopharyngitis_strep_or_viral/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.5275590551181102,
+            "ok": true
+          },
+          "cold_sore_throat/acute_tonsillopharyngitis_strep_or_viral/severity/severe": {
+            "target": 0.15,
+            "realized": 0.11023622047244094,
+            "ok": true
+          },
+          "cold_sore_throat/acute_otitis_media_with_urti/share": {
+            "target": 0.08,
+            "realized": 0.0734094616639478,
+            "ok": true
+          },
+          "cold_sore_throat/acute_otitis_media_with_urti/severity/mild": {
+            "target": 0.3,
+            "realized": 0.28888888888888886,
+            "ok": true
+          },
+          "cold_sore_throat/acute_otitis_media_with_urti/severity/moderate": {
+            "target": 0.55,
+            "realized": 0.5333333333333333,
+            "ok": true
+          },
+          "cold_sore_throat/acute_otitis_media_with_urti/severity/severe": {
+            "target": 0.15,
+            "realized": 0.17777777777777778,
+            "ok": true
+          },
+          "cold_sore_throat/paediatric_bronchopneumonia_urti_presentation/share": {
+            "target": 0.05,
+            "realized": 0.03915171288743882,
+            "ok": true
+          },
+          "cold_sore_throat/paediatric_bronchopneumonia_urti_presentation/severity/mild": {
+            "target": 0.1,
+            "realized": 0.041666666666666664,
+            "ok": true
+          },
+          "cold_sore_throat/paediatric_bronchopneumonia_urti_presentation/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.4583333333333333,
+            "ok": true
+          },
+          "cold_sore_throat/paediatric_bronchopneumonia_urti_presentation/severity/severe": {
+            "target": 0.45,
+            "realized": 0.5,
+            "ok": true
+          },
+          "cold_sore_throat/peritonsillar_abscess_quinsy/share": {
+            "target": 0.02,
+            "realized": 0.021207177814029365,
+            "ok": true
+          },
+          "weakness_unwell/nutritional_iron_deficiency_anaemia/share": {
+            "target": 0.45,
+            "realized": 0.4542829643888354,
+            "ok": true
+          },
+          "weakness_unwell/nutritional_iron_deficiency_anaemia/severity/mild": {
+            "target": 0.5,
+            "realized": 0.5063559322033898,
+            "ok": true
+          },
+          "weakness_unwell/nutritional_iron_deficiency_anaemia/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.3347457627118644,
+            "ok": true
+          },
+          "weakness_unwell/nutritional_iron_deficiency_anaemia/severity/severe": {
+            "target": 0.15,
+            "realized": 0.15889830508474576,
+            "ok": true
+          },
+          "weakness_unwell/post_viral_asthenia_or_chronic_fatigue/share": {
+            "target": 0.25,
+            "realized": 0.25120307988450435,
+            "ok": true
+          },
+          "weakness_unwell/post_viral_asthenia_or_chronic_fatigue/severity/mild": {
+            "target": 0.6,
+            "realized": 0.6245210727969349,
+            "ok": true
+          },
+          "weakness_unwell/post_viral_asthenia_or_chronic_fatigue/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.3333333333333333,
+            "ok": true
+          },
+          "weakness_unwell/post_viral_asthenia_or_chronic_fatigue/severity/severe": {
+            "target": 0.05,
+            "realized": 0.0421455938697318,
+            "ok": true
+          },
+          "weakness_unwell/depressive_disorder_somatic_fatigue/share": {
+            "target": 0.12,
+            "realized": 0.14148219441770934,
+            "ok": true
+          },
+          "weakness_unwell/depressive_disorder_somatic_fatigue/severity/mild": {
+            "target": 0.4,
+            "realized": 0.46938775510204084,
+            "ok": true
+          },
+          "weakness_unwell/depressive_disorder_somatic_fatigue/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.36054421768707484,
+            "ok": true
+          },
+          "weakness_unwell/depressive_disorder_somatic_fatigue/severity/severe": {
+            "target": 0.15,
+            "realized": 0.17006802721088435,
+            "ok": true
+          },
+          "weakness_unwell/undiagnosed_type2_diabetes_weakness/share": {
+            "target": 0.08,
+            "realized": 0.06929740134744947,
+            "ok": true
+          },
+          "weakness_unwell/undiagnosed_type2_diabetes_weakness/severity/mild": {
+            "target": 0.35,
+            "realized": 0.3194444444444444,
+            "ok": true
+          },
+          "weakness_unwell/undiagnosed_type2_diabetes_weakness/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.4444444444444444,
+            "ok": true
+          },
+          "weakness_unwell/undiagnosed_type2_diabetes_weakness/severity/severe": {
+            "target": 0.15,
+            "realized": 0.2361111111111111,
+            "ok": true
+          },
+          "weakness_unwell/hypothyroidism_fatigue/share": {
+            "target": 0.05,
+            "realized": 0.04427333974975938,
+            "ok": true
+          },
+          "weakness_unwell/hypothyroidism_fatigue/severity/mild": {
+            "target": 0.4,
+            "realized": 0.5,
+            "ok": true
+          },
+          "weakness_unwell/hypothyroidism_fatigue/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.30434782608695654,
+            "ok": true
+          },
+          "weakness_unwell/hypothyroidism_fatigue/severity/severe": {
+            "target": 0.15,
+            "realized": 0.1956521739130435,
+            "ok": true
+          },
+          "weakness_unwell/tuberculosis_constitutional_debility/share": {
+            "target": 0.05,
+            "realized": 0.03946102021174206,
+            "ok": true
+          },
+          "weakness_unwell/tuberculosis_constitutional_debility/severity/mild": {
+            "target": 0.15,
+            "realized": 0.1951219512195122,
+            "ok": true
+          },
+          "weakness_unwell/tuberculosis_constitutional_debility/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.4634146341463415,
+            "ok": true
+          },
+          "weakness_unwell/tuberculosis_constitutional_debility/severity/severe": {
+            "target": 0.35,
+            "realized": 0.34146341463414637,
+            "ok": true
+          },
+          "body_ache/viral_myalgia_or_flu/share": {
+            "target": 0.5,
+            "realized": 0.4710860366713681,
+            "ok": true
+          },
+          "body_ache/viral_myalgia_or_flu/severity/mild": {
+            "target": 0.65,
+            "realized": 0.6497005988023952,
+            "ok": true
+          },
+          "body_ache/viral_myalgia_or_flu/severity/moderate": {
+            "target": 0.3,
+            "realized": 0.2934131736526946,
+            "ok": true
+          },
+          "body_ache/viral_myalgia_or_flu/severity/severe": {
+            "target": 0.05,
+            "realized": 0.05688622754491018,
+            "ok": true
+          },
+          "body_ache/malaria_with_generalised_aches/share": {
+            "target": 0.2,
+            "realized": 0.22708039492242596,
+            "ok": true
+          },
+          "body_ache/malaria_with_generalised_aches/severity/mild": {
+            "target": 0.3,
+            "realized": 0.32298136645962733,
+            "ok": true
+          },
+          "body_ache/malaria_with_generalised_aches/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.484472049689441,
+            "ok": true
+          },
+          "body_ache/malaria_with_generalised_aches/severity/severe": {
+            "target": 0.2,
+            "realized": 0.19254658385093168,
+            "ok": true
+          },
+          "body_ache/dengue_fever_myalgia/share": {
+            "target": 0.15,
+            "realized": 0.152327221438646,
+            "ok": true
+          },
+          "body_ache/dengue_fever_myalgia/severity/mild": {
+            "target": 0.15,
+            "realized": 0.12962962962962962,
+            "ok": true
+          },
+          "body_ache/dengue_fever_myalgia/severity/moderate": {
+            "target": 0.55,
+            "realized": 0.48148148148148145,
+            "ok": true
+          },
+          "body_ache/dengue_fever_myalgia/severity/severe": {
+            "target": 0.3,
+            "realized": 0.3888888888888889,
+            "ok": true
+          },
+          "body_ache/chikungunya_fever_polyarthralgia/share": {
+            "target": 0.1,
+            "realized": 0.09590973201692525,
+            "ok": true
+          },
+          "body_ache/chikungunya_fever_polyarthralgia/severity/mild": {
+            "target": 0.15,
+            "realized": 0.07352941176470588,
+            "ok": true
+          },
+          "body_ache/chikungunya_fever_polyarthralgia/severity/moderate": {
+            "target": 0.55,
+            "realized": 0.6764705882352942,
+            "ok": true
+          },
+          "body_ache/chikungunya_fever_polyarthralgia/severity/severe": {
+            "target": 0.3,
+            "realized": 0.25,
+            "ok": true
+          },
+          "body_ache/severe_dengue_warning_presentation/share": {
+            "target": 0.05,
+            "realized": 0.0535966149506347,
+            "ok": true
+          },
+          "body_ache/severe_dengue_warning_presentation/severity/mild": {
+            "target": 0.05,
+            "realized": 0.02631578947368421,
+            "ok": true
+          },
+          "body_ache/severe_dengue_warning_presentation/severity/moderate": {
+            "target": 0.3,
+            "realized": 0.34210526315789475,
+            "ok": true
+          },
+          "body_ache/severe_dengue_warning_presentation/severity/severe": {
+            "target": 0.65,
+            "realized": 0.631578947368421,
+            "ok": true
+          },
+          "weight_loss/pulmonary_or_extrapulmonary_tuberculosis/share": {
+            "target": 0.4,
+            "realized": 0.3623853211009174,
+            "ok": true
+          },
+          "weight_loss/pulmonary_or_extrapulmonary_tuberculosis/severity/mild": {
+            "target": 0.2,
+            "realized": 0.24050632911392406,
+            "ok": true
+          },
+          "weight_loss/pulmonary_or_extrapulmonary_tuberculosis/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.46835443037974683,
+            "ok": true
+          },
+          "weight_loss/pulmonary_or_extrapulmonary_tuberculosis/severity/severe": {
+            "target": 0.3,
+            "realized": 0.2911392405063291,
+            "ok": true
+          },
+          "weight_loss/undiagnosed_diabetes_mellitus/share": {
+            "target": 0.2,
+            "realized": 0.2018348623853211,
+            "ok": true
+          },
+          "weight_loss/undiagnosed_diabetes_mellitus/severity/mild": {
+            "target": 0.3,
+            "realized": 0.25,
+            "ok": true
+          },
+          "weight_loss/undiagnosed_diabetes_mellitus/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.5,
+            "ok": true
+          },
+          "weight_loss/undiagnosed_diabetes_mellitus/severity/severe": {
+            "target": 0.2,
+            "realized": 0.25,
+            "ok": true
+          },
+          "weight_loss/unexplained_underlying_malignancy/share": {
+            "target": 0.15,
+            "realized": 0.15137614678899083,
+            "ok": true
+          },
+          "weight_loss/unexplained_underlying_malignancy/severity/mild": {
+            "target": 0.15,
+            "realized": 0.030303030303030304,
+            "ok": true
+          },
+          "weight_loss/unexplained_underlying_malignancy/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.5151515151515151,
+            "ok": true
+          },
+          "weight_loss/unexplained_underlying_malignancy/severity/severe": {
+            "target": 0.4,
+            "realized": 0.45454545454545453,
+            "ok": true
+          },
+          "weight_loss/hyperthyroidism_thyrotoxicosis/share": {
+            "target": 0.1,
+            "realized": 0.0963302752293578,
+            "ok": true
+          },
+          "weight_loss/hyperthyroidism_thyrotoxicosis/severity/mild": {
+            "target": 0.4,
+            "realized": 0.2857142857142857,
+            "ok": true
+          },
+          "weight_loss/hyperthyroidism_thyrotoxicosis/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.6666666666666666,
+            "ok": true
+          },
+          "weight_loss/hyperthyroidism_thyrotoxicosis/severity/severe": {
+            "target": 0.15,
+            "realized": 0.047619047619047616,
+            "ok": true
+          },
+          "weight_loss/chronic_infection_or_hiv_related/share": {
+            "target": 0.05,
+            "realized": 0.07339449541284404,
+            "ok": true
+          },
+          "weight_loss/inadequate_caloric_intake_or_malnutrition/share": {
+            "target": 0.1,
+            "realized": 0.11467889908256881,
+            "ok": true
+          },
+          "weight_loss/inadequate_caloric_intake_or_malnutrition/severity/mild": {
+            "target": 0.5,
+            "realized": 0.6,
+            "ok": true
+          },
+          "weight_loss/inadequate_caloric_intake_or_malnutrition/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.32,
+            "ok": true
+          },
+          "weight_loss/inadequate_caloric_intake_or_malnutrition/severity/severe": {
+            "target": 0.15,
+            "realized": 0.08,
+            "ok": true
+          },
+          "oedema/congestive_heart_failure_fluid_retention/share": {
+            "target": 0.35,
+            "realized": 0.3333333333333333,
+            "ok": true
+          },
+          "oedema/congestive_heart_failure_fluid_retention/severity/mild": {
+            "target": 0.25,
+            "realized": 0.2903225806451613,
+            "ok": true
+          },
+          "oedema/congestive_heart_failure_fluid_retention/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.3709677419354839,
+            "ok": true
+          },
+          "oedema/congestive_heart_failure_fluid_retention/severity/severe": {
+            "target": 0.3,
+            "realized": 0.3387096774193548,
+            "ok": true
+          },
+          "oedema/nephrotic_syndrome_or_renal_failure/share": {
+            "target": 0.25,
+            "realized": 0.3010752688172043,
+            "ok": true
+          },
+          "oedema/nephrotic_syndrome_or_renal_failure/severity/mild": {
+            "target": 0.2,
+            "realized": 0.19642857142857142,
+            "ok": true
+          },
+          "oedema/nephrotic_syndrome_or_renal_failure/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.5535714285714286,
+            "ok": true
+          },
+          "oedema/nephrotic_syndrome_or_renal_failure/severity/severe": {
+            "target": 0.3,
+            "realized": 0.25,
+            "ok": true
+          },
+          "oedema/chronic_liver_disease_cirrhosis/share": {
+            "target": 0.15,
+            "realized": 0.11290322580645161,
+            "ok": true
+          },
+          "oedema/chronic_liver_disease_cirrhosis/severity/mild": {
+            "target": 0.25,
+            "realized": 0.19047619047619047,
+            "ok": true
+          },
+          "oedema/chronic_liver_disease_cirrhosis/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.6666666666666666,
+            "ok": true
+          },
+          "oedema/chronic_liver_disease_cirrhosis/severity/severe": {
+            "target": 0.3,
+            "realized": 0.14285714285714285,
+            "ok": true
+          },
+          "oedema/bilateral_dependent_venous_stasis_oedema/share": {
+            "target": 0.15,
+            "realized": 0.15591397849462366,
+            "ok": true
+          },
+          "oedema/bilateral_dependent_venous_stasis_oedema/severity/mild": {
+            "target": 0.55,
+            "realized": 0.5862068965517241,
+            "ok": true
+          },
+          "oedema/bilateral_dependent_venous_stasis_oedema/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.41379310344827586,
+            "ok": true
+          },
+          "oedema/bilateral_dependent_venous_stasis_oedema/severity/severe": {
+            "target": 0.1,
+            "realized": 0.0,
+            "ok": true
+          },
+          "oedema/deep_vein_thrombosis_unilateral_oedema/share": {
+            "target": 0.05,
+            "realized": 0.043010752688172046,
+            "ok": true
+          },
+          "oedema/pre_eclampsia_toxaemia_in_pregnancy/share": {
+            "target": 0.05,
+            "realized": 0.053763440860215055,
+            "ok": true
+          },
+          "pallor_anaemia/nutritional_iron_deficiency_anaemia/share": {
+            "target": 0.55,
+            "realized": 0.5478468899521531,
+            "ok": true
+          },
+          "pallor_anaemia/nutritional_iron_deficiency_anaemia/severity/mild": {
+            "target": 0.45,
+            "realized": 0.49344978165938863,
+            "ok": true
+          },
+          "pallor_anaemia/nutritional_iron_deficiency_anaemia/severity/moderate": {
+            "target": 0.4,
+            "realized": 0.3624454148471616,
+            "ok": true
+          },
+          "pallor_anaemia/nutritional_iron_deficiency_anaemia/severity/severe": {
+            "target": 0.15,
+            "realized": 0.14410480349344978,
+            "ok": true
+          },
+          "pallor_anaemia/anaemia_of_chronic_disease_or_infection/share": {
+            "target": 0.15,
+            "realized": 0.145933014354067,
+            "ok": true
+          },
+          "pallor_anaemia/anaemia_of_chronic_disease_or_infection/severity/mild": {
+            "target": 0.4,
+            "realized": 0.2786885245901639,
+            "ok": true
+          },
+          "pallor_anaemia/anaemia_of_chronic_disease_or_infection/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.5737704918032787,
+            "ok": true
+          },
+          "pallor_anaemia/anaemia_of_chronic_disease_or_infection/severity/severe": {
+            "target": 0.15,
+            "realized": 0.14754098360655737,
+            "ok": true
+          },
+          "pallor_anaemia/hookworm_or_intestinal_helminthiasis_anaemia/share": {
+            "target": 0.1,
+            "realized": 0.1291866028708134,
+            "ok": true
+          },
+          "pallor_anaemia/hookworm_or_intestinal_helminthiasis_anaemia/severity/mild": {
+            "target": 0.35,
+            "realized": 0.2222222222222222,
+            "ok": true
+          },
+          "pallor_anaemia/hookworm_or_intestinal_helminthiasis_anaemia/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.5925925925925926,
+            "ok": true
+          },
+          "pallor_anaemia/hookworm_or_intestinal_helminthiasis_anaemia/severity/severe": {
+            "target": 0.2,
+            "realized": 0.18518518518518517,
+            "ok": true
+          },
+          "pallor_anaemia/haemoglobinopathy_thalassemia_or_sickle_cell/share": {
+            "target": 0.08,
+            "realized": 0.06937799043062201,
+            "ok": true
+          },
+          "pallor_anaemia/haemoglobinopathy_thalassemia_or_sickle_cell/severity/mild": {
+            "target": 0.3,
+            "realized": 0.41379310344827586,
+            "ok": true
+          },
+          "pallor_anaemia/haemoglobinopathy_thalassemia_or_sickle_cell/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.3793103448275862,
+            "ok": true
+          },
+          "pallor_anaemia/haemoglobinopathy_thalassemia_or_sickle_cell/severity/severe": {
+            "target": 0.25,
+            "realized": 0.20689655172413793,
+            "ok": true
+          },
+          "pallor_anaemia/occult_gastrointestinal_bleeding_anaemia/share": {
+            "target": 0.07,
+            "realized": 0.0645933014354067,
+            "ok": true
+          },
+          "pallor_anaemia/occult_gastrointestinal_bleeding_anaemia/severity/mild": {
+            "target": 0.2,
+            "realized": 0.4074074074074074,
+            "ok": true
+          },
+          "pallor_anaemia/occult_gastrointestinal_bleeding_anaemia/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.2962962962962963,
+            "ok": true
+          },
+          "pallor_anaemia/occult_gastrointestinal_bleeding_anaemia/severity/severe": {
+            "target": 0.3,
+            "realized": 0.2962962962962963,
+            "ok": true
+          },
+          "pallor_anaemia/haematological_malignancy_or_aplasia/share": {
+            "target": 0.05,
+            "realized": 0.0430622009569378,
+            "ok": true
+          },
+          "dizziness/benign_paroxysmal_positional_vertigo_or_vestibular_disorder/share": {
+            "target": 0.4,
+            "realized": 0.34615384615384615,
+            "ok": true
+          },
+          "dizziness/benign_paroxysmal_positional_vertigo_or_vestibular_disorder/severity/mild": {
+            "target": 0.5,
+            "realized": 0.5777777777777777,
+            "ok": true
+          },
+          "dizziness/benign_paroxysmal_positional_vertigo_or_vestibular_disorder/severity/moderate": {
+            "target": 0.4,
+            "realized": 0.37777777777777777,
+            "ok": true
+          },
+          "dizziness/benign_paroxysmal_positional_vertigo_or_vestibular_disorder/severity/severe": {
+            "target": 0.1,
+            "realized": 0.044444444444444446,
+            "ok": true
+          },
+          "dizziness/orthostatic_hypotension_volume_depletion/share": {
+            "target": 0.25,
+            "realized": 0.3153846153846154,
+            "ok": true
+          },
+          "dizziness/orthostatic_hypotension_volume_depletion/severity/mild": {
+            "target": 0.45,
+            "realized": 0.4146341463414634,
+            "ok": true
+          },
+          "dizziness/orthostatic_hypotension_volume_depletion/severity/moderate": {
+            "target": 0.4,
+            "realized": 0.3902439024390244,
+            "ok": true
+          },
+          "dizziness/orthostatic_hypotension_volume_depletion/severity/severe": {
+            "target": 0.15,
+            "realized": 0.1951219512195122,
+            "ok": true
+          },
+          "dizziness/anaemia_related_lightheadedness/share": {
+            "target": 0.15,
+            "realized": 0.15384615384615385,
+            "ok": true
+          },
+          "dizziness/anaemia_related_lightheadedness/severity/mild": {
+            "target": 0.4,
+            "realized": 0.6,
+            "ok": true
+          },
+          "dizziness/anaemia_related_lightheadedness/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.35,
+            "ok": true
+          },
+          "dizziness/anaemia_related_lightheadedness/severity/severe": {
+            "target": 0.15,
+            "realized": 0.05,
+            "ok": true
+          },
+          "dizziness/cardiac_arrhythmia_or_palpitations/share": {
+            "target": 0.1,
+            "realized": 0.06923076923076923,
+            "ok": true
+          },
+          "dizziness/cerebrovascular_event_or_transient_ischaemic_attack/share": {
+            "target": 0.05,
+            "realized": 0.046153846153846156,
+            "ok": true
+          },
+          "dizziness/hypoglycaemic_episode_in_diabetic/share": {
+            "target": 0.05,
+            "realized": 0.06923076923076923,
+            "ok": true
+          },
+          "itching/scabies_infestation_household_spread/share": {
+            "target": 0.4,
+            "realized": 0.3881118881118881,
+            "ok": true
+          },
+          "itching/scabies_infestation_household_spread/severity/mild": {
+            "target": 0.4,
+            "realized": 0.43243243243243246,
+            "ok": true
+          },
+          "itching/scabies_infestation_household_spread/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.3963963963963964,
+            "ok": true
+          },
+          "itching/scabies_infestation_household_spread/severity/severe": {
+            "target": 0.15,
+            "realized": 0.17117117117117117,
+            "ok": true
+          },
+          "itching/allergic_contact_dermatitis_or_eczema/share": {
+            "target": 0.25,
+            "realized": 0.24825174825174826,
+            "ok": true
+          },
+          "itching/allergic_contact_dermatitis_or_eczema/severity/mild": {
+            "target": 0.5,
+            "realized": 0.4647887323943662,
+            "ok": true
+          },
+          "itching/allergic_contact_dermatitis_or_eczema/severity/moderate": {
+            "target": 0.4,
+            "realized": 0.4507042253521127,
+            "ok": true
+          },
+          "itching/allergic_contact_dermatitis_or_eczema/severity/severe": {
+            "target": 0.1,
+            "realized": 0.08450704225352113,
+            "ok": true
+          },
+          "itching/urticaria_or_drug_induced_pruritus/share": {
+            "target": 0.15,
+            "realized": 0.1888111888111888,
+            "ok": true
+          },
+          "itching/urticaria_or_drug_induced_pruritus/severity/mild": {
+            "target": 0.35,
+            "realized": 0.2777777777777778,
+            "ok": true
+          },
+          "itching/urticaria_or_drug_induced_pruritus/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.46296296296296297,
+            "ok": true
+          },
+          "itching/urticaria_or_drug_induced_pruritus/severity/severe": {
+            "target": 0.2,
+            "realized": 0.25925925925925924,
+            "ok": true
+          },
+          "itching/senile_pruritus_or_xerosis_cutis/share": {
+            "target": 0.1,
+            "realized": 0.08741258741258741,
+            "ok": true
+          },
+          "itching/senile_pruritus_or_xerosis_cutis/severity/mild": {
+            "target": 0.6,
+            "realized": 0.56,
+            "ok": true
+          },
+          "itching/senile_pruritus_or_xerosis_cutis/severity/moderate": {
+            "target": 0.35,
+            "realized": 0.36,
+            "ok": true
+          },
+          "itching/senile_pruritus_or_xerosis_cutis/severity/severe": {
+            "target": 0.05,
+            "realized": 0.08,
+            "ok": true
+          },
+          "itching/systemic_pruritus_liver_or_renal_disease/share": {
+            "target": 0.05,
+            "realized": 0.045454545454545456,
+            "ok": true
+          },
+          "itching/pruritus_secondary_to_undiagnosed_diabetes/share": {
+            "target": 0.05,
+            "realized": 0.04195804195804196,
+            "ok": true
+          },
+          "skin_infection/bacterial_cellulitis_or_erysipelas/share": {
+            "target": 0.35,
+            "realized": 0.3869565217391304,
+            "ok": true
+          },
+          "skin_infection/bacterial_cellulitis_or_erysipelas/severity/mild": {
+            "target": 0.3,
+            "realized": 0.33707865168539325,
+            "ok": true
+          },
+          "skin_infection/bacterial_cellulitis_or_erysipelas/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.3595505617977528,
+            "ok": true
+          },
+          "skin_infection/bacterial_cellulitis_or_erysipelas/severity/severe": {
+            "target": 0.25,
+            "realized": 0.30337078651685395,
+            "ok": true
+          },
+          "skin_infection/cutaneous_abscess_boil_furuncle/share": {
+            "target": 0.3,
+            "realized": 0.30869565217391304,
+            "ok": true
+          },
+          "skin_infection/cutaneous_abscess_boil_furuncle/severity/mild": {
+            "target": 0.4,
+            "realized": 0.39436619718309857,
+            "ok": true
+          },
+          "skin_infection/cutaneous_abscess_boil_furuncle/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.4647887323943662,
+            "ok": true
+          },
+          "skin_infection/cutaneous_abscess_boil_furuncle/severity/severe": {
+            "target": 0.15,
+            "realized": 0.14084507042253522,
+            "ok": true
+          },
+          "skin_infection/infected_wound_or_traumatic_ulcer/share": {
+            "target": 0.15,
+            "realized": 0.10869565217391304,
+            "ok": true
+          },
+          "skin_infection/infected_wound_or_traumatic_ulcer/severity/mild": {
+            "target": 0.35,
+            "realized": 0.4,
+            "ok": true
+          },
+          "skin_infection/infected_wound_or_traumatic_ulcer/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.4,
+            "ok": true
+          },
+          "skin_infection/infected_wound_or_traumatic_ulcer/severity/severe": {
+            "target": 0.2,
+            "realized": 0.2,
+            "ok": true
+          },
+          "skin_infection/diabetic_foot_ulcer_complicated/share": {
+            "target": 0.1,
+            "realized": 0.11304347826086956,
+            "ok": true
+          },
+          "skin_infection/diabetic_foot_ulcer_complicated/severity/mild": {
+            "target": 0.15,
+            "realized": 0.15384615384615385,
+            "ok": true
+          },
+          "skin_infection/diabetic_foot_ulcer_complicated/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.38461538461538464,
+            "ok": true
+          },
+          "skin_infection/diabetic_foot_ulcer_complicated/severity/severe": {
+            "target": 0.4,
+            "realized": 0.46153846153846156,
+            "ok": true
+          },
+          "skin_infection/necrotising_soft_tissue_infection/share": {
+            "target": 0.05,
+            "realized": 0.05652173913043478,
+            "ok": true
+          },
+          "skin_infection/superficial_pyoderma_impetigo_folliculitis/share": {
+            "target": 0.05,
+            "realized": 0.02608695652173913,
+            "ok": true
+          },
+          "antenatal_visit/routine_low_risk_antenatal_care/share": {
+            "target": 0.6,
+            "realized": 0.6141078838174274,
+            "ok": true
+          },
+          "antenatal_visit/routine_low_risk_antenatal_care/severity/mild": {
+            "target": 0.85,
+            "realized": 0.8220720720720721,
+            "ok": true
+          },
+          "antenatal_visit/routine_low_risk_antenatal_care/severity/moderate": {
+            "target": 0.15,
+            "realized": 0.17792792792792791,
+            "ok": true
+          },
+          "antenatal_visit/routine_low_risk_antenatal_care/severity/severe": {
+            "target": 0.0,
+            "realized": 0.0,
+            "ok": true
+          },
+          "antenatal_visit/mild_to_moderate_gestational_anaemia/share": {
+            "target": 0.2,
+            "realized": 0.20470262793914246,
+            "ok": true
+          },
+          "antenatal_visit/mild_to_moderate_gestational_anaemia/severity/mild": {
+            "target": 0.5,
+            "realized": 0.4864864864864865,
+            "ok": true
+          },
+          "antenatal_visit/mild_to_moderate_gestational_anaemia/severity/moderate": {
+            "target": 0.4,
+            "realized": 0.41216216216216217,
+            "ok": true
+          },
+          "antenatal_visit/mild_to_moderate_gestational_anaemia/severity/severe": {
+            "target": 0.1,
+            "realized": 0.10135135135135136,
+            "ok": true
+          },
+          "antenatal_visit/gestational_hypertension_or_pre_eclampsia/share": {
+            "target": 0.08,
+            "realized": 0.0677731673582296,
+            "ok": true
+          },
+          "antenatal_visit/gestational_hypertension_or_pre_eclampsia/severity/mild": {
+            "target": 0.2,
+            "realized": 0.2653061224489796,
+            "ok": true
+          },
+          "antenatal_visit/gestational_hypertension_or_pre_eclampsia/severity/moderate": {
+            "target": 0.5,
+            "realized": 0.4489795918367347,
+            "ok": true
+          },
+          "antenatal_visit/gestational_hypertension_or_pre_eclampsia/severity/severe": {
+            "target": 0.3,
+            "realized": 0.2857142857142857,
+            "ok": true
+          },
+          "antenatal_visit/previous_caesarean_or_high_risk_obstetric_history/share": {
+            "target": 0.05,
+            "realized": 0.04979253112033195,
+            "ok": true
+          },
+          "antenatal_visit/previous_caesarean_or_high_risk_obstetric_history/severity/mild": {
+            "target": 0.4,
+            "realized": 0.4722222222222222,
+            "ok": true
+          },
+          "antenatal_visit/previous_caesarean_or_high_risk_obstetric_history/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.3333333333333333,
+            "ok": true
+          },
+          "antenatal_visit/previous_caesarean_or_high_risk_obstetric_history/severity/severe": {
+            "target": 0.15,
+            "realized": 0.19444444444444445,
+            "ok": true
+          },
+          "antenatal_visit/threatened_preterm_labour_or_leaking_liquor/share": {
+            "target": 0.04,
+            "realized": 0.042876901798063624,
+            "ok": true
+          },
+          "antenatal_visit/threatened_preterm_labour_or_leaking_liquor/severity/mild": {
+            "target": 0.15,
+            "realized": 0.25806451612903225,
+            "ok": true
+          },
+          "antenatal_visit/threatened_preterm_labour_or_leaking_liquor/severity/moderate": {
+            "target": 0.45,
+            "realized": 0.45161290322580644,
+            "ok": true
+          },
+          "antenatal_visit/threatened_preterm_labour_or_leaking_liquor/severity/severe": {
+            "target": 0.4,
+            "realized": 0.2903225806451613,
+            "ok": true
+          },
+          "antenatal_visit/fetal_growth_restriction_or_compromise/share": {
+            "target": 0.03,
+            "realized": 0.02074688796680498,
+            "ok": true
+          },
+          "other_not_in_list/unspecified_condition/share": {
+            "target": 1.0,
+            "realized": 1.0,
+            "ok": true
+          },
+          "other_not_in_list/unspecified_condition/severity/mild": {
+            "target": 0.34,
+            "realized": 0.3344803854094976,
+            "ok": true
+          },
+          "other_not_in_list/unspecified_condition/severity/moderate": {
+            "target": 0.33,
+            "realized": 0.3358568479008947,
+            "ok": true
+          },
+          "other_not_in_list/unspecified_condition/severity/severe": {
+            "target": 0.33,
+            "realized": 0.3296627666896077,
+            "ok": true
+          }
+        }
+      }
+    },
+    "GATE-BMI": {
+      "name": "GATE-BMI",
+      "passed": true,
+      "detail": {
+        "realized_mean": 21.54290150230829,
+        "target_mean": 21.5,
+        "overweight_rate": 0.3462533854950346
+      }
+    },
+    "GATE-RANGE": {
+      "name": "GATE-RANGE",
+      "passed": true,
+      "detail": {
+        "hypoglycaemia_rows": 31,
+        "dka_range_rows": 10,
+        "min_required": 3
+      }
+    },
+    "GATE-WINDOW": {
+      "name": "GATE-WINDOW",
+      "passed": true,
+      "detail": {
+        "out_of_window_rows": 0,
+        "window_start": "2024-09-16",
+        "window_end": "2026-09-06"
+      }
+    },
+    "GATE-PLAUSIBLE": {
+      "name": "GATE-PLAUSIBLE",
+      "passed": true,
+      "detail": {
+        "violations": {}
+      }
+    },
+    "GATE-EMERGENCY": {
+      "name": "GATE-EMERGENCY",
+      "passed": true,
+      "detail": {
+        "path1_adult_rows": 525,
+        "path1_child_rows": 704,
+        "tier0_route_rows": 1419,
+        "refer_urgent_rows": 7424,
+        "refer_emergency_rows": 4689,
+        "min_required": {
+          "path1_adult": 15,
+          "tier0_routes": 3,
+          "refer_urgent": 5
+        }
+      }
+    }
+  }
+}

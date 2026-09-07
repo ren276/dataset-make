@@ -14,10 +14,10 @@ from ..schema import AnswerOption, BranchDef, GatewayNode, QuestionNode, Subtree
 from ..vitals import VitalSpec, baseline_vitals
 from .authoring import expand_entries, peaked
 from .spec import CategorySpec, ConditionSpec
-from .subtrees import RASH_MORPH_NODES, make_fever_qual_nodes, _gw_rsh_emg1, _gw_rsh_emg2
+from .subtrees import RASH_MORPH_NODES, make_fever_qual_nodes, expand_fever_qual_entries, _gw_rsh_emg1, _gw_rsh_emg2
 
 CATEGORY_ID = "rash"
-BRANCH_VERSION = "1.0.0-draft"
+BRANCH_VERSION = "1.0.1-draft"
 REQUIRED_DISPOSITION = "PHYSICIAN_REVIEW_MANDATORY"
 
 CONDITIONS = {
@@ -93,24 +93,16 @@ _NODES = {
     "RSH-01": QuestionNode(
         nodeId="RSH-01", fieldId="rash_duration_band", answerType="SINGLE_CHOICE",
         options=[
-            AnswerOption("rd_today", "Today only", next="RSH-02"),
-            AnswerOption("rd_1_3", "1 to 3 days", next="RSH-02"),
-            AnswerOption("rd_4_7", "4 to 7 days", next="RSH-02"),
-            AnswerOption("rd_gt_7", "More than 7 days", next="RSH-02"),
-            AnswerOption("rd_months", "Months", next="RSH-02"),
+            AnswerOption("rd_today", "Today only", next="RSH-S1"),
+            AnswerOption("rd_1_3", "1 to 3 days", next="RSH-S1"),
+            AnswerOption("rd_4_7", "4 to 7 days", next="RSH-S1"),
+            AnswerOption("rd_gt_7", "More than 7 days", next="RSH-S1"),
+            AnswerOption("rd_months", "Months", next="RSH-S1"),
         ],
-        default_next="RSH-02", unknown_option="rd_unknown", **_no_unknown(0.03),
-    ),
-    "RSH-02": QuestionNode(
-        nodeId="RSH-02", fieldId="fever_present", answerType="SINGLE_CHOICE",
-        options=[
-            AnswerOption("fp_yes", "Yes", next="RSH-S1"),
-            AnswerOption("fp_no", "No", next="RSH-03"),
-        ],
-        default_next="RSH-03", unknown_option="fp_unknown", **_no_unknown(0.03),
+        default_next="RSH-S1", unknown_option="rd_unknown", **_no_unknown(0.03),
     ),
     "RSH-S1": SubtreeRefNode("RSH-S1", make_fever_qual_nodes(),
-                              entry="FV-01", returnNext="RSH-03"),
+                              entry="FQ-00", returnNext="RSH-03"),
 }
 _NODES.update(RASH_MORPH_NODES)
 
@@ -143,15 +135,12 @@ _entries += expand_entries("RSH-01", "categorical", CONDITION_IDS, SEVERITIES,
                                                       "rd_gt_7": 0.25, "rd_months": 0.60} for s in SEVERITIES},
     source_type=_SRC, source=_SRC_TEXT)
 
-_fp_base = {"mild": {"fp_yes": 0.10, "fp_no": 0.90}, "moderate": {"fp_yes": 0.30, "fp_no": 0.70},
-            "severe": {"fp_yes": 0.55, "fp_no": 0.45}}
-_fp_overrides = {}
-for s in SEVERITIES:
-    _fp_overrides[("viral_exanthem_with_fever", s)] = {"fp_yes": 0.85, "fp_no": 0.15}
-    _fp_overrides[("meningococcaemia_purpura", s)] = {"fp_yes": 0.90, "fp_no": 0.10}
-    _fp_overrides[("leprosy_hypopigmented_patch", s)] = {"fp_yes": 0.03, "fp_no": 0.97}
-_entries += expand_entries("RSH-02", "categorical", CONDITION_IDS, SEVERITIES, _fp_base,
-                            overrides=_fp_overrides, source_type=_SRC, source=_SRC_TEXT)
+_entries += expand_fever_qual_entries(
+    CONDITION_IDS, SEVERITIES,
+    fever_conditions=("viral_exanthem_with_fever", "meningococcaemia_purpura"),
+    bleeding_conditions=("meningococcaemia_purpura",),
+    source_type=_SRC, source=_SRC_TEXT + " (rash->FEVER-QUAL v1.1 subtree path)"
+)
 
 _DIST_OPTS = ["rdst_face_first", "rdst_trunk", "rdst_limbs", "rdst_palms_soles",
               "rdst_whole_body", "rdst_one_patch"]

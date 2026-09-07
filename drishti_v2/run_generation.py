@@ -24,7 +24,7 @@ from .generate import SPECS, generate_rows
 from .manifest import build_manifest, write_manifest
 from .perturbation import build_perturbation_set
 
-GENERATOR_COMMIT = "drishti_v2-build-1"
+GENERATOR_COMMIT = "drishti_v2-build-2"
 ANSWER_MODEL_VERSION = "answer_model-0.1.0-draft"
 CATEGORY_REGISTRY_VERSION = "category_registry-0.1.0-draft"
 
@@ -32,7 +32,7 @@ CATEGORY_REGISTRY_VERSION = "category_registry-0.1.0-draft"
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--n-rows", type=int, default=23000)
-    parser.add_argument("--master-seed", type=str, default="drishti_v2_build1_2026-09-06")
+    parser.add_argument("--master-seed", type=str, default="drishti_v2_build2_2026-09-07")
     parser.add_argument("--urinary-mode", type=str, default="odisha", choices=["odisha", "aiims"])
     parser.add_argument("--out-dir", type=str, default="drishti_v2_output")
     parser.add_argument("--perturbation-holdout", type=int, default=500)

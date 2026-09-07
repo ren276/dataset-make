@@ -115,7 +115,7 @@ def three_branch_marginal(urinary_mode: str = "odisha") -> Dict[str, float]:
 
 
 def draw_category(rng, urinary_mode: str = "odisha") -> str:
-    marginal = three_branch_marginal(urinary_mode)
+    marginal = build_full_target_marginal(urinary_mode)
     cats = list(marginal.keys())
     weights = [marginal[c] for c in cats]
     return rng.choice("category_id", cats, weights)

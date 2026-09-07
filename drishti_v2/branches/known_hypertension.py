@@ -27,7 +27,7 @@ from .authoring import expand_entries
 from .spec import CategorySpec, ConditionSpec
 
 CATEGORY_ID = "known_hypertension"
-BRANCH_VERSION = "1.0.0-draft"
+BRANCH_VERSION = "1.0.1-draft"
 REQUIRED_DISPOSITION = "PHYSICIAN_REVIEW_MANDATORY"
 
 CONDITIONS = {
@@ -244,7 +244,7 @@ _entries += expand_entries("HTN-00", "multi_bernoulli", CONDITION_IDS, SEVERITIE
 }, source_type=_SRC, source=_SRC_TEXT)
 
 _entries += expand_entries("HTN-01", "categorical", CONDITION_IDS, SEVERITIES,
-    {s: {"vr_refill": 0.55, "vr_new_symptom": 0.15, "vr_followup": 0.15, "vr_first": 0.15} for s in SEVERITIES},
+    {s: {"vr_refill": 0.53, "vr_new_symptom": 0.15, "vr_followup": 0.15, "vr_first": 0.15, "vr_unknown": 0.02} for s in SEVERITIES},
     source_type=_SRC, source=_SRC_TEXT)
 
 _entries += expand_entries("HTN-02", "categorical", CONDITION_IDS, SEVERITIES, {

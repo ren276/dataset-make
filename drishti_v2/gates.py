@@ -30,7 +30,7 @@ import pandas as pd
 from scipy.stats import chi2_contingency
 from sklearn.metrics import mutual_info_score
 
-from .category_marginal import three_branch_marginal
+from .category_marginal import build_full_target_marginal, three_branch_marginal
 from .vitals import (AVAILABILITY_RATE, FACILITY_TIERS, GENERATION_DATE, ENCOUNTER_WINDOW_MONTHS,
                       PLAUSIBILITY_RANGES, VITALS)
 
@@ -68,7 +68,7 @@ def _within_tol(realized: float, target: float, n: int) -> bool:
 
 
 def gate_marginal(df: pd.DataFrame, urinary_mode: str) -> GateResult:
-    target = three_branch_marginal(urinary_mode)
+    target = build_full_target_marginal(urinary_mode)
     n = len(df)
     realized = df["category_id"].value_counts(normalize=True).to_dict()
     cells = {}
@@ -210,7 +210,7 @@ def _shared_field_checks(df: pd.DataFrame, test_labels: Optional[pd.Series] = No
     # rows are excluded from the denominator rather than left to masquerade as a status
     # difference between categories.
     mask = ((df["sex"] == "F") & (df["age_at_encounter"].between(15, 49))
-            & (df["category_id"].isin(["fever", "known_hypertension"]))
+            & (df["category_id"].isin(["fever", "known_hypertension", "urinary_symptoms", "oedema"]))
             & (df["routed_to"] == ""))
     r = _mi_and_p(labels[mask], df.loc[mask, "pregnancy_status__status"])
     if r:

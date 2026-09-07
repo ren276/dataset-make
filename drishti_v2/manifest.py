@@ -38,9 +38,17 @@ def build_manifest(n_rows: int, master_seed: str, urinary_mode: str, generator_c
                                    "build-time requirement (memo section 6.3) not performed in "
                                    "this build.",
         "scope": {
-            "built_branches": ["fever", "known_hypertension", "rash"],
-            "deferred_branches": "the remaining 24 Tier-1 branches + 6 Tier-0 rule-based branches, "
-                                  "per tree memo section 6.5's authoring order",
+            "built_branches": [
+                "fever", "cough", "abdominal_pain", "known_hypertension", "diarrhoea",
+                "chest_pain", "rash", "joint_pain", "back_neck_pain", "breathlessness",
+                "known_diabetes", "headache", "injury", "vomiting_nausea", "acidity_heartburn",
+                "urinary_symptoms", "cold_sore_throat", "weakness_unwell", "body_ache", "weight_loss",
+                "oedema", "pallor_anaemia", "dizziness", "itching", "skin_infection",
+                "antenatal_visit", "other_not_in_list",
+                "emergency_convulsions", "emergency_unconscious", "emergency_bite_sting",
+                "emergency_poisoning", "emergency_heavy_bleeding", "emergency_pregnancy_danger"
+            ],
+            "deferred_branches": "none -- full 33-branch questionnaire tree authored, wired, and active",
         },
         "rng": {
             "scheme": "sha256(master_seed|row_id|stream_name)[:12] -> [0,1)",
@@ -54,7 +62,7 @@ def build_manifest(n_rows: int, master_seed: str, urinary_mode: str, generator_c
             "pallor_anaemia_floor_pct": PALLOR_FLOOR_PCT,
             "other_not_in_list_floor_pct": OTHER_NOT_IN_LIST_FLOOR_PCT,
             "target_marginal_full_label_space": build_full_target_marginal(urinary_mode),
-            "target_marginal_this_build": three_branch_marginal(urinary_mode),
+            "target_marginal_this_build": build_full_target_marginal(urinary_mode),
         },
         "row_volume_per_category": row_volume_per_category,
         "emergency_paths": {
